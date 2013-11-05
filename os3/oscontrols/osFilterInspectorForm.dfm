@@ -1,12 +1,12 @@
 object osFilterInspector: TosFilterInspector
   Left = 345
   Top = 197
-  Width = 411
-  Height = 380
   BorderIcons = []
   BorderStyle = bsSizeToolWin
   BorderWidth = 4
   Caption = 'Dados para pesquisa'
+  ClientHeight = 383
+  ClientWidth = 412
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,29 +16,31 @@ object osFilterInspector: TosFilterInspector
   OldCreateOrder = False
   Position = poMainFormCenter
   DesignSize = (
-    395
-    345)
+    412
+    383)
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 0
-    Top = 317
+    Left = -6
+    Top = 345
     Width = 102
     Height = 13
+    Anchors = [akLeft, akBottom]
     Caption = '* Campos obrigat'#243'rios'
+    ExplicitTop = 304
   end
   object DataInspector: TwwDataInspector
     Left = 0
     Top = 4
-    Width = 395
-    Height = 310
+    Width = 411
+    Height = 339
     DisableThemes = False
     Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 0
     Items = <>
     DefaultRowHeight = 18
     CaptionWidth = 187
-    Options = [ovColumnResize, ovRowResize, ovEnterToTab, ovHighlightActiveRow, ovCenterCaptionVert]
+    Options = [ovColumnResize, ovRowResize, ovHighlightActiveRow, ovCenterCaptionVert]
     CaptionFont.Charset = DEFAULT_CHARSET
     CaptionFont.Color = clWindowText
     CaptionFont.Height = -11
@@ -46,10 +48,11 @@ object osFilterInspector: TosFilterInspector
     CaptionFont.Style = []
     LineStyleCaption = ovLight3DLine
     LineStyleData = ovLight3DLine
+    OnKeyPress = DataInspectorKeyPress
   end
   object btnOK: TButton
-    Left = 238
-    Top = 320
+    Left = 254
+    Top = 352
     Width = 75
     Height = 25
     Anchors = [akRight, akBottom]
@@ -59,8 +62,8 @@ object osFilterInspector: TosFilterInspector
     OnClick = btnOKClick
   end
   object btnCancela: TButton
-    Left = 320
-    Top = 320
+    Left = 336
+    Top = 352
     Width = 75
     Height = 25
     Anchors = [akRight, akBottom]

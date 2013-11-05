@@ -23,6 +23,7 @@ type
     btnCancela: TButton;
     Label1: TLabel;
     procedure btnOKClick(Sender: TObject);
+    procedure DataInspectorKeyPress(Sender: TObject; var Key: Char);
   private
     function LastDayMonth(PDate: TDatetime): TDatetime;
     function SQLDateFromStr(PStr: string): string;
@@ -217,6 +218,12 @@ begin
     sAux2 := GetWord(POrderList[i], 2, '=');
     InspItem.PickList.Items.Add(sAux1 + #9 + sAux2);
   end;
+end;
+
+procedure TosFilterInspector.DataInspectorKeyPress(Sender: TObject; var Key: Char);
+begin
+  if kEY = #13 then
+    btnOKClick(nil);
 end;
 
 procedure TosFilterInspector.DateListItemChanged(Sender: TwwDataInspector;

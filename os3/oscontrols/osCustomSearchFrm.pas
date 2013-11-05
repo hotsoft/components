@@ -95,7 +95,6 @@ type
     procedure DateListItemChanged(Sender: TwwDataInspector;
       Item: TwwInspectorItem; NewValue: String);
     function LastDayMonth(PDate: TDatetime): TDatetime;
-    function GetOrder: string;
     function SQLDateFromStr(PStr: string): string;
     procedure ReplaceSpecialChars(var PStr: string);
     procedure MostrarAviso(tipo: TTipoAviso);
@@ -104,6 +103,7 @@ type
     sqlResult: TStringList;
     RuntimeFilter: string;
     constructor Create(AOwner: TComponent); override;
+    function GetOrder: string;
     function Execute(const PValue: string;
   const PAutoSearchNumber: integer; tipo: TTipoOperacao = toMostrarResultado): boolean;
     function GetFieldValue(const PFieldName: string): variant;
