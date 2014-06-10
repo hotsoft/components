@@ -221,9 +221,26 @@ begin
 end;
 
 procedure TosFilterInspector.DataInspectorKeyPress(Sender: TObject; var Key: Char);
+var
+  combo: TosComboSearch;
 begin
-  if kEY = #13 then
-    btnOKClick(nil);
+  if Key = #13 then
+  begin
+    if DataInspector.ActiveItem <> nil then
+    begin
+      if DataInspector.ActiveItem.CustomControl.ClassType = TosComboSearch then
+      begin
+        combo := TosComboSearch(DataInspector.ActiveItem.CustomControl);
+        if combo.SearchDlg.ModalResult = mrCancel then
+        begin
+          combo.SearchDlg.ModalResult := 0;
+          Abort;
+        end;
+      end;
+    end;
+
+    btnOK.Click;
+  end;
 end;
 
 procedure TosFilterInspector.DateListItemChanged(Sender: TwwDataInspector;
