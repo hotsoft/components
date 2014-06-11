@@ -226,19 +226,16 @@ var
 begin
   if Key = #13 then
   begin
-    if DataInspector.ActiveItem <> nil then
+    if (DataInspector.ActiveItem.CustomControl <> nil) and
+       (DataInspector.ActiveItem.CustomControl.ClassType = TosComboSearch) then
     begin
-      if DataInspector.ActiveItem.CustomControl.ClassType = TosComboSearch then
+      combo := TosComboSearch(DataInspector.ActiveItem.CustomControl);
+      if combo.SearchDlg.ModalResult = mrCancel then
       begin
-        combo := TosComboSearch(DataInspector.ActiveItem.CustomControl);
-        if combo.SearchDlg.ModalResult = mrCancel then
-        begin
-          combo.SearchDlg.ModalResult := 0;
-          Abort;
-        end;
+        combo.SearchDlg.ModalResult := 0;
+        Abort;
       end;
     end;
-
     btnOK.Click;
   end;
 end;
