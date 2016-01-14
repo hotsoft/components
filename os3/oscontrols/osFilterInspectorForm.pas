@@ -24,6 +24,7 @@ type
     Label1: TLabel;
     procedure btnOKClick(Sender: TObject);
     procedure DataInspectorKeyPress(Sender: TObject; var Key: Char);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
     function LastDayMonth(PDate: TDatetime): TDatetime;
     function SQLDateFromStr(PStr: string): string;
@@ -343,10 +344,15 @@ begin
   if POrder.Count > 0 then
     CreateOrder(POrder);
   if DataInspector.Items.Count > 0 then
-    ShowModal                                    
+    ShowModal
   else
     ModalResult := mrOK;
   Result := (ModalResult = mrOK);
+end;
+
+procedure TosFilterInspector.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+  Perform(WM_NEXTDLGCTL, 0, 0);
 end;
 
 function TosFilterInspector.GetExpressions: string;

@@ -15,6 +15,7 @@ object osFilterInspector: TosFilterInspector
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnCloseQuery = FormCloseQuery
   DesignSize = (
     412
     383)
