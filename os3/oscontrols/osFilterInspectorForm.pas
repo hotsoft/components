@@ -441,7 +441,7 @@ begin
             if (InspItem.CustomControl as TwwCheckBox).Checked then
               sAux := sCon + Format(InspItem.TagString,[InspItem.EditText]);
         end
-        else
+        else if (Uppercase(InspItem.TagString) <> 'TRUE') then
           sAux := sCon + Format(InspItem.TagString,[InspItem.EditText]);
       ReplaceSpecialChars(sAux); // Método privado
       if sAux<>'' then
