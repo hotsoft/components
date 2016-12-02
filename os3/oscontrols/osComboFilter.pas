@@ -79,7 +79,7 @@ type
     function GetQueryText(PIndex: integer): TStrings;
     procedure GetViews(PUserID: string = ''; PClassName: string = '');
     procedure ClearViews;
-    function ExecuteFilter(PNewFilter: boolean = True): string;
+    function ExecuteFilter(PNewFilter: boolean = True; PLimit : Integer = 0; PSkip : Boolean = False): string;
     function ExecuteView(PNumView, PConstraint: integer; PValue: string): boolean;
     procedure ConfigFields(PIndex: integer);
     procedure ResetToItemDefault;
@@ -236,7 +236,7 @@ begin
   index := iIndex
 end;
 
-function TosComboFilter.ExecuteFilter(PNewFilter: boolean = True): String;
+function TosComboFilter.ExecuteFilter(PNewFilter: boolean = True; PLimit : Integer = 0; PSkip : Boolean = False): String;
 var
   OldCursor: TCursor;
   iIndex: integer;
@@ -245,6 +245,14 @@ begin
   Screen.Cursor := crHourglass;
   try
     try
+      if PSkip then
+      begin
+        FClientDS.PacketRecords := PLimit;
+        FClientDS.GetNextPacket;
+        result := FClientDS.CommandText;
+        exit;
+      end;
+
       if Items.Count = 0 then
         raise Exception.Create('Não há filtros na lista');
       CheckDS;
@@ -253,6 +261,11 @@ begin
       begin
         FClientDS.CommandText := result;
         FClientDS.DisableControls;
+        if (PLimit > 0) and (PNewFilter) then
+        begin
+          FClientDS.PacketRecords := PLimit;
+          FClientDS.FetchOnDemand := False;
+        end;
         try
           FClientDS.Open;
         except
@@ -265,7 +278,7 @@ begin
             if ItemIndex<>0 then
             begin
               ItemIndex := 0;
-              ExecuteFilter(true);
+              ExecuteFilter(true, PLimit, PSkip);
             end;
           end;
         end;
