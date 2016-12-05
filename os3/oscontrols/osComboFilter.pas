@@ -16,7 +16,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   StdCtrls, Mask, wwdbedit, Wwdotdot, Wwdbcomb, osFilterInspectorForm,
   osExtStringList, osUtils, dbclient, variants, db, osCustomFilterUn,
-  osSQLConnection, acFilterController;
+  osSQLConnection, acFilterController, osClientDataset, osSQLDataSetProvider;
 
 type
   TGetCustomExprListEvent = procedure(exprList: TStrings) of object;
@@ -267,6 +267,12 @@ begin
           FClientDS.FetchOnDemand := False;
         end;
         try
+          if (FClientDS is TosClientDataSet) then
+          begin
+            if TosClientDataSet(FClientDS).DataProvider is TosSQLDataSetProvider then
+              TosSQLDataSetProvider(TosClientDataSet(FClientDS).DataProvider).DataSet.Close;
+          end;
+
           FClientDS.Open;
         except
           on e: exception do
@@ -521,6 +527,13 @@ begin
 
 
         FClientDS.Close;
+
+        if (FClientDS is TosClientDataSet) then
+        begin
+          FClientDS.PacketRecords := -1;
+          if TosClientDataSet(FClientDS).DataProvider is TosSQLDataSetProvider then
+            TosSQLDataSetProvider(TosClientDataSet(FClientDS).DataProvider).DataSet.Close;
+        end;
 
         //preencher os parâmetros
         FParams.ParseSQL(slQuery.Text, True);

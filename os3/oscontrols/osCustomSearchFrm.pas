@@ -9,7 +9,7 @@ uses
   osActionList, Mask, wwdbedit, Wwdotdot, Wwdbcomb,
   osComboFilter, Wwintl, osClientDataset, provider, Wwdbigrd, Wwdbgrid,
   osFilterInspectorFrame, osExtStringList, wwDataInspector, osUtils,
-  wwCheckBox;
+  wwCheckBox, osSQLDataSetProvider;
 
 type
   TTipoAviso = (taInformar, taNaoEncontrado);
@@ -56,6 +56,9 @@ type
     procedure TimerTimer(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure FormCreate(Sender: TObject);
+    procedure FilterInspectorFrameedtLimitChange(Sender: TObject);
+    procedure FilterInspectorFrameSkipButtonClick(Sender: TObject);
   private
   protected
     tipo: TTipoOperacao;
@@ -552,6 +555,9 @@ begin
       PrepareQuery(slQuery, LastExpressions, FLastOrder, slExpr.Text);
       FParams.ParseSQL(slQuery.Text, True);
       //
+      if FilterDataset.DataProvider is TosSQLDataSetProvider then
+        TosSQLDataSetProvider(FilterDataset.DataProvider).DataSet.Close;
+
       FClientDS.Close;
       if FParams.Count > 0 then
       begin
@@ -599,6 +605,12 @@ begin
       FreeAndNil(slQuery);
     end;
   end;
+end;
+
+procedure TCustomSearchForm.FilterInspectorFrameSkipButtonClick(Sender: TObject);
+begin
+  if FilterDataSet.Active then
+    FilterDataSet.GetNextPacket;
 end;
 
 procedure TCustomSearchForm.CreateConstraint(const PStr: string; PInspItem: TwwInspectorItem);
@@ -1053,6 +1065,11 @@ begin
   FilterInspectorFrame.PesquisarButton.Default := True;
 end;
 
+procedure TCustomSearchForm.FilterInspectorFrameedtLimitChange(Sender: TObject);
+begin
+  FilterDataSet.PacketRecords := FilterInspectorFrame.edtLimit.Value;
+end;
+
 procedure TCustomSearchForm.GridEnter(Sender: TObject);
 begin
   OkButton.Enabled := True;
@@ -1080,6 +1097,12 @@ procedure TCustomSearchForm.TimerTimer(Sender: TObject);
 begin
   CurrentSearchString := '';
   Timer.Enabled := false;
+end;
+
+procedure TCustomSearchForm.FormCreate(Sender: TObject);
+begin
+  FilterDataSet.PacketRecords := FilterInspectorFrame.edtLimit.Value;
+  FilterDataSet.FetchOnDemand := False;
 end;
 
 procedure TCustomSearchForm.FormKeyDown(Sender: TObject; var Key: Word;
