@@ -202,8 +202,10 @@ object CustomSearchForm: TCustomSearchForm
       end
       inherited PesquisarButton: TButton
         Left = 328
+        Top = 57
         OnClick = FilterInspectorFramePesquisarButtonClick
         ExplicitLeft = 328
+        ExplicitTop = 57
       end
       inherited edtLimit: TSpinEdit
         Left = 328
