@@ -240,7 +240,6 @@ function TosComboFilter.ExecuteFilter(PNewFilter: boolean = True; PLimit : Integ
 var
   OldCursor: TCursor;
   iIndex: integer;
-  _data: OleVariant;
 begin
   OldCursor := Screen.Cursor;
   Screen.Cursor := crHourglass;
@@ -273,11 +272,7 @@ begin
             if TosClientDataSet(FClientDS).DataProvider is TosSQLDataSetProvider then
               TosSQLDataSetProvider(TosClientDataSet(FClientDS).DataProvider).DataSet.Close;
           end;
-
           FClientDS.Open;
-          _data := FClientDS.Data;
-          FClientDS.Close;
-          FClientDS.Data := _Data;
 
         except
           on e: exception do
