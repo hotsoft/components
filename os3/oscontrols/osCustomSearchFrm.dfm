@@ -190,6 +190,7 @@ object CustomSearchForm: TCustomSearchForm
       inherited Label2: TLabel
         Left = 328
         Width = 30
+        Visible = False
         ExplicitLeft = 328
         ExplicitWidth = 30
       end
@@ -209,6 +210,7 @@ object CustomSearchForm: TCustomSearchForm
       end
       inherited edtLimit: TSpinEdit
         Left = 328
+        Visible = False
         OnChange = FilterInspectorFrameedtLimitChange
         ExplicitLeft = 328
       end
@@ -218,6 +220,7 @@ object CustomSearchForm: TCustomSearchForm
         Height = 30
         ButtonHeight = 30
         ButtonWidth = 31
+        Visible = False
         ExplicitLeft = 371
         ExplicitWidth = 31
         ExplicitHeight = 30
