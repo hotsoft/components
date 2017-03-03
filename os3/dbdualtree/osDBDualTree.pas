@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Controls, ExtCtrls, ComCtrls, DB,
-  Variants, StdCtrls;
+  Variants, StdCtrls, StrUtils;
 
 type
   TNodeSelectEvent = procedure(LeafSelected: boolean) of object;
@@ -98,6 +98,7 @@ type
     destructor Destroy; override;
 
     procedure Load;
+    procedure Filter(Filtro: string);
     procedure Clear;
 
 // Just to test memory leaks
@@ -460,6 +461,25 @@ begin
   FLeftTree.SortType := stText;
   FRightTree.SortType := stNone;
   FRightTree.SortType := stText;
+end;
+
+procedure TosDBDualTree.Filter(Filtro: string);
+var
+  I, count: integer;
+begin
+  Self.Load;
+
+  count := Self.FLeftTree.Items.Count;
+
+  if (count > 0) and (Length(Trim(Filtro)) > 0) then
+  begin
+    for I := count - 1 downto 0 do
+      if not ContainsText(AnsiUpperCase(FLeftTree.Items.Item[I].Text), AnsiUpperCase(Filtro)) then
+        FLeftTree.Items.Delete(FLeftTree.Items.Item[I])
+      else
+        //OutputDebugString(PChar('Não Removido'));
+  end;
+
 end;
 
 procedure TosDBDualTree.MoveRandomly(Direction: boolean);
