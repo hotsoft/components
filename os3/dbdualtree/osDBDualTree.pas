@@ -97,6 +97,7 @@ type
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
 
+    procedure Expand;
     procedure Load;
     procedure Filter(Filtro: string);
     procedure Clear;
@@ -327,6 +328,17 @@ procedure TosDBDualTree.DoNodeSelect(LeafSelected: boolean);
 begin
   if Assigned(FOnNodeSelect) then
     FOnNodeSelect(LeafSelected);
+end;
+
+
+procedure TosDBDualTree.Expand;
+var
+  x : integer;
+begin
+  for x := 0 to FLeftTree.Items.Count - 1 do
+      FLeftTree.Items.Item[x].Expand(True);
+  for x := 0 to FRightTree.Items.Count - 1 do
+      FRightTree.Items.Item[x].Expand(True);
 end;
 
 procedure TosDBDualTree.CreateNode(TreeView: TTreeView;
