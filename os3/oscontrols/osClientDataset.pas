@@ -1200,6 +1200,7 @@ begin
   if DataSet is TosClientDataSet then
     TosClientDataSet(DataSet).FClearing := True;
   try
+    DataSet.Open;
     DataSet.First;
     while not DataSet.Eof do
     begin

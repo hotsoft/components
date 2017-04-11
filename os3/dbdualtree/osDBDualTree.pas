@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Controls, ExtCtrls, ComCtrls, DB,
-  Variants, StdCtrls;
+  Variants, StdCtrls, StrUtils;
 
 type
   TNodeSelectEvent = procedure(LeafSelected: boolean) of object;
@@ -97,7 +97,9 @@ type
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
 
+    procedure Expand;
     procedure Load;
+    procedure Filter(Filtro: string);
     procedure Clear;
 
 // Just to test memory leaks
@@ -328,6 +330,17 @@ begin
     FOnNodeSelect(LeafSelected);
 end;
 
+
+procedure TosDBDualTree.Expand;
+var
+  x : integer;
+begin
+  for x := 0 to FLeftTree.Items.Count - 1 do
+      FLeftTree.Items.Item[x].Expand(True);
+  for x := 0 to FRightTree.Items.Count - 1 do
+      FRightTree.Items.Item[x].Expand(True);
+end;
+
 procedure TosDBDualTree.CreateNode(TreeView: TTreeView;
   const Captions: array of string; FieldIDRef: TVariantRef);
 var
@@ -460,6 +473,25 @@ begin
   FLeftTree.SortType := stText;
   FRightTree.SortType := stNone;
   FRightTree.SortType := stText;
+end;
+
+procedure TosDBDualTree.Filter(Filtro: string);
+var
+  I, count: integer;
+begin
+  Self.Load;
+
+  count := Self.FLeftTree.Items.Count;
+
+  if (count > 0) and (Length(Trim(Filtro)) > 0) then
+  begin
+    for I := count - 1 downto 0 do
+      if not ContainsText(AnsiUpperCase(FLeftTree.Items.Item[I].Text), AnsiUpperCase(Filtro)) then
+        FLeftTree.Items.Delete(FLeftTree.Items.Item[I])
+      else
+        //OutputDebugString(PChar('Não Removido'));
+  end;
+
 end;
 
 procedure TosDBDualTree.MoveRandomly(Direction: boolean);
