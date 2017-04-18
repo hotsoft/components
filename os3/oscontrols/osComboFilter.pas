@@ -240,6 +240,7 @@ function TosComboFilter.ExecuteFilter(PNewFilter: boolean = True): String;
 var
   OldCursor: TCursor;
   iIndex: integer;
+  _data: OleVariant;
 begin
   OldCursor := Screen.Cursor;
   Screen.Cursor := crHourglass;
@@ -255,6 +256,9 @@ begin
         FClientDS.DisableControls;
         try
           FClientDS.Open;
+          _data := FClientDS.Data;
+          FClientDS.Close;
+          FClientDS.Data := _Data;
         except
           on e: exception do
           begin
