@@ -3,7 +3,7 @@ unit osClientDataset;
 interface
 
 uses
-  sysutils, classes, dbtables, typinfo, contnrs, dbclient, dialogs,
+  sysutils, classes, dbtables, typinfo, contnrs, dbclient,
   db, provider, variants;
 
 type
