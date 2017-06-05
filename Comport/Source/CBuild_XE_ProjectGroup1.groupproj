@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{F24EFDEC-5CBA-417D-ABCB-4123E14A538C}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="CPortLibCB6.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DsgnCPortCB6.cbproj">
+            <Dependencies>CPortLibCB6.cbproj</Dependencies>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="CPortLibCB6">
+        <MSBuild Projects="CPortLibCB6.cbproj"/>
+    </Target>
+    <Target Name="CPortLibCB6:Clean">
+        <MSBuild Projects="CPortLibCB6.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPortLibCB6:Make">
+        <MSBuild Projects="CPortLibCB6.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="DsgnCPortCB6" DependsOnTargets="CPortLibCB6">
+        <MSBuild Projects="DsgnCPortCB6.cbproj"/>
+    </Target>
+    <Target Name="DsgnCPortCB6:Clean" DependsOnTargets="CPortLibCB6:Clean">
+        <MSBuild Projects="DsgnCPortCB6.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DsgnCPortCB6:Make" DependsOnTargets="CPortLibCB6:Make">
+        <MSBuild Projects="DsgnCPortCB6.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="CPortLibCB6;DsgnCPortCB6"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="CPortLibCB6:Clean;DsgnCPortCB6:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="CPortLibCB6:Make;DsgnCPortCB6:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

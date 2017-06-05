@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2016-01-05 14:59:11.109,=rtl.dcp</Transaction>
+    <Transaction>2016-01-05 14:59:46.250,C:\comport411f_for_xe2_xe10\Source\DsgnCPortDXE10.dproj=D:\My Documents\Embarcadero\Studio\Projects\Package1.dproj</Transaction>
+    <Transaction>2016-01-05 15:00:07.515,=C:\comport411f_for_xe2_xe10\Source\CPortReg.pas</Transaction>
+    <Transaction>2016-01-05 15:03:22.218,=CPortLibDXE10.dcp</Transaction>
+  </Transactions>
+</BorlandProject>
