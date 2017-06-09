@@ -2,7 +2,8 @@ program ComExample;
 
 uses
   Forms,
-  ComMainForm in 'ComMainForm.pas' {Form1};
+  ComMainForm in 'ComMainForm.pas' {Form1},
+  ConstantesUn in '..\..\..\..\labexpress\DM\ConstantesUn.pas';
 
 {$R *.RES}
 
