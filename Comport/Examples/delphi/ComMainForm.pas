@@ -7,8 +7,40 @@ uses
   StdCtrls, ExtCtrls, CPort, CPortCtl;
 
 type
+  TSerialInfo = record
+    velocidade: Integer;
+    portacom: string;
+    databits: string;
+    stopbits: string;
+    paridade: string;
+    controlefluxo: string;
+  end;
+
+  TConexaoThread = class(TThread)
+    importando: Boolean;
+    sendingWorklist: Boolean;
+  protected
+    procedure Execute; override;
+    procedure Loop; virtual;
+  public
+    serialInfo: TSerialInfo;
+    error: string;
+    responderAck: Boolean;
+    tMemo: TMemo;
+    msgRecebida: string;
+    constructor Create(CreateSuspended: Boolean); virtual;
+
+    function ConvertDatabits(valor: string): TDataBits;
+    function ConvertStopbits(valor: string): TStopBits;
+    function ConvertParity(valor: string): TParityBits;
+    function ConvertFlowControl(valor: string): TFlowControl;
+    function ReceberMensagemSincrona: string; virtual; abstract;
+
+    procedure EnviarMensagem(msg: string); virtual; abstract;
+    function ReceberMensagem: string;  virtual; abstract;
+  end;
+
   TForm1 = class(TForm)
-    ComPort: TComPort;
     InMemo: TMemo;
     Button_Open: TButton;
     Button_Settings: TButton;
@@ -37,26 +69,42 @@ type
     ACKButton: TButton;
     ENQButton: TButton;
     EOTButton: TButton;
-    procedure Button_OpenClick(Sender: TObject);
-    procedure Button_SettingsClick(Sender: TObject);
+    Timer1: TTimer;
     procedure LimparButtonClick(Sender: TObject);
     procedure ComPortOpen(Sender: TObject);
     procedure ComPortClose(Sender: TObject);
-    procedure ComPortRxChar(Sender: TObject; Count: Integer);
     procedure Bt_LoadClick(Sender: TObject);
     procedure Bt_StoreClick(Sender: TObject);
     procedure EnviarFramesButtonClick(Sender: TObject);
-    procedure EnivarButtonClick(Sender: TObject);
     procedure ACKButtonClick(Sender: TObject);
     procedure ENQButtonClick(Sender: TObject);
     procedure EOTButtonClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
-    msgRecebida: string;
+    thread: TConexaoThread;
+
     function AguardarResposta(s: string): Boolean;
     function CalculaHash(conteudo: string): string;
     { Private declarations }
   public
     { Public declarations }
+  end;
+
+  TSerialThread = class(TConexaoThread)
+  private
+    comPort: TComPort;
+  protected
+    procedure RxChar(Sender: TObject; Count: Integer);
+    procedure Execute; override;
+    procedure TerminateThread(sender: TObject);
+    procedure Loop; override;
+  public
+    function AbrirConexao: Boolean;
+    function PararConexao: Boolean;
+    procedure EnviarMensagem(msg: string); override;
+    procedure TesteAmostra(numAmostra: Integer);
+    function ReceberMensagemSincrona: string; override;
   end;
 
 var
@@ -68,24 +116,86 @@ uses ConstantesUn;
 
 {$R *.DFM}
 
-procedure TForm1.Button_OpenClick(Sender: TObject);
-begin
-  if ComPort.Connected then
-    ComPort.Close
-  else
-    ComPort.Open;
-end;
-
-procedure TForm1.Button_SettingsClick(Sender: TObject);
-begin
-  ComPort.ShowSetupDialog;
-end;
-
 procedure TForm1.LimparButtonClick(Sender: TObject);
 var
   Str: String;
 begin
   InMemo.Clear;
+end;
+
+constructor TConexaoThread.Create(CreateSuspended: Boolean);
+begin
+  inherited Create(CreateSuspended);
+end;
+
+procedure TConexaoThread.Loop;
+begin
+  while True do
+  begin
+    Sleep(500);
+    if Terminated then
+      Break;
+  end;
+end;
+
+function TConexaoThread.ConvertDatabits(valor: string): TDataBits;
+begin
+  if valor = '5' then
+    Result := dbFive
+  else if valor = '6' then
+    Result := dbSix
+  else if valor = '7' then
+    Result := dbSeven
+  else if valor = '8' then
+    Result := dbEight;
+end;
+
+function TConexaoThread.ConvertFlowControl(valor: string): TFlowControl;
+begin
+  if valor = cscfSoftware then
+    Result := fcSoftware
+  else if valor = cscfHardware then
+    Result := fcHardware
+  else if valor = cscfNone then
+    Result := fcNone
+  else if valor = cscfCustom then
+    Result := fcCustom;
+end;
+
+function TConexaoThread.ConvertParity(valor: string): TParityBits;
+begin
+  if Trim(valor) = cspNone then
+    Result := prNone
+  else if Trim(valor) = cspOdd then
+    Result := prOdd
+  else if Trim(valor) = cspEven then
+    Result := prEven
+  else if Trim(valor) = cspMark then
+    Result := prMark
+  else if Trim(valor) = cspSpace then
+    Result := prSpace
+end;
+
+function TConexaoThread.ConvertStopbits(valor: string): TStopBits;
+begin
+  if Trim(valor) = '1' then
+    Result := sbOneStopBit
+  else if Trim(valor) = '1.5' then
+    Result := sbOne5StopBits
+  else if Trim(valor) = '2' then
+    Result := sbTwoStopBits
+end;
+
+procedure TSerialThread.TerminateThread(sender: TObject);
+begin
+  inherited;
+  FreeAndNil(comPort);
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+  if thread.msgRecebida = EOT then
+   EnviarFramesButton.Click;
 end;
 
 procedure TForm1.ComPortOpen(Sender: TObject);
@@ -99,17 +209,9 @@ begin
     Button_Open.Caption := 'Open';
 end;
 
-procedure TForm1.ComPortRxChar(Sender: TObject; Count: Integer);
-begin
-  ComPort.ReadStr(msgRecebida, Count);
-  InMemo.Text := InMemo.Text + msgRecebida;
-  if (ACKCheckBox.Checked) and (msgRecebida <> ACK) then
-    ComPort.WriteStr(ACK);
-end;
-
 procedure TForm1.ACKButtonClick(Sender: TObject);
 begin
-  ComPort.Write(ACK);
+ thread.EnviarMensagem(ACK);
 end;
 
 function TForm1.AguardarResposta(s: string): Boolean;
@@ -121,9 +223,10 @@ begin
   while (SemTimeOutCheckBox.Checked) or (i < 41) do
   begin
     Sleep(250);
-    if msgRecebida <> '' then
+ //   thread.ReceberMensagemSincrona;
+    if thread.msgRecebida <> '' then
     begin
-      Result := Pos(s, msgRecebida) > 0;
+      Result := Pos(s, thread.msgRecebida) > 0;
       Break;
     end;
     Inc(i);
@@ -135,14 +238,9 @@ begin
   end;
 end;
 
-procedure TForm1.EnivarButtonClick(Sender: TObject);
-begin
-  ComPort.WriteStr(OutMemo.Text);
-end;
-
 procedure TForm1.ENQButtonClick(Sender: TObject);
 begin
-  ComPort.Write(ENQ);
+  thread.EnviarMensagem(ENQ);
 end;
 
 procedure TForm1.EnviarFramesButtonClick(Sender: TObject);
@@ -153,11 +251,11 @@ begin
   TimeoutLabel.Visible := False;
   try
     repeat
-      msgRecebida := '';
-      ComPort.WriteStr(ENQ);
+      thread.msgRecebida := '';
+      thread.EnviarMensagem(ENQ);
     until AguardarResposta(ACK);
   except
-
+    TimeoutLabel.Visible := True;
     Exit;
   end;
 
@@ -180,13 +278,11 @@ begin
         frame := STX+IntToStr(sequenciaFrame)+conteudo+CR+ETX+hash+CR+LF;
       end;
 
-      ComPort.WriteStr(frame);
       try
-        if not AguardarResposta(ACK)then
-        begin
-          ComPort.WriteStr(EOT);
-          Exit;
-        end
+        repeat
+          thread.msgRecebida := '';
+          thread.EnviarMensagem(frame);
+        until AguardarResposta(ACK);
       except
         TimeoutLabel.Visible := True;
         Exit;
@@ -196,12 +292,126 @@ begin
         sequenciaFrame := 1;
     end;
   end;
-  ComPort.WriteStr(EOT);
+  thread.EnviarMensagem(EOT);
 end;
 
 procedure TForm1.EOTButtonClick(Sender: TObject);
 begin
-  ComPort.Write(EOT);
+  thread.EnviarMensagem(EOT);
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  thread := TSerialThread.Create(True);
+  thread.responderAck := ACKCheckBox.Checked;
+  thread.tMemo := InMemo;
+  thread.Resume;
+end;
+
+procedure TConexaoThread.Execute;
+begin
+  inherited;
+  FreeOnTerminate := True;
+end;
+
+function TSerialThread.AbrirConexao: Boolean;
+begin
+  Result := False;
+  comPort := TComPort.Create(nil);
+  comPort.Port := 'COM2';
+  comPort.BaudRate := StrToBaudRate('9600');
+  comPort.DataBits := ConvertDatabits('8');
+  comPort.StopBits := ConvertStopbits('1');
+  comPort.Parity.Bits := ConvertParity('N');
+  comPort.FlowControl.FlowControl := ConvertFlowControl('N');
+  comPort.FlowControl.ControlDTR := dtrEnable;
+  comPort.Events := [];
+//  comPort.SyncMethod := smNone;
+
+
+  try
+    comPort.Open;
+    Result := True;
+  except
+    on E:Exception do
+    begin
+      error := E.Message;
+    end;
+  end;
+end;
+
+procedure TSerialThread.EnviarMensagem(msg: string);
+begin
+  inherited;
+  comPort.WriteStr(msg);
+end;
+
+procedure TSerialThread.Execute;
+begin
+  inherited;
+  OnTerminate := TerminateThread;
+
+  if Terminated then
+    Exit;
+
+  if AbrirConexao then
+  Loop;
+
+end;
+
+procedure TSerialThread.Loop;
+var
+  events: TComEvents;
+  i: Integer;
+begin
+  i := 0;
+  while True do
+  begin
+    if Terminated then
+      Break;
+
+    events := [evRxChar];
+    comPort.WaitForEvent(events, 0, 1000);
+    if  evRxChar in events  then
+    begin
+      RxChar(comPort, comPort.InputCount);
+      i := 0;
+    end
+    else
+      i := i + 1;
+  end;
+end;
+
+procedure TSerialThread.TesteAmostra(numAmostra: Integer);
+begin
+
+end;
+
+function TSerialThread.ReceberMensagemSincrona: string;
+begin
+  comPort.ReadStr(msgRecebida, comPort.InputCount);
+end;
+
+function TSerialThread.PararConexao: Boolean;
+begin
+  Result := False;
+  try
+    comPort.Close;
+    Result := True;
+  except
+    on E:Exception do
+    begin
+      error := E.Message;
+    end;
+  end;
+end;
+
+procedure TSerialThread.RxChar(Sender: TObject; Count: Integer);
+begin
+  comPort.ReadStr(msgRecebida, Count);
+  tMemo.Text := tMemo.Text + msgRecebida;
+  if (msgRecebida <> '') and (responderAck) and (msgRecebida <> ACK) then
+    EnviarMensagem(ACK);
 end;
 
 function TForm1.CalculaHash(conteudo: string): string;
@@ -225,12 +435,12 @@ end;
 procedure TForm1.Bt_LoadClick(Sender: TObject);
 begin
 //  ComPort.LoadSettings(stRegistry, 'HKEY_LOCAL_MACHINE\Software\Dejan');
-  ComPort.LoadSettings(stIniFile, 'ComExample.ini');
+//  ComPort.LoadSettings(stIniFile, 'ComExample.ini');
 end;
 
 procedure TForm1.Bt_StoreClick(Sender: TObject);
 begin
-  ComPort.StoreSettings(stIniFile, 'ComExample.ini');
+//  ComPort.StoreSettings(stIniFile, 'ComExample.ini');
 //  ComPort.StoreSettings(stRegistry, 'HKEY_LOCAL_MACHINE\Software\Dejan');
 end;
 
