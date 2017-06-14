@@ -3,8 +3,8 @@ unit osSQLDataSetProvider;
 interface
 
 uses
-  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  Provider, db, dbclient, variants, sqlexpr, osCustomDataSetProvider;
+  Windows, Messages, SysUtils, Classes, Provider, db, dbclient, variants,
+  sqlexpr, osCustomDataSetProvider;
 
 type
   TosSQLDataSetProvider = class(TosCustomDataSetProvider)

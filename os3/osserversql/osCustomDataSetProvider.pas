@@ -3,8 +3,8 @@ unit osCustomDataSetProvider;
 interface
 
 uses
-  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  Provider, db, dbclient, variants, osSQLQuery, osSQLDataSet;
+  Windows, Messages, SysUtils, Classes, Provider, db, dbclient, variants, osSQLQuery,
+  osSQLDataSet;
 
 type
 
