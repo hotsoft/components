@@ -223,12 +223,15 @@ begin
   while (SemTimeOutCheckBox.Checked) or (i < 41) do
   begin
     Sleep(250);
- //   thread.ReceberMensagemSincrona;
+    if True then
+
     if thread.msgRecebida <> '' then
     begin
       Result := Pos(s, thread.msgRecebida) > 0;
       Break;
-    end;
+    end
+    else
+      thread.ReceberMensagemSincrona;
     Inc(i);
     Application.ProcessMessages;
   end;
@@ -318,7 +321,7 @@ function TSerialThread.AbrirConexao: Boolean;
 begin
   Result := False;
   comPort := TComPort.Create(nil);
-  comPort.Port := 'COM2';
+  comPort.Port := 'COM4';
   comPort.BaudRate := StrToBaudRate('9600');
   comPort.DataBits := ConvertDatabits('8');
   comPort.StopBits := ConvertStopbits('1');
@@ -326,7 +329,7 @@ begin
   comPort.FlowControl.FlowControl := ConvertFlowControl('N');
   comPort.FlowControl.ControlDTR := dtrEnable;
   comPort.Events := [];
-//  comPort.SyncMethod := smNone;
+  comPort.SyncMethod := smNone;
 
 
   try
