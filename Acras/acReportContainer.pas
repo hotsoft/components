@@ -3,7 +3,7 @@ unit acReportContainer;
 interface
 
 uses
-  SysUtils, Classes;
+  SysUtils, Classes, System.Contnrs;
 
 type
   TReportInfo = class
@@ -14,7 +14,7 @@ type
 
   TacReportContainer = class(TComponent)
   private
-    reports: TList;
+    reports: TObjectList;
   public
     constructor Create(owner: TComponent); override;
     destructor Destroy; override;
@@ -34,7 +34,8 @@ implementation
 constructor TacReportContainer.Create(owner: TComponent);
 begin
   inherited create(owner);
-  reports := TList.Create;
+  reports := TObjectList.Create;
+  reports.OwnsObjects := True;
 end;
 
 destructor TacReportContainer.Destroy;
