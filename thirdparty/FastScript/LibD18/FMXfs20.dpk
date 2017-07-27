@@ -1,0 +1,60 @@
+// Package file for Delphi XE6
+
+package FMXfs20;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  fmx;
+
+contains
+  FMX.fs_ipascal in 'FMX.fs_ipascal.pas',
+  FMX.fs_icpp in 'FMX.fs_icpp.pas',
+  FMX.fs_ijs in 'FMX.fs_ijs.pas',
+  FMX.fs_ibasic in 'FMX.fs_ibasic.pas',
+  FMX.fs_iclassesrtti in 'FMX.fs_iclassesrtti.pas',
+  FMX.fs_iconst in 'FMX.fs_iconst.pas',
+  FMX.fs_idialogsrtti in 'FMX.fs_idialogsrtti.pas',
+  FMX.fs_ievents in 'FMX.fs_ievents.pas',
+  FMX.fs_iexpression in 'FMX.fs_iexpression.pas',
+  FMX.fs_iextctrlsrtti in 'FMX.fs_iextctrlsrtti.pas',
+  FMX.fs_iformsrtti in 'FMX.fs_iformsrtti.pas',
+  FMX.fs_igraphicsrtti in 'FMX.fs_igraphicsrtti.pas',
+  FMX.fs_iilparser in 'FMX.fs_iilparser.pas',
+  FMX.fs_iinirtti in 'FMX.fs_iinirtti.pas',
+  FMX.fs_iinterpreter in 'FMX.fs_iinterpreter.pas',
+  FMX.fs_iparser in 'FMX.fs_iparser.pas',
+  FMX.fs_isysrtti in 'FMX.fs_isysrtti.pas',
+  FMX.fs_imenusrtti in 'FMX.fs_imenusrtti.pas',
+  FMX.fs_itools in 'FMX.fs_itools.pas',
+  FMX.fs_xml in 'FMX.fs_xml.pas',
+  FMX.fs_synmemo in 'FMX.fs_synmemo.pas',
+  FMX.fs_tree in 'FMX.fs_tree.pas';
+
+end.

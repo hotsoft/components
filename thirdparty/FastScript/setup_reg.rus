@@ -1,0 +1,165 @@
+    Установка зарегистрированного FastScript после установки trial версии.
+
+ВНИМАНИЕ! Данный файл служит для установки зарегистрированных файлов поверх 
+установленной ознакомительной версии FastScript. Если FastScript распакован, 
+но не установлен в Delphi (C++Builder), перепишите полученные от нас файлы 
+fs_iinterpreter.pas и fs_iilparser.pas в каталог "..\FastScript\Source\" 
+и выполните инструкции описанные в файле setup.rus (в таком случае описанные 
+ниже операции можно не выполнять).
+
+Непосредственно установка зарегистрированных файлов.
+
+Delphi 4.0
+
+1. Переписать fs_iinterpreter.pas и fs_iilparser.pas в каталог "..\FastScript\Source\"
+2. Запустить Delphi 4
+3. В меню выбрать Component->Install Packages. Выбрать в списке установленных пакетов 
+   FastScript 1.0 Components и нажать на кнопку Remove, На все задаваемые вопросы 
+   ответить "Yes". Закрыть окно кнопкой "OK".
+4. Выполнить меню File->Open Project, в типе файлов выбрать Delphi package (*.dpk).
+   Выбрать файл fs4.dpk в каталоге  "..\FastScript\Source\"
+5. В открывшемся окне нажать кнопку Compile.
+6. Выполнить меню File->Open Project, в типе файлов выбрать Delphi package (*.dpk).
+   Выбрать файл dclfs4.dpk в каталоге  "..\FastScript\Source\"
+7. В открывшемся окне нажать кнопки Compile и Install.
+8. Закрыть среду Delphi 4. На вопрос о сохранении файлов fs4.dpk и dclfs4.dpk ответить "No".
+9. Скопируйте файл fs4.bpl из каталога ..\FastScript\Source в каталог 
+Windows\System32 (для Windows 95/98 в каталог Windows\System).
+10. Запустить Delphi 4.
+11. Выполнить меню Component->Install Packages и проверить наличие CheckBox 
+   установленного пакета FastScript.
+
+Delphi 5.0
+
+1. Переписать fs_iinterpreter.pas и fs_iilparser.pas в каталог "..\FastScript\Source\"
+2. Запустить Delphi 5
+3. В меню выбрать Component->Install Packages. Выбрать в списке установленных пакетов 
+   FastScript 1.0 Components и нажать на кнопку Remove, На все задаваемые вопросы 
+   ответить "Yes". Закрыть окно кнопкой "OK".
+4. Выполнить меню File->Open Project, в типе файлов выбрать Delphi package (*.dpk).
+   Выбрать файл fs5.dpk в каталоге  "..\FastScript\Source\"
+5. В открывшемся окне нажать кнопку Compile.
+6. Выполнить меню File->Open Project, в типе файлов выбрать Delphi package (*.dpk).
+   Выбрать файл dclfs5.dpk в каталоге  "..\FastScript\Source\"
+7. В открывшемся окне нажать кнопки Compile и Install.
+8. Закрыть среду Delphi 5. На вопрос о сохранении файлов fs5.dpk и dclfs5.dpk ответить "No".
+9. Запустить Delphi 5.
+10. Выполнить меню Component->Install Packages и проверить наличие CheckBox 
+   установленного пакета FastScript.
+
+Delphi 6.0
+
+1. Переписать fs_iinterpreter.pas и fs_iilparser.pas в каталог "..\FastScript\Source\"
+2. Запустить Delphi 6
+3. В меню выбрать Component->Install Packages. Выбрать в списке установленных пакетов 
+   FastScript 1.0 Components и нажать на кнопку Remove, На все задаваемые вопросы 
+   ответить "Yes". Закрыть окно кнопкой "OK".
+4. Выполнить меню File->Open Project, в типе файлов выбрать Delphi package (*.dpk).
+   Выбрать файл fs6.dpk в каталоге  "..\FastScript\Source\"
+5. В открывшемся окне нажать кнопку Compile.
+6. Выполнить меню File->Open Project, в типе файлов выбрать Delphi package (*.dpk).
+   Выбрать файл dclfs6.dpk в каталоге  "..\FastScript\Source\"
+7. В открывшемся окне нажать кнопки Compile и Install.
+8. Закрыть среду Delphi 6. На вопрос о сохранении файлов fs6.dpk и dclfs6.dpk ответить "No".
+9. Запустить Delphi 6.
+10. Выполнить меню Component->Install Packages и проверить наличие CheckBox 
+   установленного пакета FastScript.
+
+Delphi 7.0
+
+1. Переписать fs_iinterpreter.pas и fs_iilparser.pas в каталог "..\FastScript\Source\"
+2. Запустить Delphi 7
+3. В меню выбрать Component->Install Packages. Выбрать в списке установленных пакетов 
+   FastScript 1.0 Components и нажать на кнопку Remove, На все задаваемые вопросы 
+   ответить "Yes". Закрыть окно кнопкой "OK".
+4. Выполнить меню File->Open Project, в типе файлов выбрать Delphi package (*.dpk).
+   Выбрать файл fs7.dpk в каталоге  "..\FastScript\Source\"
+5. В открывшемся окне нажать кнопку Compile.
+6. Выполнить меню File->Open Project, в типе файлов выбрать Delphi package (*.dpk).
+   Выбрать файл dclfs7.dpk в каталоге  "..\FastScript\Source\"
+7. В открывшемся окне нажать кнопки Compile и Install.
+8. Закрыть среду Delphi 7. На вопрос о сохранении файлов fs7.dpk и dclfs7.dpk ответить "No".
+9. Запустить Delphi 7.
+10. Выполнить меню Component->Install Packages и проверить наличие CheckBox 
+   установленного пакета FastScript.
+
+C++ Builder 4.0
+
+1. Переписать fs_iinterpreter.pas и fs_iilparser.pas в каталог "..\FastScript\Source\"
+2. Запустить C++Builder 4
+3. В меню выбрать Component->Install Packages. Выбрать в списке установленных пакетов 
+   FastScript 1.0 Components и нажать на кнопку Remove, На все задаваемые вопросы 
+   ответить "Yes". Закрыть окно кнопкой "OK".
+4. Выполнить меню File->Open Project, в типе файлов выбрать C++Builder package (*.bpk).
+   Выбрать файл fs4.bpk в каталоге  "..\FastScript\Source\"
+5. В открывшемся окне нажать кнопки Compile и Install.
+6. Закрыть среду C++Builder 4. На вопрос о сохранении файла fs4.bpk ответить "No".
+7. Запустить C++Builder 4.
+8. Выполнить меню Component->Install Packages и проверить наличие CheckBox 
+   установленного пакета FastScript.
+
+C++ Builder 5.0
+
+1. Переписать fs_iinterpreter.pas и fs_iilparser.pas в каталог "..\FastScript\Source\"
+2. Запустить C++Builder 5
+3. В меню выбрать Component->Install Packages. Выбрать в списке установленных пакетов 
+   FastScript 1.0 Components и нажать на кнопку Remove, На все задаваемые вопросы 
+   ответить "Yes". Закрыть окно кнопкой "OK".
+4. Выполнить меню File->Open Project, в типе файлов выбрать C++Builder package (*.bpk).
+   Выбрать файл fs5.bpk в каталоге  "..\FastScript\Source\"
+5. В открывшемся окне нажать кнопки Compile и Install.
+6. Закрыть среду C++Builder 5. На вопрос о сохранении файла fs5.bpk ответить "No".
+7. Запустить C++Builder 5.
+8. Выполнить меню Component->Install Packages и проверить наличие CheckBox 
+   установленного пакета FastScript.
+
+C++ Builder 6.0
+
+1. Переписать fs_iinterpreter.pas и fs_iilparser.pas в каталог "..\FastScript\Source\"
+2. Запустить C++Builder 6
+3. В меню выбрать Component->Install Packages. Выбрать в списке установленных пакетов 
+   FastScript 1.0 Components и нажать на кнопку Remove, На все задаваемые вопросы 
+   ответить "Yes". Закрыть окно кнопкой "OK".
+4. Выполнить меню File->Open Project, в типе файлов выбрать C++Builder package (*.bpk).
+   Выбрать файл fs6.bpk в каталоге  "..\FastScript\Source\"
+5. В открывшемся окне нажать кнопки Compile и Install.
+6. Закрыть среду C++Builder 6. На вопрос о сохранении файла fs6.bpk ответить "No".
+7. Запустить C++Builder 6.
+8. Выполнить меню Component->Install Packages и проверить наличие CheckBox 
+   установленного пакета FastScript.
+
+Delphi 6 CLX
+
+1. Переписать fs_iinterpreter.pas и fs_iilparser.pas в каталог "..\FastScript\Source\"
+2. Запустить Delphi 6
+3. В меню выбрать Component->Install Packages. Выбрать в списке установленных пакетов 
+   FastScript 1.0 Components и нажать на кнопку Remove, На все задаваемые вопросы 
+   ответить "Yes". Закрыть окно кнопкой "OK".
+4. Выполнить меню File->Open Project, в типе файлов выбрать Delphi package (*.dpk).
+   Выбрать файл fsx.dpk в каталоге  "..\FastScript\Source\"
+5. В открывшемся окне нажать кнопку Compile.
+6. Выполнить меню File->Open Project, в типе файлов выбрать Delphi package (*.dpk).
+   Выбрать файл dclfsx.dpk в каталоге  "..\FastScript\Source\"
+7. В открывшемся окне нажать кнопки Compile и Install.
+8. Закрыть среду Delphi 6. На вопрос о сохранении файлов fsx.dpk и dclfsx.dpk ответить "No".
+9. Запустить Delphi 6.
+10. Выполнить меню Component->Install Packages и проверить наличие CheckBox 
+   установленного пакета FastScript.
+
+Delphi 7 CLX
+
+1. Переписать fs_iinterpreter.pas и fs_iilparser.pas в каталог "..\FastScript\Source\"
+2. Запустить Delphi 7
+3. В меню выбрать Component->Install Packages. Выбрать в списке установленных пакетов 
+   FastScript 1.0 Components и нажать на кнопку Remove, На все задаваемые вопросы 
+   ответить "Yes". Закрыть окно кнопкой "OK".
+4. Выполнить меню File->Open Project, в типе файлов выбрать Delphi package (*.dpk).
+   Выбрать файл fsx.dpk в каталоге  "..\FastScript\Source\"
+5. В открывшемся окне нажать кнопку Compile.
+6. Выполнить меню File->Open Project, в типе файлов выбрать Delphi package (*.dpk).
+   Выбрать файл dclfsx.dpk в каталоге  "..\FastScript\Source\"
+7. В открывшемся окне нажать кнопки Compile и Install.
+8. Закрыть среду Delphi 7. На вопрос о сохранении файлов fsx.dpk и dclfsx.dpk ответить "No".
+9. Запустить Delphi 7.
+10. Выполнить меню Component->Install Packages и проверить наличие CheckBox 
+   установленного пакета FastScript.

@@ -1,0 +1,120 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{BF4C56D6-8223-4F77-B027-AD7EB8012DD3}</ProjectGuid>
+			<MainSource>fs12.dpk</MainSource>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<GenDll>true</GenDll>
+			<DCC_OutputNeverBuildDcps>true</DCC_OutputNeverBuildDcps>
+			<DCC_S>false</DCC_S>
+			<DCC_N>false</DCC_N>
+			<DCC_K>false</DCC_K>
+			<DCC_F>false</DCC_F>
+			<DCC_E>false</DCC_E>
+			<GenPackage>true</GenPackage>
+			<DCC_WriteableConstants>true</DCC_WriteableConstants>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_DependencyCheckOutputName>..\..\..\RAD Studio\6.0\Bpl\fs12.bpl</DCC_DependencyCheckOutputName>
+			<RuntimeOnlyPackage>true</RuntimeOnlyPackage>
+			<DCC_Platform>x86</DCC_Platform>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="fs12.dpk">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="C:\Program Files\CodeGear\RAD Studio\6.0\bin\VCL.dcp"/>
+			<DCCReference Include="C:\Program Files\CodeGear\RAD Studio\6.0\bin\VCLX.dcp"/>
+			<DCCReference Include="fs_ipascal.pas"/>
+			<DCCReference Include="fs_icpp.pas"/>
+			<DCCReference Include="fs_ijs.pas"/>
+			<DCCReference Include="fs_ibasic.pas"/>
+			<DCCReference Include="fs_iclassesrtti.pas"/>
+			<DCCReference Include="fs_iconst.pas"/>
+			<DCCReference Include="fs_idialogsrtti.pas"/>
+			<DCCReference Include="fs_ievents.pas"/>
+			<DCCReference Include="fs_iexpression.pas"/>
+			<DCCReference Include="fs_iextctrlsrtti.pas"/>
+			<DCCReference Include="fs_iformsrtti.pas"/>
+			<DCCReference Include="fs_igraphicsrtti.pas"/>
+			<DCCReference Include="fs_iilparser.pas"/>
+			<DCCReference Include="fs_iinirtti.pas"/>
+			<DCCReference Include="fs_iinterpreter.pas"/>
+			<DCCReference Include="fs_iparser.pas"/>
+			<DCCReference Include="fs_isysrtti.pas"/>
+			<DCCReference Include="fs_imenusrtti.pas"/>
+			<DCCReference Include="fs_itools.pas"/>
+			<DCCReference Include="fs_xml.pas"/>
+			<DCCReference Include="fs_synmemo.pas"/>
+			<DCCReference Include="fs_tree.pas"/>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" Condition="Exists('$(MSBuildBinPath)\Borland.Delphi.Targets')"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality</Borland.Personality>
+			<Borland.ProjectType>Package</Borland.ProjectType>
+			<BorlandProject><BorlandProject><Delphi.Personality>
+    <Source>
+      <Source Name="MainSource">fs12.dpk</Source>
+    </Source>
+    <Parameters>
+      <Parameters Name="UseLauncher">False</Parameters>
+      <Parameters Name="LoadAllSymbols">True</Parameters>
+      <Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+    </Parameters>
+    <VersionInfo>
+      <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+      <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+      <VersionInfo Name="MajorVer">1</VersionInfo>
+      <VersionInfo Name="MinorVer">0</VersionInfo>
+      <VersionInfo Name="Release">0</VersionInfo>
+      <VersionInfo Name="Build">0</VersionInfo>
+      <VersionInfo Name="Debug">False</VersionInfo>
+      <VersionInfo Name="PreRelease">False</VersionInfo>
+      <VersionInfo Name="Special">False</VersionInfo>
+      <VersionInfo Name="Private">False</VersionInfo>
+      <VersionInfo Name="DLL">False</VersionInfo>
+      <VersionInfo Name="Locale">1049</VersionInfo>
+      <VersionInfo Name="CodePage">1251</VersionInfo>
+    </VersionInfo>
+    <VersionInfoKeys>
+      <VersionInfoKeys Name="CompanyName"></VersionInfoKeys>
+      <VersionInfoKeys Name="FileDescription"></VersionInfoKeys>
+      <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+      <VersionInfoKeys Name="InternalName"></VersionInfoKeys>
+      <VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys>
+      <VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys>
+      <VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys>
+      <VersionInfoKeys Name="ProductName"></VersionInfoKeys>
+      <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+      <VersionInfoKeys Name="Comments"></VersionInfoKeys>
+    </VersionInfoKeys>
+  </Delphi.Personality></BorlandProject>
+</BorlandProject>
+		</ProjectExtensions>
+	</Project>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <PersonalityInfo>
+    <Option>
+      <Option Name="Personality">Delphi.Personality</Option>
+      <Option Name="ProjectType"></Option>
+      <Option Name="Version">1.0</Option>
+      <Option Name="GUID">{D26BD318-5B04-445A-81B9-49835BEF4A79}</Option>
+    </Option>
+  </PersonalityInfo>
+  <Delphi.Personality>
+    <Source>
+      <Source Name="MainSource">dclfsADO10.dpk</Source>
+    </Source>
+    <FileVersion>
+      <FileVersion Name="Version">7.0</FileVersion>
+    </FileVersion>
+  </Delphi.Personality>
+</BorlandProject>

@@ -1,0 +1,48 @@
+object Form2: TForm2
+  Left = 185
+  Height = 163
+  Top = 107
+  Width = 281
+  HorzScrollBar.Page = 280
+  VertScrollBar.Page = 162
+  ActiveControl = ExpressionE
+  BorderStyle = bsToolWindow
+  Caption = 'Evaluate'
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  OnShow = FormShow
+  Position = poScreenCenter
+  object Label1: TLabel
+    Left = 4
+    Height = 17
+    Top = 4
+    Width = 57
+    Caption = 'Expression'
+    Color = clNone
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 4
+    Height = 17
+    Top = 52
+    Width = 33
+    Caption = 'Result'
+    Color = clNone
+    ParentColor = False
+  end
+  object ExpressionE: TEdit
+    Left = 4
+    Height = 21
+    Top = 20
+    Width = 273
+    OnKeyPress = ExpressionEKeyPress
+    TabOrder = 0
+  end
+  object ResultM: TMemo
+    Left = 4
+    Height = 89
+    Top = 68
+    Width = 273
+    TabOrder = 1
+  end
+end

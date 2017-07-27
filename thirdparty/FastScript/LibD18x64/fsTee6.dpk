@@ -1,0 +1,48 @@
+// Package file for Delphi 6
+
+package fsTee6;
+
+{$I fs.inc}
+{$I tee.inc}
+
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $00400000}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  VCL,
+{$IFDEF TeeChartStd} TEE, {$ENDIF}
+{$IFDEF TeeChart4}   TEE46, {$ENDIF}
+{$IFDEF TeeChart5}   TEE56, {$ENDIF}
+{$IFDEF TeeChart6}   TEE66, {$ENDIF}
+{$IFDEF TeeChart7}   TEE76, {$ENDIF}
+{$IFDEF TeeChart8}   TEE86, {$ENDIF}
+  VCLX,
+  fs6;
+
+
+contains
+  fs_ichartrtti in 'fs_ichartrtti.pas';
+
+
+end.

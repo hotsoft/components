@@ -1,0 +1,89 @@
+:Base fs.hlp
+:Title  FastScript 1.6
+:Index Index for fs.hlp=fs.hlp
+1 FastScript 1.6
+2 About FastScript 1.6=IDH_FastScript 1.6_Project
+2 Examples
+2 Packages
+3 Units
+2 Alphabetical Object and Component Listing
+2 TfsADORTTI=IDH_TfsADORTTI
+2 TfsBDERTTI=IDH_TfsBDERTTI
+2 TfsChartRTTI=IDH_TfsChartRTTI
+2 TfsClassesRTTI=IDH_TfsClassesRTTI
+2 TfsClassVariable=IDH_TfsClassVariable
+2 TfsCustomVariable=IDH_TfsCustomVariable
+2 TfsDBCtrlsRTTI=IDH_TfsDBCtrlsRTTI
+2 TfsDBRTTI=IDH_TfsDBRTTI
+2 TfsDialogsRTTI=IDH_TfsDialogsRTTI
+2 TfsExtCtrlsRTTI=IDH_TfsExtCtrlsRTTI
+2 TfsFormsRTTI=IDH_TfsFormsRTTI
+2 TfsGraphicsRTTI=IDH_TfsGraphicsRTTI
+2 TfsIBXRTTI=IDH_TfsIBXRTTI
+2 TfsScript=IDH_TfsScript
+2 TfsXMLDocument=IDH_TfsXMLDocument
+2 TfsXMLItem=IDH_TfsXMLItem
+2 Alphabetical Object and Component Listing, By Unit
+3 fs_iADORTTI
+3 TfsADORTTI=IDH_TfsADORTTI
+3 fs_iBDERTTI
+3 TfsBDERTTI=IDH_TfsBDERTTI
+3 fs_iChartRTTI
+3 TfsChartRTTI=IDH_TfsChartRTTI
+3 fs_iClassesRTTI
+3 TfsClassesRTTI=IDH_TfsClassesRTTI
+3 fs_iDBCtrlsRTTI
+3 TfsDBCtrlsRTTI=IDH_TfsDBCtrlsRTTI
+3 fs_iDBRTTI
+3 TfsDBRTTI=IDH_TfsDBRTTI
+3 fs_iDialogsRTTI
+3 TfsDialogsRTTI=IDH_TfsDialogsRTTI
+3 fs_iExtCtrlsRTTI
+3 TfsExtCtrlsRTTI=IDH_TfsExtCtrlsRTTI
+3 fs_iFormsRTTI
+3 TfsFormsRTTI=IDH_TfsFormsRTTI
+3 fs_iGraphicsRTTI
+3 TfsGraphicsRTTI=IDH_TfsGraphicsRTTI
+3 fs_iIBXRTTI
+3 TfsIBXRTTI=IDH_TfsIBXRTTI
+3 fs_iInterpreter
+3 TfsClassVariable=IDH_TfsClassVariable
+3 TfsCustomVariable=IDH_TfsCustomVariable
+3 TfsScript=IDH_TfsScript
+3 fs_XML
+3 TfsXMLDocument=IDH_TfsXMLDocument
+3 TfsXMLItem=IDH_TfsXMLItem
+2 Alphabetical Routine Listing
+2 fsGetLanguageList=IDH_fsGetLanguageList_100045
+2 fsGlobalUnit=IDH_fsGlobalUnit_100044
+2 fsPosToPoint=IDH_fsPosToPoint_100046
+2 GenerateXMLContents=IDH_GenerateXMLContents_100047
+2 StrToXML=IDH_StrToXML_100048
+2 ValueToXML=IDH_ValueToXML_100049
+2 XMLToStr=IDH_XMLToStr_100050
+2 Alphabetical Routine Listing, By Unit
+3 fs_iInterpreter
+3 fsGlobalUnit=IDH_fsGlobalUnit_100044
+3 fs_iTools
+3 fsGetLanguageList=IDH_fsGetLanguageList_100045
+3 fsPosToPoint=IDH_fsPosToPoint_100046
+3 GenerateXMLContents=IDH_GenerateXMLContents_100047
+3 fs_XML
+3 StrToXML=IDH_StrToXML_100048
+3 ValueToXML=IDH_ValueToXML_100049
+3 XMLToStr=IDH_XMLToStr_100050
+2 Alphabetical Data Type Listing
+2 TfsCallMethodEvent=IDH_TfsCallMethodEvent_100013
+2 TfsGetUnitEvent=IDH_TfsGetUnitEvent_100018
+2 TfsGetValueEvent=IDH_TfsGetValueEvent_100014
+2 TfsRunLineEvent=IDH_TfsRunLineEvent_100015
+2 TfsSetValueEvent=IDH_TfsSetValueEvent_100016
+2 TfsVarType=IDH_TfsVarType_100017
+2 Alphabetical Data Type Listing, By Unit
+3 fs_iInterpreter
+3 TfsCallMethodEvent=IDH_TfsCallMethodEvent_100013
+3 TfsGetUnitEvent=IDH_TfsGetUnitEvent_100018
+3 TfsGetValueEvent=IDH_TfsGetValueEvent_100014
+3 TfsRunLineEvent=IDH_TfsRunLineEvent_100015
+3 TfsSetValueEvent=IDH_TfsSetValueEvent_100016
+3 TfsVarType=IDH_TfsVarType_100017

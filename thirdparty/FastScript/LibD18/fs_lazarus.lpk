@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Package Version="4">
+    <PathDelim Value="\"/>
+    <Name Value="fs_lazarus"/>
+    <AddToProjectUsesSection Value="True"/>
+    <Author Value="FastReports"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <IncludeFiles Value=".\"/>
+        <OtherUnitFiles Value=".\"/>
+        <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <Parsing>
+        <SyntaxOptions>
+          <UseAnsiStrings Value="False"/>
+        </SyntaxOptions>
+      </Parsing>
+      <Other>
+        <CompilerMessages>
+          <UseMsgFile Value="True"/>
+        </CompilerMessages>
+        <CompilerPath Value="$(CompPath)"/>
+      </Other>
+    </CompilerOptions>
+    <Description Value="FastScript - ..."/>
+    <License Value="Commercial"/>
+    <Version Major="1"/>
+    <Files Count="26">
+      <Item1>
+        <Filename Value="fs_ipascal.pas"/>
+        <UnitName Value="fs_ipascal"/>
+      </Item1>
+      <Item2>
+        <Filename Value="fs_icpp.pas"/>
+        <UnitName Value="fs_icpp"/>
+      </Item2>
+      <Item3>
+        <Filename Value="fs_ijs.pas"/>
+        <UnitName Value="fs_ijs"/>
+      </Item3>
+      <Item4>
+        <Filename Value="fs_ibasic.pas"/>
+        <UnitName Value="fs_ibasic"/>
+      </Item4>
+      <Item5>
+        <Filename Value="fs_iclassesrtti.pas"/>
+        <UnitName Value="fs_iclassesrtti"/>
+      </Item5>
+      <Item6>
+        <Filename Value="fs_iconst.pas"/>
+        <UnitName Value="fs_iconst"/>
+      </Item6>
+      <Item7>
+        <Filename Value="fs_idialogsrtti.pas"/>
+        <UnitName Value="fs_idialogsrtti"/>
+      </Item7>
+      <Item8>
+        <Filename Value="fs_ievents.pas"/>
+        <UnitName Value="fs_ievents"/>
+      </Item8>
+      <Item9>
+        <Filename Value="fs_iexpression.pas"/>
+        <UnitName Value="fs_iexpression"/>
+      </Item9>
+      <Item10>
+        <Filename Value="fs_iextctrlsrtti.pas"/>
+        <UnitName Value="fs_iextctrlsrtti"/>
+      </Item10>
+      <Item11>
+        <Filename Value="fs_iformsrtti.pas"/>
+        <UnitName Value="fs_iformsrtti"/>
+      </Item11>
+      <Item12>
+        <Filename Value="fs_igraphicsrtti.pas"/>
+        <UnitName Value="fs_igraphicsrtti"/>
+      </Item12>
+      <Item13>
+        <Filename Value="fs_iilparser.pas"/>
+        <UnitName Value="fs_iilparser"/>
+      </Item13>
+      <Item14>
+        <Filename Value="fs_iinirtti.pas"/>
+        <UnitName Value="fs_iinirtti"/>
+      </Item14>
+      <Item15>
+        <Filename Value="fs_iinterpreter.pas"/>
+        <UnitName Value="fs_iinterpreter"/>
+      </Item15>
+      <Item16>
+        <Filename Value="fs_iparser.pas"/>
+        <UnitName Value="fs_iparser"/>
+      </Item16>
+      <Item17>
+        <Filename Value="fs_isysrtti.pas"/>
+        <UnitName Value="fs_isysrtti"/>
+      </Item17>
+      <Item18>
+        <Filename Value="fs_itools.pas"/>
+        <UnitName Value="fs_itools"/>
+      </Item18>
+      <Item19>
+        <Filename Value="fs_xml.pas"/>
+        <UnitName Value="fs_xml"/>
+      </Item19>
+      <Item20>
+        <Filename Value="fs_ireg.lrs"/>
+        <Type Value="LRS"/>
+      </Item20>
+      <Item21>
+        <Filename Value="fs_ireg.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="fs_ireg"/>
+      </Item21>
+      <Item22>
+        <Filename Value="fs_synmemo.lfm"/>
+        <Type Value="LFM"/>
+      </Item22>
+      <Item23>
+        <Filename Value="fs_synmemo.lrs"/>
+        <Type Value="LRS"/>
+      </Item23>
+      <Item24>
+        <Filename Value="fs_synmemo.pas"/>
+        <UnitName Value="fs_synmemo"/>
+      </Item24>
+      <Item25>
+        <Filename Value="fs_tree.pas"/>
+        <UnitName Value="fs_tree"/>
+      </Item25>
+      <Item26>
+        <Filename Value="fs_idbrtti.pas"/>
+        <UnitName Value="fs_idbrtti"/>
+      </Item26>
+    </Files>
+    <Type Value="RunAndDesignTime"/>
+    <RequiredPkgs Count="3">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="IDEIntf"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="FCL"/>
+        <MinVersion Major="1" Valid="True"/>
+      </Item3>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IgnoreBinaries Value="False"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

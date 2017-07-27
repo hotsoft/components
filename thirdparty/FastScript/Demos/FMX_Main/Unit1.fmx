@@ -1,0 +1,45 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Evaluate'
+  BorderStyle = bsToolWindow
+  BorderIcons = [biSystemMenu]
+  ClientHeight = 147
+  ClientWidth = 272
+  Position = poMainFormCenter
+  Visible = False
+  OnActivate = FormActivate
+  StyleLookup = 'backgroundstyle'
+  object ExpressionE: TEdit
+    Position.Point = '(8,16)'
+    Width = 257.000000000000000000
+    Height = 22.000000000000000000
+    OnKeyUp = ExpressionEKeyUp
+    TabOrder = 1
+    KeyboardType = vktDefault
+    Password = False
+  end
+  object ResultM: TMemo
+    Position.Point = '(8,56)'
+    Width = 257.000000000000000000
+    Height = 81.000000000000000000
+    TabOrder = 10
+    KeyboardType = vktDefault
+  end
+  object Label1: TLabel
+    Position.Point = '(8,0)'
+    Width = 120.000000000000000000
+    Height = 15.000000000000000000
+    TabOrder = 11
+    Font.Style = [fsBold]
+    Text = 'Expression'
+  end
+  object Label2: TLabel
+    Position.Point = '(8,40)'
+    Width = 120.000000000000000000
+    Height = 15.000000000000000000
+    TabOrder = 12
+    Font.Style = [fsBold]
+    Text = 'Result'
+  end
+end

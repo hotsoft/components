@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="4">
+    <PathDelim Value="\"/>
+    <Name Value="fs_ibx"/>
+    <Type Value="RunAndDesignTime"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <IncludeFiles Value="."/>
+        <OtherUnitFiles Value="."/>
+        <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)\"/>
+      </SearchPaths>
+    </CompilerOptions>
+    <Files Count="3">
+      <Item1>
+        <Filename Value="fs_iibxrtti.pas"/>
+        <UnitName Value="fs_iibxrtti"/>
+      </Item1>
+      <Item2>
+        <Filename Value="fs_iibxreg.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="fs_iibxreg"/>
+      </Item2>
+      <Item3>
+        <Filename Value="fs_ireg.lrs"/>
+        <Type Value="LRS"/>
+      </Item3>
+    </Files>
+    <RequiredPkgs Count="3">
+      <Item1>
+        <PackageName Value="IDEIntf"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="ibexpress"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="FCL"/>
+      </Item3>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

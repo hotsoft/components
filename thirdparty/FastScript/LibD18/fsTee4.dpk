@@ -1,0 +1,48 @@
+// Package file for Delphi 4
+
+package fsTee4;
+
+{$I fs.inc}
+{$I tee.inc}
+
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $00400000}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  VCL40,
+{$IFDEF TeeChartStd} TEE40, {$ENDIF}
+{$IFDEF TeeChart4}   TEE44, {$ENDIF}
+{$IFDEF TeeChart5}   TEE54, {$ENDIF}
+{$IFDEF TeeChart6}   TEE64, {$ENDIF}
+{$IFDEF TeeChart7}   TEE74, {$ENDIF}
+{$IFDEF TeeChart8}   TEE84, {$ENDIF}
+  VCLX40,
+  fs4;
+
+
+contains
+  fs_ichartrtti in 'fs_ichartrtti.pas';
+
+
+end.

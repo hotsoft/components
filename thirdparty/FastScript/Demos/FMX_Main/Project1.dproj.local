@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.123,C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas=C:\Users\HeliX\Documents\RAD Studio\Projects\FMX_MainDemo\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.275,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.648,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.229,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.769,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.859,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.350,C:\Users\HeliX\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\HeliX\Documents\RAD Studio\Projects\FMX_MainDemo\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.999,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.103,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.425,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.636,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.586,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.780,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.123,C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.fmx=C:\Users\HeliX\Documents\RAD Studio\Projects\FMX_MainDemo\Unit2.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.856,=C:\Users\HeliX\Documents\RAD Studio\Projects\FMX_MainDemo\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.519,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.797,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.412,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.903,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.112,=C:\Users\HeliX\Documents\RAD Studio\Projects\Unit2.pas</Transaction>
+  </Transactions>
+</BorlandProject>

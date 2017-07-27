@@ -1,0 +1,18 @@
+{ Это - файл ресурсов, автоматически созданный lazarus }
+
+LazarusResources.Add('TfsSynMemoSearch','FORMDATA',[
+  'TPF0'#16'TfsSynMemoSearch'#15'fsSynMemoSearch'#4'Left'#3'!'#1#6'Height'#2'2'
+  +#3'Top'#3#229#0#5'Width'#3#243#0#18'HorzScrollBar.Page'#3#242#0#18'VertScrol'
+  +'lBar.Page'#2'1'#13'ActiveControl'#7#5'Edit1'#11'BorderStyle'#7#12'bsToolWin'
+  +'dow'#7'Caption'#6#6'Search'#12'ClientHeight'#2'2'#11'ClientWidth'#3#243#0#11
+  +'Font.Height'#2#245#9'Font.Name'#6#6'Tahoma'#10'KeyPreview'#9#10'OnKeyPress'
+  +#7#12'FormKeyPress'#8'Position'#7#14'poScreenCenter'#10'LCLVersion'#6#6'0.9.'
+  +'29'#0#6'TLabel'#6'Label1'#4'Left'#2#6#6'Height'#2#13#3'Top'#2#7#5'Width'#2
+  +'E'#8'AutoSize'#8#7'Caption'#6#12'Text to find'#11'ParentColor'#8#0#0#7'TBut'
+  +'ton'#6'Search'#4'Left'#2'o'#6'Height'#2#17#3'Top'#2#31#5'Width'#2':'#25'Bor'
+  +'derSpacing.InnerBorder'#2#4#7'Caption'#6#6'Search'#11'ModalResult'#2#1#8'Ta'
+  +'bOrder'#2#0#0#0#7'TButton'#7'Button1'#4'Left'#3#175#0#6'Height'#2#17#3'Top'
+  +#2#31#5'Width'#2'='#25'BorderSpacing.InnerBorder'#2#4#6'Cancel'#9#7'Caption'
+  +#6#6'Cancel'#11'ModalResult'#2#2#8'TabOrder'#2#1#0#0#5'TEdit'#5'Edit1'#4'Lef'
+  +'t'#2'P'#6'Height'#2#21#3'Top'#2#4#5'Width'#3#156#0#8'TabOrder'#2#2#0#0#0
+]);

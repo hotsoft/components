@@ -1,0 +1,82 @@
+v1.101
+==============
++ Добавлена поддержка Embarcadero RAD Studio 10.1 Berlin
+- Исправлена проблема синтаксис мемо в FMX
+- Исправлена небольшая утечка памяти
+- Исправлены объявления в Rtti  для некоторых методов в FMX 
+
+v1.100
+==============
++ добавлена поддержка Embarcadero Rad Studio XE5 для VCL x32/x64 компиляторов.
++ добавлена поддержка Embarcadero Rad Studio XE5 FireMonkey фреймворка (2) для Windows x32/x64 и OSX платформ.
+
+v1.99
+==============
++ добавлена поддержка Embarcadero Rad Studio XE3 для VCL x32/x64 компиляторов.
++ добавлена поддержка Embarcadero Rad Studio XE3 FireMonkey фреймворка (2) для Windows x32/x64 и OSX платформ.
+
+v1.98
+==============
++ добавлена поддержка Embarcadero Rad Studio XE2 для x32/x64 компиляторов.
++ добавлена поддержка Embarcadero FireMonkey фреймворка для Windows x32/x64 и OSX платформ (включает rtti для новых классов и визуальные компоненты - fsSynMemo, TfsTree).
++ добавлена поддержка типа Int64 в коде скрипта
+- исправлено некорректное обращение к памяти для 64бит версий FPC
+- исправлено получение значений ansistring свойств для FPC 
+
+v1.97
+==============
++ добавлена поддержка Embarcadero Rad Studio XE
++ добавлена поддержка TeeChart 2010
+
+v1.96
+==============
++ добавлена поддержка Embarcadero Rad Studio 2010
++ добавлены новые RTTI функции
+* улучшена скорость выполнения скрипта
+* улучшена работа под Lazarus
+
+v1.95
+==============
++ добавлена поддержка CodeGear Rad Studio 2009
+- исправлена ошибка с оператором "with"
+- исправлена ошибка с комментарием в Basic script
+- исправлены незначительные ошибки в TfsSyntaxMemo и TfsTree
+
+v1.94
+==============
+- добавлены новые RTTI фунуции/свойства:TCustomIniFile.WriteTStrings,TCustomIniFile.ReadTStrings,
+TIBTransaction.Commit,TIBTransaction.RollBack,TIBTransaction.StartTransaction,TIBQuery.FetchAll,
+TIBQuery.RecordCount,TChartSeries.Active,TChartSeries.Count,TChartSeries.Delete.
+- исправлена ошибка с оператором "in"
+- функции возвращают значение null по-умолчанию
+- исправлена ошибка с поздним связыванием
+- добавлено свойство TfsScript.IncludePath (список путей для модулей)
+- добавлено свойство TfsScript.UseClassLateBinding 
+- исправлена ошибка с приведением типов
+- добавлено свойство EvaluteRiseError - возвращает True если в функции Eveluate произошла ошибка
+- добавлено событие OnGetVarValue
+- добавлен метод AddPropertyEx с новыми обработчиками событий TfsGetValueNewEvent/TfsSetValueNewEvent
+- исправлена ошибка в функции Evaluate и Basic грамматикой
+- исправлена ошибка ненужного вызова AddRTII в функции evaluate
+
+v1.93
+==============
+Поправлена компиляция с fpc 2.2 при использовании {$define NOFORMS}. 
+Необходимо если вы желаете использовать FastScript с компилятором FreePascal, 
+но без lazarus.
+
+v1.92
+==============
++ добавлена поддержка CodeGear Delphi 2007
++ добавлен rtti для TPopupMenu
+* обновлена версия ini rtti, добавлены rtti для TCustomIniFile и TMemIniFile
++ добавлена поддержка Lazarus 0.9.22
+  a) адаптированы невизуальные компоненты для компиляции с Free Pascal v2.0.4, 2.1.1, 2.3.1
+  b) адаптированы визульные компоненты под LCL (Lazarus component library)
+  c) добавлены пакеты для Lazarus
++ добавлена возможность обращаться к элементам формы (form1.Button1) без 
+fsScript.AddForm.
+
+Пока не адаптированы под Lazarus и Free pascal следующие модули:
+fs_idbreg, fs_iibxreg, fs_iadoreg, fs_ibdereg, fs_iteereg, 
+fs_ibdertti, fs_ichartrtti, fs_iadortti, fs_iibxrtti, fs_idisp

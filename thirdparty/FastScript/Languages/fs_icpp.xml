@@ -1,0 +1,694 @@
+<?xml version="1.0"?>
+<language text="C++Script">
+
+  <parser>
+    <commentline1 text="//"/>
+    <commentblock1 text="/*,*/"/>
+    <commentblock2 text="/*,*/"/>
+    <stringquotes text="&#34;"/>
+    <hexsequence text="0x"/>
+
+    <keywords>
+      <break/>
+      <case/>
+      <continue/>
+      <define/>
+      <default/>
+      <delete/>
+      <do/>
+      <else/>
+      <except/>
+      <finally/>
+      <for/>
+      <in/>
+      <is/>
+      <if/>
+      <new/>
+      <return/>
+      <switch/>
+      <try/>
+      <while/>
+    </keywords>
+
+    <!-- Error messages -->
+
+    <errors>
+      <err1 text="Identifier expected"/>
+      <err2 text="Expression expected"/>
+      <err3 text="Statement expected"/>
+      <err4 text="':' expected"/>
+      <err5 text="';' expected"/>
+      <err6 text="'.' expected"/>
+      <err7 text="')' expected"/>
+      <err8 text="']' expected"/>
+      <err9 text="'=' expected"/>
+      <err10 text="'{' expected"/>
+      <err11 text="'}' expected"/>
+      <err12 text="'(' expected"/>
+      <err13 text="'DEFINE' expected"/>
+      <err14 text="'WHILE' expected"/>
+      <err17 text="'FINALLY' or 'EXCEPT' expected"/>
+      <err18 text="'[' expected"/>
+      <err19 text="'..' expected"/>
+      <err20 text="'&#62;' expected"/>
+    </errors>
+  </parser>                     
+
+  <!-- Map to internal types -->
+
+  <types>
+    <int type="integer"/>
+    <long type="integer"/>
+    <void type="integer"/>
+    <bool type="boolean"/>
+    <float type="extended"/>
+    <!-- all remained types already exist -->
+  </types>
+
+  <!-- empty element -->
+  <empty/>
+
+  <!-- Entry point for the syntax analyzer -->
+  <!--    Program -> [UsesClause]       -->
+  <!--               [DeclSection]...   -->
+  <!--               CompoundStmt       -->
+
+  <program>
+    <optional>
+      <usesclause/>
+    </optional>
+    <optionalloop>
+      <declsection/>
+    </optionalloop>
+    <compoundstmt err="err10"/>
+  </program>
+
+  <!--    UsesClause -> '#' INCLUDE (String/,)... -->
+
+  <usesclause node="uses">
+    <char text="#"/>
+    <keyword text="INCLUDE"/>
+    <loop text=",">
+      <string add="file" err="err1"/>
+    </loop>
+  </usesclause>
+
+  <!--    DeclSection -> ConstSection          -->
+  <!--                -> FunctionDecl          -->
+  <!--                -> VarStmt ';'           -->
+
+  <declsection>
+    <switch>
+      <constsection/>
+      <functiondecl/>
+      <sequence>
+        <varstmt/>
+        <char text=";" err="err5"/>
+      </sequence>
+    </switch>
+  </declsection>
+
+  <!--    ConstSection -> '#' DEFINE ConstantDecl -->
+
+  <constsection>
+    <char text="#"/>
+    <keyword text="DEFINE" err="err13"/>
+    <constantdecl/>
+  </constsection>
+
+  <!--    ConstantDecl -> Ident Expression -->
+
+  <constantdecl node="const">
+    <ident add="ident" err="err1"/>
+    <expression err="err2"/>
+  </constantdecl>
+
+  <!--    VarStmt -> Ident (Ident [Array] [InitValue] /',')...  -->
+
+  <varstmt node="var">
+    <ident add="type"/>
+    <loop text=",">
+      <ident add="ident"/>
+      <optional>
+        <array/>
+      </optional>
+      <optional>
+        <initvalue/>
+      </optional>
+    </loop>
+  </varstmt>
+
+  <!--    Array -> '[' [ArrayDim/','...] ']'  -->
+
+  <array node="array">
+    <loop>
+      <char text="["/>
+      <optionalloop text=",">
+        <arraydim err="err2"/>
+      </optionalloop>
+      <char text="]" err="err8"/>
+    </loop>
+  </array>
+
+  <!--    ArrayDim -> Expression  -->
+
+  <arraydim node="dim">
+    <expression/>
+  </arraydim>
+
+  <!--    InitValue -> '=' Expression  -->
+
+  <initvalue node="init">
+    <char text="="/>
+    <expression err="err2"/>
+  </initvalue>
+
+  <!--    Expression -> SimpleExpression [RelOp SimpleExpression]... -->
+
+  <expression node="expr">
+    <simpleexpression/>
+    <optionalloop>
+      <relop/>
+      <simpleexpression/>
+    </optionalloop>
+  </expression>
+
+  <!--    SimpleExpression -> ['-'] Term [AddOp Term]... -->
+
+  <simpleexpression>
+    <optional>
+      <char text="-" add="op" addtext="unminus"/>
+    </optional>
+    <term/>
+    <optionalloop>
+      <addop/>
+      <term/>
+    </optionalloop>
+  </simpleexpression>
+
+  <!--    Term -> Factor [MulOp Factor]... -->
+
+  <term>
+    <factor/>
+    <optionalloop>
+      <mulop/>
+      <factor/>
+    </optionalloop>
+  </term>
+
+  <!--    Factor -> Designator                     -->
+  <!--           -> UnsignedNumber                 -->
+  <!--           -> String                         -->
+  <!--           -> '(' Expression ')'             -->
+  <!--           -> '!' Factor                     -->
+  <!--           -> '[' SetConstructor ']'         -->
+  <!--           -> NewOperator                    -->
+  <!--           -> '<' FRString '>'               -->
+
+  <factor>
+    <switch>
+      <designator/>
+      <number add="number"/>
+      <string add="string"/>
+      <sequence>
+        <char text="(" add="op"/>
+        <expression err="err2"/>
+        <char text=")" add="op" err="err7"/>
+      </sequence>
+      <sequence>
+        <char text="!" add="op" addtext="not"/>
+        <factor err="err2"/>
+      </sequence>
+      <sequence>
+        <char text="["/>
+        <setconstructor err="err2"/>
+        <char text="]" err="err8"/>
+      </sequence>
+      <newoperator/>
+      <sequence>
+        <char text="&#60;"/>
+        <frstring/>
+        <char text="&#62;" err="err20"/>
+      </sequence>
+    </switch>
+  </factor>
+
+  <!--    SetConstructor -> SetNode/','...  -->
+
+  <setconstructor node="set">
+    <loop text=",">
+      <setnode/>
+    </loop>
+  </setconstructor>
+
+  <!--    SetNode -> Expression ['..' Expression]  -->
+
+  <setnode>
+    <expression/>
+    <optional>
+      <char text="."/>
+      <char text="." add="range"/>
+      <expression/>
+    </optional>
+  </setnode>
+
+  <!--    NewOperator -> NEW Designator  -->
+
+  <newoperator node="new">
+    <keyword text="NEW"/>
+    <designator err="err2"/>
+  </newoperator>
+
+  <!--    RelOp -> '>'   -->
+  <!--          -> '<'   -->
+  <!--          -> '<='  -->
+  <!--          -> '>='  -->
+  <!--          -> '!='  -->
+  <!--          -> '=='  -->
+  <!--          -> IN    -->
+  <!--          -> IS    -->
+
+  <relop>
+    <switch>
+      <sequence>
+        <char text="&#62;"/>
+        <char text="=" skip="0" add="op" addtext="&#62;="/>
+      </sequence>
+      <sequence>
+        <char text="&#60;"/>
+        <char text="=" skip="0" add="op" addtext="&#60;="/>
+      </sequence>
+      <char text="&#62;" add="op" addtext="&#62;"/>
+      <char text="&#60;" add="op" addtext="&#60;"/>
+      <sequence>
+        <char text="="/>
+        <char text="=" skip="0" add="op" addtext="="/>
+      </sequence>
+      <sequence>
+        <char text="!"/>
+        <char text="=" skip="0" add="op" addtext="&#60;&#62;"/>
+      </sequence>
+      <keyword text="IN" add="op" addtext="in"/>
+      <keyword text="IS" add="op" addtext="is"/>
+    </switch>
+  </relop>
+
+  <!--    AddOp -> '+'  -->
+  <!--          -> '-'  -->
+  <!--          -> '||' -->
+  <!--          -> '^'  -->
+
+  <addop>
+    <switch>
+      <char text="+" add="op"/>
+      <char text="-" add="op"/>
+      <sequence>
+        <char text="|"/>
+        <char text="|" add="op" addtext="or"/>
+      </sequence>
+      <char text="^" add="op" addtext="xor"/>
+    </switch>
+  </addop>
+
+  <!--    MulOp -> '*'    -->
+  <!--          -> '/'    -->
+  <!--          -> '%'    -->
+  <!--          -> '&&'   -->
+  <!--          -> '<<'   -->
+  <!--          -> '>>'   -->
+
+  <mulop>
+    <switch>
+      <char text="*" add="op"/>
+      <char text="/" add="op"/>
+      <keyword text="DIV" add="op" addtext="div"/>
+      <char text="%" add="op" addtext="mod"/>
+      <sequence>
+        <char text="&#38;"/>
+        <char text="&#38;" add="op" addtext="and"/>
+      </sequence>
+      <sequence>
+        <char text="&#60;"/>
+        <char text="&#60;" skip="0" add="op" addtext="shl"/>
+      </sequence>
+      <sequence>
+        <char text="&#62;"/>
+        <char text="&#62;" skip="0" add="op" addtext="shr"/>
+      </sequence>
+    </switch>
+  </mulop>
+
+  <!--    Designator -> ['&'] Ident ['.' Ident | ('[' ExprList ']')... | '(' [ExprList] ')']...  -->
+
+  <designator node="dsgn">
+    <optional>
+      <char text="&#38;" add="addr"/>
+    </optional>
+    <ident add="node"/>
+    <optionalloop>
+      <switch>
+        <sequence>
+          <char text="."/>
+          <ident add="node"/>
+        </sequence>
+        <sequence>
+          <char text="[" add="node"/>
+          <exprlist err="err2"/>
+          <char text="]" err="err8"/>
+          <optionalloop>
+            <char text="["/>
+            <exprlist err="err2"/>
+            <char text="]" err="err8"/>
+          </optionalloop>
+        </sequence>
+        <sequence>
+          <char text="("/>
+          <optional>
+            <exprlist/>
+          </optional>
+          <char text=")" err="err7"/>
+        </sequence>
+      </switch>
+    </optionalloop>
+  </designator>
+
+  <!--    ExprList -> Expression/','...  -->
+
+  <exprlist>
+    <loop text=",">
+      <expression/>
+    </loop>
+  </exprlist>
+
+  <!--    Statement -> [SimpleStatement ';' | StructStmt | EmptyStmt]  -->
+
+  <statement>
+    <optionalswitch>
+      <sequence>
+        <simplestatement/>
+        <char text=";" err="err5"/>
+      </sequence>
+      <structstmt/>
+      <emptystmt/> 
+    </optionalswitch>
+  </statement>
+
+  <!--    EmptyStmt -> ';'  -->
+
+  <emptystmt node="empty">
+    <char text=";"/>
+  </emptystmt>
+
+  <!--    StmtList -> (Statement...)  -->
+
+  <stmtlist>
+    <loop>
+      <statement/>
+    </loop>
+  </stmtlist>
+
+  <!--    SimpleStatement -> DeleteStmt                  -->
+  <!--                    -> VarStmt                     -->
+  <!--                    -> ReturnStmt                  -->
+  <!--                    -> (BREAK | CONTINUE | EXIT)   -->
+  <!--                    -> AssignStmt                  -->
+  <!--                    -> CallStmt                    -->
+
+  <simplestatement>
+    <switch>
+      <deletestmt/>
+      <varstmt/>
+      <returnstmt/>
+      <keyword text="BREAK" node="break"/>
+      <keyword text="CONTINUE" node="continue"/>
+      <keyword text="EXIT" node="exit"/>
+      <assignstmt/>
+      <callstmt/>
+    </switch>
+  </simplestatement>
+
+  <!--    DeleteStmt -> DELETE Designator  -->
+
+  <deletestmt node="delete">
+    <keyword text="DELETE"/>
+    <designator err="err2"/>
+  </deletestmt>
+
+  <!--    AssignStmt -> Designator ['+'|'-'|'*'|'/']'=' Expression  -->
+
+  <assignstmt node="assignstmt">
+    <designator/>
+    <switch>
+      <sequence>
+        <char text="+" opt="1" add="modificator"/>
+        <char text="=" skip="0"/>
+      </sequence>
+      <sequence>
+        <char text="-" opt="1" add="modificator"/>
+        <char text="=" skip="0"/>
+      </sequence>
+      <sequence>
+        <char text="*" opt="1" add="modificator"/>
+        <char text="=" skip="0"/>
+      </sequence>
+      <sequence>
+        <char text="/" opt="1" add="modificator"/>
+        <char text="=" skip="0"/>
+      </sequence>
+      <char text="="/>
+    </switch>
+    <expression err="err2"/>
+  </assignstmt>
+
+  <!--    CallStmt -> Designator ['+''+'|'-''-']  -->
+
+  <callstmt node="callstmt">
+    <designator/>
+    <optionalswitch>
+      <sequence>
+        <char text="+"/>
+        <char text="+" skip="0" add="modificator"/>
+      </sequence>
+      <sequence>
+        <char text="-"/>
+        <char text="-" skip="0" add="modificator"/>
+      </sequence>
+    </optionalswitch>
+  </callstmt>
+
+  <!--    ReturnStmt -> RETURN [Expression]  -->
+
+  <returnstmt node="return">
+    <keyword text="RETURN"/>
+    <optional>
+      <expression/>
+    </optional>
+  </returnstmt>
+
+  <!--    StructStmt -> CompoundStmt        -->
+  <!--               -> ConditionalStmt     -->
+  <!--               -> LoopStmt            -->
+  <!--               -> TryStmt             -->
+
+  <structstmt>
+    <switch>
+      <compoundstmt/>
+      <conditionalstmt/>
+      <loopstmt/>
+      <trystmt/>
+    </switch>
+  </structstmt>
+
+  <!--    CompoundStmt -> '{' [StmtList] '}'   -->
+
+  <compoundstmt node="compoundstmt">
+    <char text="{"/>
+    <optional>
+      <stmtlist/>
+    </optional>
+    <char text="}" err="err11"/>
+  </compoundstmt>
+
+  <!--    ConditionalStmt -> IfStmt     -->
+  <!--                    -> CaseStmt   -->
+
+  <conditionalstmt>
+    <switch>
+      <ifstmt/>
+      <casestmt/>
+    </switch>
+  </conditionalstmt>
+
+  <!--    IfStmt -> IF '(' Expression ')' Statement [ELSE Statement]  -->
+
+  <ifstmt node="ifstmt">
+    <keyword text="IF"/>
+    <char text="(" err="err12"/>
+    <expression err="err2"/>
+    <char text=")" err="err7"/>
+    <statement node="thenstmt"/>
+    <optional>
+      <keyword text="ELSE"/>
+      <statement node="elsestmt"/>
+    </optional>
+  </ifstmt>
+
+  <!--    CaseStmt -> SWITCH '(' Expression ')' '{' (CaseSelector)... [DEFAULT ':' Statement] '}'  -->
+
+  <casestmt node="casestmt">
+    <keyword text="SWITCH"/>
+    <char text="(" err="err12"/>
+    <expression err="err2"/>
+    <char text=")" err="err7"/>
+    <char text="{" err="err10"/>
+    <loop>
+      <caseselector/>
+    </loop>
+    <optional>
+      <keyword text="DEFAULT"/>
+      <char text=":" err="err4"/>
+      <statement/>
+    </optional>
+    <char text="}" err="err11"/>
+  </casestmt>
+
+  <!--    CaseSelector -> CASE SetConstructor ':' Statement -->
+
+  <caseselector node="caseselector">
+    <keyword text="CASE"/>
+    <setconstructor err="err2"/>
+    <char text=":" err="err4"/>
+    <statement/>
+  </caseselector>
+
+  <!--    LoopStmt -> RepeatStmt  -->
+  <!--             -> WhileStmt   -->
+  <!--             -> ForStmt     -->
+
+  <loopstmt>
+    <switch>
+      <repeatstmt/>
+      <whilestmt/>
+      <forstmt/>
+    </switch>
+  </loopstmt>
+
+  <!--    RepeatStmt -> DO Statement [';'] WHILE '(' Expression ')' ';'  -->
+
+  <repeatstmt node="repeatstmt">
+    <keyword text="DO"/>
+    <statement/>
+    <optional>
+      <char text=";"/>
+    </optional>
+    <keyword text="WHILE" err="err14"/>
+    <char text="(" err="err12"/>
+    <expression err="err2"/>
+    <!-- emit inverse condition -->
+    <empty add="inverse"/>
+    <char text=")" err="err7"/>
+    <char text=";" err="err5"/>
+  </repeatstmt>
+
+  <!--    WhileStmt -> WHILE '(' Expression ')' Statement  -->
+
+  <whilestmt node="whilestmt">
+    <keyword text="WHILE"/>
+    <char text="(" err="err12"/>
+    <expression err="err2"/>
+    <char text=")" err="err7"/>
+    <statement/>
+  </whilestmt>
+
+  <!--    ForStmt -> FOR '(' ForCompoundStmt ';' Expression ';' ForCompoundStmt ')' Statement  -->
+
+  <forstmt node="cppforstmt">
+    <keyword text="FOR"/>
+    <char text="(" err="err12"/>
+    <forcompoundstmt/>
+    <char text=";" err="err5"/>
+    <expression err="err2"/>
+    <char text=";" err="err5"/>
+    <forcompoundstmt/>
+    <char text=")" err="err7"/>
+    <statement/>
+  </forstmt>
+
+  <!--    ForCompoundStmt -> (ForStmtItem/,)...  -->
+
+  <forcompoundstmt node="compoundstmt">
+    <loop text=",">
+      <forstmtitem/>
+    </loop>
+  </forcompoundstmt>
+
+  <!--    ForStmtItem -> AssignStmt  -->
+  <!--                -> VarStmt     -->
+  <!--                -> CallStmt    -->
+  <!--                -> Empty       -->
+
+  <forstmtitem>
+    <switch>
+      <assignstmt/>
+      <varstmt/>
+      <callstmt/>
+      <empty node="empty"/>
+    </switch>
+  </forstmtitem>
+
+  <!--    TryStmt -> TRY CompoundStmt (FINALLY | EXCEPT) CompoundStmt  -->
+
+  <trystmt node="trystmt">
+    <keyword text="TRY"/>
+    <compoundstmt/>
+    <switch err="err17">
+      <sequence>
+        <keyword text="FINALLY"/>
+        <compoundstmt node="finallystmt"/>
+      </sequence>
+      <sequence>
+        <keyword text="EXCEPT"/>
+        <compoundstmt node="exceptstmt"/>
+      </sequence>
+    </switch>
+  </trystmt>
+
+  <!--    FunctionDecl -> FunctionHeading CompoundStmt  -->
+
+  <functiondecl node="function">
+    <functionheading/>
+    <compoundstmt/>
+  </functiondecl>
+
+  <!--    FunctionHeading -> Ident Ident FormalParameters  -->
+
+  <functionheading>
+    <ident add="type"/>
+    <ident add="name"/>
+    <formalparameters/>
+  </functionheading>
+
+  <!--    FormalParameters -> '(' [FormalParam/','...] ')'  -->
+
+  <formalparameters node="parameters">
+    <char text="("/>
+    <optionalloop text=",">
+      <formalparam/>
+    </optionalloop>
+    <char text=")" err="err7"/>
+  </formalparameters>
+
+  <!--    FormalParam -> TypeIdent ['&'] Ident [InitValue]  -->
+
+  <formalparam node="var">
+    <ident add="type"/>
+    <optional>
+      <char text="&#38;" add="varparam"/>
+    </optional>
+    <ident add="ident" err="err1"/>
+    <optional>
+      <initvalue/>
+    </optional>
+  </formalparam>
+
+</language>

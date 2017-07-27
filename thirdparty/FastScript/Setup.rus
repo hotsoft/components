@@ -1,0 +1,218 @@
+            Ручная установка и компиляция пакетов FastScript
+
+     Установка включает в себя два этапа: установка библиотеки компонент и
+подключение файла справки к справочной системе.
+
+   FastScript поставляется в исходных текстах. В ограниченной версии есть
+два скомпилированных модуля - fs_iinterpreter.dcu и fs_iilparser.dcu (
+fs_iinterpreter.obj и fs_iilparser.obj для C++Builder). Версии этого 
+модуля для Delphi 4-7 & C++Builder 4-6 содержатся в каталогах 
+Delphi4...Delphi7, C++Builder4..C++Builder7. Перед установкой компонента 
+скопируйте нужную версию модуля в каталог ..\FastScript\Source.
+
+1.1. Delphi 4.0.
+   Скопируйте модули fs_iinterpreter.dcu и fs_iilparser.dcu из каталога 
+..\FastScript\Delphi4 в каталог ..\FastScript\Source (если у Вас ограниченная 
+версия).
+   Загрузите Delphi 4.
+   Выберите пункт меню "File/Close all".
+   С помощью команды меню "Tools/Environment options..." откройте диалог
+с настройками среды и на закладке "Library" добавьте путь к каталогу
+..\FastScript\Source в строке редактирования "Library path".
+   Выберите пункт меню "File/Open...", и откройте пакет (package) fs4.dpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопку "Compile". Выберите пункт меню "File/Close all". 
+На вопрос о сохраненнии файла ответьте отрицательно.
+   Выберите пункт меню "File/Open...", и откройте пакет (package) dclfs4.dpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопку "Compile". После компиляции пакета нажмите кнопку "Install".
+Скопируйте файл fs4.bpl из каталога ..\FastScript\Source в каталог 
+Windows\System32 (для Windows 95/98 в каталог Windows\System).
+ПОСЛЕ УСТАНОВКИ ОБЯЗАТЕЛЬНО ПЕРЕГРУЗИТЕ DELPHI!
+   Для подключения к справочной системе Delphi файла помощи необходимо:
+- скопировать файлы из каталога ..\FastScript\Help в каталог ..\Delphi4\Help;
+- в файле ..\Delphi4\Help\Delphi4.cnt добавить нижеприведенные строки:
+:Index FastScript Reference=fs.hlp
+:Link fs.hlp
+
+
+1.2. Delphi 5.0.
+   Скопируйте модули fs_iinterpreter.dcu и fs_iilparser.dcu из каталога 
+..\FastScript\Delphi5 в каталог ..\FastScript\Source (если у Вас ограниченная 
+версия).
+   Загрузите Delphi 5.
+   Выберите пункт меню "File/Close all".
+   С помощью команды меню "Tools/Environment options..." откройте диалог
+с настройками среды и на закладке "Library" добавьте путь к каталогу
+..\FastScript\Source в строке редактирования "Library path".
+   Выберите пункт меню "File/Open...", и откройте пакет (package) fs5.dpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопку "Compile". Выберите пункт меню "File/Close all". 
+На вопрос о сохраненнии файла ответьте отрицательно.
+   Выберите пункт меню "File/Open...", и откройте пакет (package) dclfs5.dpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопку "Compile". После компиляции пакета нажмите кнопку "Install".
+ПОСЛЕ УСТАНОВКИ ОБЯЗАТЕЛЬНО ПЕРЕГРУЗИТЕ DELPHI!
+   Для подключения к справочной системе Delphi файла помощи необходимо:
+- скопировать файлы из каталога ..\FastScript\Help в каталог ..\Delphi5\Help;
+- в файле ..\Delphi5\Help\Delphi5.cnt добавить нижеприведенные строки:
+:Index FastScript Reference=fs.hlp
+:Link fs.hlp
+
+1.2. Delphi 6.0.
+   Скопируйте модули fs_iinterpreter.dcu и fs_iilparser.dcu из каталога 
+..\FastScript\Delphi6 в каталог ..\FastScript\Source (если у Вас ограниченная 
+версия).
+   Загрузите Delphi 6.
+   Выберите пункт меню "File/Close all".
+   С помощью команды меню "Tools/Environment options..." откройте диалог
+с настройками среды и на закладке "Library" добавьте путь к каталогу
+..\FastScript\Source в строке редактирования "Library path".
+   Выберите пункт меню "File/Open...", и откройте пакет (package) fs6.dpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопку "Compile". Выберите пункт меню "File/Close all". 
+На вопрос о сохраненнии файла ответьте отрицательно.
+   Выберите пункт меню "File/Open...", и откройте пакет (package) dclfs6.dpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопку "Compile". После компиляции пакета нажмите кнопку "Install".
+ПОСЛЕ УСТАНОВКИ ОБЯЗАТЕЛЬНО ПЕРЕГРУЗИТЕ DELPHI!
+   Для подключения к справочной системе Delphi файла помощи необходимо:
+- скопировать файлы из каталога ..\FastScript\Help в каталог ..\Delphi6\Help;
+- в файле ..\Delphi6\Help\Delphi6.cnt добавить нижеприведенные строки:
+:Index FastScript Reference=fs.hlp
+:Link fs.hlp
+
+1.3. Delphi 7.0.
+   Скопируйте модули fs_iinterpreter.dcu и fs_iilparser.dcu из каталога 
+..\FastScript\Delphi7 в каталог ..\FastScript\Source (если у Вас ограниченная 
+версия).
+   Загрузите Delphi 7.
+   Выберите пункт меню "File/Close all".
+   С помощью команды меню "Tools/Environment options..." откройте диалог
+с настройками среды и на закладке "Library" добавьте путь к каталогу
+..\FastScript\Source в строке редактирования "Library path".
+   Выберите пункт меню "File/Open...", и откройте пакет (package) fs7.dpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопку "Compile". Выберите пункт меню "File/Close all". 
+На вопрос о сохраненнии файла ответьте отрицательно.
+   Выберите пункт меню "File/Open...", и откройте пакет (package) dclfs7.dpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопку "Compile". После компиляции пакета нажмите кнопку "Install".
+ПОСЛЕ УСТАНОВКИ ОБЯЗАТЕЛЬНО ПЕРЕГРУЗИТЕ DELPHI!
+   Для подключения к справочной системе Delphi файла помощи необходимо:
+- скопировать файлы из каталога ..\FastScript\Help в каталог ..\Delphi7\Help;
+- в файле ..\Delphi7\Help\Delphi7.cnt добавить нижеприведенные строки:
+:Index FastScript Reference=fs.hlp
+:Link fs.hlp
+
+1.4. C++Builder 4.0
+   Скопируйте модули fs_iinterpreter.dcu, fs_iilparser.dcu, fs_iinterpreter.hpp, 
+fs_iilparser.hpp, fs_iinterpreter.obj, fs_iilparser.obj из каталога
+..\FastScript\C++Builder4 в каталог ..\FastScript\Source (если у Вас ограниченная 
+версия).
+   Загрузите C++Builder 4.
+   Выберите пункт меню "File/Close all".
+   С помощью команды меню "Tools/Environment options..." откройте диалог
+с настройками среды и на закладке "Library" добавьте путь к каталогу
+..\FastScript\Source в строке редактирования "Library path".
+   Выберите пункт меню "File/Open...", и откройте пакет (package) fs4.bpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопки "Compile" и "Install". Выберите пункт меню "File/Close all". 
+На вопрос о сохраненнии файла ответьте отрицательно.
+ПОСЛЕ УСТАНОВКИ ОБЯЗАТЕЛЬНО ПЕРЕГРУЗИТЕ C++BUILDER!
+   Для подключения к справочной системе Delphi файла помощи необходимо:
+- скопировать файлы из каталога ..\FastScript\Help в каталог ..\CBuilder4\Help;
+- в файле ..\CBuilder4\Help\bcb4.cnt добавить нижеприведенные строки:
+:Index FastScript Reference=fs.hlp
+:Link fs.hlp
+
+1.5. C++Builder 5.0
+   Скопируйте модули fs_iinterpreter.dcu, fs_iilparser.dcu, fs_iinterpreter.hpp, 
+fs_iilparser.hpp, fs_iinterpreter.obj, fs_iilparser.obj из каталога
+..\FastScript\C++Builder5 в каталог ..\FastScript\Source (если у Вас ограниченная 
+версия).
+   Загрузите C++Builder 5.
+   Выберите пункт меню "File/Close all".
+   С помощью команды меню "Tools/Environment options..." откройте диалог
+с настройками среды и на закладке "Library" добавьте путь к каталогу
+..\FastScript\Source в строке редактирования "Library path".
+   Выберите пункт меню "File/Open...", и откройте пакет (package) fs5.bpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопки "Compile" и "Install". Выберите пункт меню "File/Close all". 
+На вопрос о сохраненнии файла ответьте отрицательно.
+ПОСЛЕ УСТАНОВКИ ОБЯЗАТЕЛЬНО ПЕРЕГРУЗИТЕ C++BUILDER!
+   Для подключения к справочной системе Delphi файла помощи необходимо:
+- скопировать файлы из каталога ..\FastScript\Help в каталог ..\CBuilder5\Help;
+- в файле ..\CBuilder5\Help\bcb5.cnt добавить нижеприведенные строки:
+:Index FastScript Reference=fs.hlp
+:Link fs.hlp
+
+1.6. C++Builder 6.0
+   Скопируйте модули fs_iinterpreter.dcu, fs_iilparser.dcu, fs_iinterpreter.hpp, 
+fs_iilparser.hpp, fs_iinterpreter.obj, fs_iilparser.obj из каталога
+..\FastScript\C++Builder6 в каталог ..\FastScript\Source (если у Вас ограниченная 
+версия).
+   Загрузите C++Builder 6.
+   Выберите пункт меню "File/Close all".
+   С помощью команды меню "Tools/Environment options..." откройте диалог
+с настройками среды и на закладке "Library" добавьте путь к каталогу
+..\FastScript\Source в строке редактирования "Library path".
+   Выберите пункт меню "File/Open...", и откройте пакет (package) fs6.bpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопки "Compile" и "Install". Выберите пункт меню "File/Close all". 
+На вопрос о сохраненнии файла ответьте отрицательно.
+ПОСЛЕ УСТАНОВКИ ОБЯЗАТЕЛЬНО ПЕРЕГРУЗИТЕ C++BUILDER!
+   Для подключения к справочной системе Delphi файла помощи необходимо:
+- скопировать файлы из каталога ..\FastScript\Help в каталог ..\CBuilder6\Help;
+- в файле ..\CBuilder6\Help\bcb6.cnt добавить нижеприведенные строки:
+:Index FastScript Reference=fs.hlp
+:Link fs.hlp
+
+1.7. Delphi 6 CLX
+   Скопируйте модули fs_iinterpreter.dcu и fs_iilparser.dcu из каталога 
+..\FastScript\CLX\Delphi6 в каталог ..\FastScript\Source (если у Вас ограниченная 
+версия).
+   Скопируйте файл ..\FastScript\CLX\fs.inc в каталог ..\FastScript\Source.
+   Загрузите Delphi 6.
+   Выберите пункт меню "File/Close all".
+   С помощью команды меню "Tools/Environment options..." откройте диалог
+с настройками среды и на закладке "Library" добавьте путь к каталогу
+..\FastScript\Source в строке редактирования "Library path".
+   Выберите пункт меню "File/Open...", и откройте пакет (package) fsx.dpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопку "Compile". Выберите пункт меню "File/Close all". 
+На вопрос о сохраненнии файла ответьте отрицательно.
+   Выберите пункт меню "File/Open...", и откройте пакет (package) dclfsx.dpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопку "Compile". После компиляции пакета нажмите кнопку "Install".
+ПОСЛЕ УСТАНОВКИ ОБЯЗАТЕЛЬНО ПЕРЕГРУЗИТЕ DELPHI!
+   Для подключения к справочной системе Delphi файла помощи необходимо:
+- скопировать файлы из каталога ..\FastScript\Help в каталог ..\Delphi6\Help;
+- в файле ..\Delphi6\Help\Delphi6.cnt добавить нижеприведенные строки:
+:Index FastScript Reference=fs.hlp
+:Link fs.hlp
+
+1.7. Delphi 7 CLX
+   Скопируйте модули fs_iinterpreter.dcu и fs_iilparser.dcu из каталога 
+..\FastScript\CLX\Delphi7 в каталог ..\FastScript\Source (если у Вас ограниченная 
+версия).
+   Скопируйте файл ..\FastScript\CLX\fs.inc в каталог ..\FastScript\Source.
+   Загрузите Delphi 7.
+   Выберите пункт меню "File/Close all".
+   С помощью команды меню "Tools/Environment options..." откройте диалог
+с настройками среды и на закладке "Library" добавьте путь к каталогу
+..\FastScript\Source в строке редактирования "Library path".
+   Выберите пункт меню "File/Open...", и откройте пакет (package) fsx.dpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопку "Compile". Выберите пункт меню "File/Close all". 
+На вопрос о сохраненнии файла ответьте отрицательно.
+   Выберите пункт меню "File/Open...", и откройте пакет (package) dclfsx.dpk
+из каталога ..\FastScript\Source. В появившемся окне "Package - ..." нажмите
+кнопку "Compile". После компиляции пакета нажмите кнопку "Install".
+ПОСЛЕ УСТАНОВКИ ОБЯЗАТЕЛЬНО ПЕРЕГРУЗИТЕ DELPHI!
+   Для подключения к справочной системе Delphi файла помощи необходимо:
+- скопировать файлы из каталога ..\FastScript\Help в каталог ..\Delphi7\Help;
+- в файле ..\Delphi7\Help\Delphi7.cnt добавить нижеприведенные строки:
+:Index FastScript Reference=fs.hlp
+:Link fs.hlp
+

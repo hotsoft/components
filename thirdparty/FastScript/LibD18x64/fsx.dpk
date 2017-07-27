@@ -1,0 +1,76 @@
+// Package file for CLX
+
+package fsx;
+
+{$I fs.inc}
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+{$IFDEF LINUX}
+  rtl,
+  visualclx,
+  visualdbclx,
+  vcl;
+{$ELSE}
+  rtl,
+  dbrtl,
+  visualclx,
+  visualdbclx,
+  ibxpress,
+  vcl,
+  vclx,
+  vcldb;
+{$ENDIF}
+
+contains
+  fs_ipascal in 'fs_ipascal.pas',
+  fs_icpp in 'fs_icpp.pas',
+  fs_ijs in 'fs_ijs.pas',
+  fs_ibasic in 'fs_ibasic.pas',
+
+  fs_iclassesrtti in 'fs_iclassesrtti.pas',
+  fs_iconst in 'fs_iconst.pas',
+  fs_idbctrlsrtti in 'fs_idbctrlsrtti.pas',
+  fs_idbrtti in 'fs_idbrtti.pas',
+  fs_idialogsrtti in 'fs_idialogsrtti.pas',
+  fs_ievents in 'fs_ievents.pas',
+  fs_iexpression in 'fs_iexpression.pas',
+  fs_iextctrlsrtti in 'fs_iextctrlsrtti.pas',
+  fs_iformsrtti in 'fs_iformsrtti.pas',
+  fs_igraphicsrtti in 'fs_igraphicsrtti.pas',
+{$IFNDEF LINUX}
+  fs_iibxrtti in 'fs_iibxrtti.pas',
+{$ENDIF}
+  fs_iilparser in 'fs_iilparser.pas',
+  fs_iinterpreter in 'fs_iinterpreter.pas',
+  fs_iparser in 'fs_iparser.pas',
+  fs_isysrtti in 'fs_isysrtti.pas',
+  fs_itools in 'fs_itools.pas',
+  fs_xml in 'fs_xml.pas',
+  fs_tree in 'fs_tree.pas';
+
+end.
