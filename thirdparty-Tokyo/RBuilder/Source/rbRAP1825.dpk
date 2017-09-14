@@ -1,0 +1,54 @@
+package rbRAP1825;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS OFF}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'ReportBuilder RAP Runtime'}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  rbRCL1825;
+
+contains
+  raValue in 'raValue.pas',
+  raClsVal in 'raClsVal.pas',
+  raCodMod in 'raCodMod.pas',
+  raComm in 'raComm.pas',
+  raEvent in 'raEvent.pas',
+  raExpr in 'raExpr.pas',
+  raFunc in 'raFunc.pas',
+  raLngInf in 'raLngInf.pas',
+  raParser in 'raParser.pas',
+  raRelatv in 'raRelatv.pas',
+  raStatem in 'raStatem.pas',
+  raTypes in 'raTypes.pas',
+  raClass in 'raClass.pas',
+  raClsMan in 'raClsMan.pas',
+  raObjectRTTI in 'raObjectRTTI.pas',
+  raConst in 'raConst.pas';
+
+end.

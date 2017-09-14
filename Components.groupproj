@@ -1,0 +1,132 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{3FC8294C-9FE8-49B9-9FF0-C33C59C18002}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="thirdparty-Tokyo\Abbrevia\packages\Delphi XE4\Abbrevia.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="thirdparty-Tokyo\Abbrevia\packages\Delphi XE4\AbbreviaVCL.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="thirdparty-Tokyo\Abbrevia\packages\Delphi XE4\AbbreviaVCLDesign.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="thirdparty-Tokyo\SynEdit\Packages\102T\SynEdit_R.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="thirdparty-Tokyo\SynEdit\Packages\102T\SynEdit_D.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Acras\acControls.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="os3\dbdualtree\dbdltree.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="os3\osserversql\osServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="os3\oscontrols\osControls.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Abbrevia">
+        <MSBuild Projects="thirdparty-Tokyo\Abbrevia\packages\Delphi XE4\Abbrevia.dproj"/>
+    </Target>
+    <Target Name="Abbrevia:Clean">
+        <MSBuild Projects="thirdparty-Tokyo\Abbrevia\packages\Delphi XE4\Abbrevia.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Abbrevia:Make">
+        <MSBuild Projects="thirdparty-Tokyo\Abbrevia\packages\Delphi XE4\Abbrevia.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="AbbreviaVCL">
+        <MSBuild Projects="thirdparty-Tokyo\Abbrevia\packages\Delphi XE4\AbbreviaVCL.dproj"/>
+    </Target>
+    <Target Name="AbbreviaVCL:Clean">
+        <MSBuild Projects="thirdparty-Tokyo\Abbrevia\packages\Delphi XE4\AbbreviaVCL.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AbbreviaVCL:Make">
+        <MSBuild Projects="thirdparty-Tokyo\Abbrevia\packages\Delphi XE4\AbbreviaVCL.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="AbbreviaVCLDesign">
+        <MSBuild Projects="thirdparty-Tokyo\Abbrevia\packages\Delphi XE4\AbbreviaVCLDesign.dproj"/>
+    </Target>
+    <Target Name="AbbreviaVCLDesign:Clean">
+        <MSBuild Projects="thirdparty-Tokyo\Abbrevia\packages\Delphi XE4\AbbreviaVCLDesign.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AbbreviaVCLDesign:Make">
+        <MSBuild Projects="thirdparty-Tokyo\Abbrevia\packages\Delphi XE4\AbbreviaVCLDesign.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SynEdit_R">
+        <MSBuild Projects="thirdparty-Tokyo\SynEdit\Packages\102T\SynEdit_R.dproj"/>
+    </Target>
+    <Target Name="SynEdit_R:Clean">
+        <MSBuild Projects="thirdparty-Tokyo\SynEdit\Packages\102T\SynEdit_R.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SynEdit_R:Make">
+        <MSBuild Projects="thirdparty-Tokyo\SynEdit\Packages\102T\SynEdit_R.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SynEdit_D">
+        <MSBuild Projects="thirdparty-Tokyo\SynEdit\Packages\102T\SynEdit_D.dproj"/>
+    </Target>
+    <Target Name="SynEdit_D:Clean">
+        <MSBuild Projects="thirdparty-Tokyo\SynEdit\Packages\102T\SynEdit_D.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SynEdit_D:Make">
+        <MSBuild Projects="thirdparty-Tokyo\SynEdit\Packages\102T\SynEdit_D.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="acControls">
+        <MSBuild Projects="Acras\acControls.dproj"/>
+    </Target>
+    <Target Name="acControls:Clean">
+        <MSBuild Projects="Acras\acControls.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="acControls:Make">
+        <MSBuild Projects="Acras\acControls.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dbdltree">
+        <MSBuild Projects="os3\dbdualtree\dbdltree.dproj"/>
+    </Target>
+    <Target Name="dbdltree:Clean">
+        <MSBuild Projects="os3\dbdualtree\dbdltree.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dbdltree:Make">
+        <MSBuild Projects="os3\dbdualtree\dbdltree.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="osServer">
+        <MSBuild Projects="os3\osserversql\osServer.dproj"/>
+    </Target>
+    <Target Name="osServer:Clean">
+        <MSBuild Projects="os3\osserversql\osServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="osServer:Make">
+        <MSBuild Projects="os3\osserversql\osServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="osControls">
+        <MSBuild Projects="os3\oscontrols\osControls.dproj"/>
+    </Target>
+    <Target Name="osControls:Clean">
+        <MSBuild Projects="os3\oscontrols\osControls.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="osControls:Make">
+        <MSBuild Projects="os3\oscontrols\osControls.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Abbrevia;AbbreviaVCL;AbbreviaVCLDesign;SynEdit_R;SynEdit_D;acControls;dbdltree;osServer;osControls"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Abbrevia:Clean;AbbreviaVCL:Clean;AbbreviaVCLDesign:Clean;SynEdit_R:Clean;SynEdit_D:Clean;acControls:Clean;dbdltree:Clean;osServer:Clean;osControls:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Abbrevia:Make;AbbreviaVCL:Make;AbbreviaVCLDesign:Make;SynEdit_R:Make;SynEdit_D:Make;acControls:Make;dbdltree:Make;osServer:Make;osControls:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

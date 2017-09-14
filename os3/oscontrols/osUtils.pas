@@ -3,7 +3,7 @@ unit osUtils;
 interface
 
 uses
-  sysutils, classes, dbtables, typinfo, contnrs, forms, db;
+  sysutils, classes, typinfo, contnrs, forms, db;
 
 type
   // Restrições a usuario

@@ -1,0 +1,16 @@
+Query
+ANSWER: :PRIV:ANSWER.DB
+
+INDUSTRY.DB | IND_CODE | IND_NAME | 
+            | _join1   | Check    | 
+
+MASTER.DB | SYMBOL | CO_NAME | EXCHANGE | CUR_PRICE | YRL_HIGH | YRL_LOW | 
+          | Check  | Check   | Check    | Check     | Check    | Check   | 
+
+MASTER.DB | P_E_RATIO | BETA   | PROJ_GRTH | INDUSTRY     | PRICE_CHG | 
+          | Check     | Check  | Check     | Check _join1 | Check     | 
+
+MASTER.DB | SAFETY | RATING | RANK   | OUTLOOK | RCMNDATION | RISK   | 
+          | Check  | Check  | Check  | Check   | Check      | Check  | 
+
+EndQuery

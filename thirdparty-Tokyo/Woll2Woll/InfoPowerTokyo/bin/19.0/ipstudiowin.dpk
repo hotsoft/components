@@ -1,0 +1,106 @@
+package ipstudiowin;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS OFF}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'Woll2Woll InfoPower VCL for Delphi Tokyo'}
+{$LIBSUFFIX '250'}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  VCL,
+  VCLX,
+  VCLDB,
+  VCLACTNBAND;
+
+contains
+  vcl.wwdbgrid in '..\..\source\windows\vcl.wwdbgrid.pas',
+  vcl.Wwmemo in '..\..\source\windows\vcl.Wwmemo.pas',
+  vcl.wwdblook in '..\..\source\windows\vcl.wwdblook.pas',
+  vcl.wwIDlg in '..\..\source\windows\vcl.wwIDlg.pas',
+  vcl.wwdbdlg in '..\..\source\windows\vcl.wwdbdlg.pas',
+  vcl.Wwkeycb in '..\..\source\windows\vcl.Wwkeycb.pas',
+  vcl.Wwdotdot in '..\..\source\windows\vcl.Wwdotdot.pas',
+  vcl.wwdatsrc in '..\..\source\windows\vcl.wwdatsrc.pas',
+  vcl.wwlocate in '..\..\source\windows\vcl.wwlocate.pas',
+  vcl.Wwdbcomb in '..\..\source\windows\vcl.Wwdbcomb.pas',
+  vcl.Wwdbspin in '..\..\source\windows\vcl.Wwdbspin.pas',
+  vcl.Wwdbedit in '..\..\source\windows\vcl.Wwdbedit.pas',
+  vcl.Wwfltdlg in '..\..\source\windows\vcl.Wwfltdlg.pas',
+  vcl.wwintl in '..\..\source\windows\vcl.wwintl.pas',
+  vcl.wwriched in '..\..\source\windows\vcl.wwriched.pas',
+  vcl.Wwrcdvw in '..\..\source\windows\vcl.Wwrcdvw.pas',
+  vcl.Wwrich in '..\..\source\windows\vcl.Wwrich.pas',
+  vcl.Wwrichtb in '..\..\source\windows\vcl.Wwrichtb.pas',
+  vcl.wwrchdlg in '..\..\source\windows\vcl.wwrchdlg.pas',
+  vcl.wwfltvw in '..\..\source\windows\vcl.wwfltvw.pas',
+  vcl.Wwfltdum in '..\..\source\windows\vcl.Wwfltdum.pas',
+  vcl.wwspin in '..\..\source\windows\vcl.wwspin.pas',
+  vcl.Wwcommon in '..\..\source\windows\vcl.Wwcommon.pas',
+  vcl.wwpict in '..\..\source\windows\vcl.wwpict.pas',
+  vcl.Wwsystem in '..\..\source\windows\vcl.Wwsystem.pas',
+  vcl.Wwstacks in '..\..\source\windows\vcl.Wwstacks.pas',
+  vcl.Wwstr in '..\..\source\windows\vcl.Wwstr.pas',
+  vcl.wwtypes in '..\..\source\windows\vcl.wwtypes.pas',
+  vcl.wwrcdpnl in '..\..\source\windows\vcl.wwrcdpnl.pas',
+  vcl.wwDialog in '..\..\source\windows\vcl.wwDialog.pas',
+  vcl.wwdbnavigator in '..\..\source\windows\vcl.wwdbnavigator.pas',
+  vcl.Wwdbdatetimepicker in '..\..\source\windows\vcl.Wwdbdatetimepicker.pas',
+  vcl.wwmonthcalendar in '..\..\source\windows\vcl.wwmonthcalendar.pas',
+  vcl.wwspeedbutton in '..\..\source\windows\vcl.wwspeedbutton.pas',
+  vcl.wwricholecallback in '..\..\source\windows\vcl.wwricholecallback.pas',
+  vcl.Wwtrackicon in '..\..\source\windows\vcl.Wwtrackicon.pas',
+  vcl.wwrichole in '..\..\source\windows\vcl.wwrichole.pas',
+  vcl.wwcollection in '..\..\source\windows\vcl.wwcollection.pas',
+  vcl.Wwdatainspector in '..\..\source\windows\vcl.Wwdatainspector.pas',
+  vcl.wwframe in '..\..\source\windows\vcl.wwframe.pas',
+  vcl.wwclearpanel in '..\..\source\windows\vcl.wwclearpanel.pas',
+  vcl.wwcheckbox in '..\..\source\windows\vcl.wwcheckbox.pas',
+  vcl.wwradiobutton in '..\..\source\windows\vcl.wwradiobutton.pas',
+  vcl.Wwbitmap in '..\..\source\windows\vcl.Wwbitmap.pas',
+  vcl.wwchangelink in '..\..\source\windows\vcl.wwchangelink.pas',
+  vcl.wwhistorylist in '..\..\source\windows\vcl.wwhistorylist.pas',
+  vcl.wwrichobjinfo in '..\..\source\windows\vcl.wwrichobjinfo.pas',
+  vcl.wwradiogroup in '..\..\source\windows\vcl.wwradiogroup.pas',
+  vcl.wwpaintoptions in '..\..\source\windows\vcl.wwpaintoptions.pas',
+  vcl.wwclearbuttongroup in '..\..\source\windows\vcl.wwclearbuttongroup.pas',
+  vcl.Wwexport in '..\..\source\windows\vcl.Wwexport.pas',
+  vcl.wwrtfconverter in '..\..\source\windows\vcl.wwrtfconverter.pas',
+  vcl.wwcombobutton in '..\..\source\windows\vcl.wwcombobutton.pas',
+  vcl.wwricheditbar in '..\..\source\windows\vcl.wwricheditbar.pas',
+  vcl.wwrtfprintpreview in '..\..\source\windows\vcl.wwrtfprintpreview.pas',
+  vcl.wwimagecombo in '..\..\source\windows\vcl.wwimagecombo.pas',
+  vcl.wwgridfilter in '..\..\source\windows\vcl.wwgridfilter.pas',
+  vcl.wwinputstring in '..\..\source\windows\vcl.wwinputstring.pas',
+  vcl.wwinputstring2 in '..\..\source\windows\vcl.wwinputstring2.pas',
+  vcl.wwgridselectcolumns in '..\..\source\windows\vcl.wwgridselectcolumns.pas',
+  vcl.wwdbigrd in '..\..\source\windows\vcl.wwdbigrd.pas',
+  vcl.wwtreeview in '..\..\source\windows\vcl.wwtreeview.pas',
+  vcl.wwbutton in '..\..\source\windows\vcl.wwbutton.pas',
+  vcl.wwtext in '..\..\source\windows\vcl.wwtext.pas',
+  vcl.wwmenuitem in '..\..\source\windows\vcl.wwmenuitem.pas';
+
+end.
+

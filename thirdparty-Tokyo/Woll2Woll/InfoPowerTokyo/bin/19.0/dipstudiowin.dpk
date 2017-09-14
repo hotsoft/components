@@ -1,0 +1,61 @@
+package dipstudiowin;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS OFF}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'Woll2Woll InfoPower Studio Tokyo VCL'}
+{$LIBSUFFIX '250'}
+{$DESIGNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  designide,
+  VCL,
+  VCLDB,
+  VCLACTNBAND,
+  VCLX,
+  ipstudiowin;
+
+contains
+  vcl.infopowr in '..\..\source\windows\vcl.infopowr.pas',
+  vcl.ipabout in '..\..\source\windows\vcl.ipabout.pas',
+  vcl.ipdsgn in '..\..\source\windows\vcl.ipdsgn.pas',
+  vcl.wwprpds in '..\..\source\windows\vcl.wwprpds.pas',
+  vcl.wwprpedt in '..\..\source\windows\vcl.wwprpedt.pas',
+  vcl.wwpiced2 in '..\..\source\windows\vcl.wwpiced2.pas',
+  vcl.wwrgxed2 in '..\..\source\windows\vcl.wwrgxed2.pas',
+  vcl.wwfltfld in '..\..\source\windows\vcl.wwfltfld.pas',
+  vcl.wwselfld in '..\..\source\windows\vcl.wwselfld.pas',
+  vcl.wwprppic in '..\..\source\windows\vcl.wwprppic.pas',
+  vcl.Wwpicdb in '..\..\source\windows\vcl.Wwpicdb.pas',
+  vcl.wwprpfld in '..\..\source\windows\vcl.wwprpfld.pas',
+  vcl.wwprpcom in '..\..\source\windows\vcl.wwprpcom.pas',
+  vcl.wwdbnavedt in '..\..\source\windows\vcl.wwdbnavedt.pas',
+  vcl.wwcollectioneditor in '..\..\source\windows\vcl.wwcollectioneditor.pas',
+  vcl.wwInspectorPrpEdt in '..\..\source\windows\vcl.wwInspectorPrpEdt.pas',
+  vcl.wwinspectorprop in '..\..\source\windows\vcl.wwinspectorprop.pas',
+  vcl.wwedtpic in '..\..\source\windows\vcl.wwedtpic.pas',
+  vcl.wwprprx in '..\..\source\windows\vcl.wwprprx.pas';
+
+end.

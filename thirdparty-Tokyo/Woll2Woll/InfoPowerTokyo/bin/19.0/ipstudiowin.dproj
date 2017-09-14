@@ -1,0 +1,220 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{6f6d31b7-d30b-4441-a532-64df4a4353c0}</ProjectGuid>
+        <MainSource>ipstudiowin.dpk</MainSource>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+        <DCC_DependencyCheckOutputName>ipstudiowin110.bpl</DCC_DependencyCheckOutputName>
+        <ProjectVersion>18.2</ProjectVersion>
+        <Config Condition="'$(Config)'==''">Base</Config>
+        <Base>True</Base>
+        <AppType>Package</AppType>
+        <FrameworkType>VCL</FrameworkType>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>3</TargetedPlatforms>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Android' and '$(Base)'=='true') or '$(Base_Android)'!=''">
+        <Base_Android>true</Base_Android>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <SanitizedProjectName>ipstudiowin</SanitizedProjectName>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_Build>1</VerInfo_Build>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Keys>FileVersion=16.0.1.1;ProductVersion=16.0.1;CompanyName=Woll2Woll Software;FileDescription=;InternalName=;LegalCopyright=Woll2Woll Software @2016;LegalTrademarks=;OriginalFilename=;ProductName=InfoPower XE8;CFBundleVersion=16.0.1</VerInfo_Keys>
+        <VerInfo_Release>1</VerInfo_Release>
+        <VerInfo_MajorVer>16</VerInfo_MajorVer>
+        <DCC_DcuOutput>..\..\lib\rx10\win32</DCC_DcuOutput>
+        <DCC_UnitSearchPath>..\..\source\windows;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_BplOutput>.</DCC_BplOutput>
+        <DCC_DcpOutput>..\..\lib\rx10\win32</DCC_DcpOutput>
+        <GenDll>true</GenDll>
+        <DCC_OutputNeverBuildDcps>true</DCC_OutputNeverBuildDcps>
+        <DCC_AssertionsAtRuntime>false</DCC_AssertionsAtRuntime>
+        <GenPackage>true</GenPackage>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+        <DllSuffix>240</DllSuffix>
+        <DCC_WriteableConstants>true</DCC_WriteableConstants>
+        <DCC_ImageBase>00400000</DCC_ImageBase>
+        <DCC_DependencyCheckOutputName>ipstudiowin150.bpl</DCC_DependencyCheckOutputName>
+        <RuntimeOnlyPackage>true</RuntimeOnlyPackage>
+        <DCC_Description>InfoPower Studio XE8</DCC_Description>
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Android)'!=''">
+        <EnabledSysJars>android-support-v4.dex.jar;apk-expansion.dex.jar;cloud-messaging.dex.jar;fmx.dex.jar;google-analytics-v2.dex.jar;google-play-billing.dex.jar;google-play-licensing.dex.jar;google-play-services.dex.jar</EnabledSysJars>
+        <VerInfo_Keys>package=com.embarcadero.$(MSBuildProjectName);label=$(MSBuildProjectName);versionCode=1;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=preferExternal;largeHeap=False;theme=TitleBar</VerInfo_Keys>
+        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_IncludeVerInfo>false</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <VerInfo_Release>0</VerInfo_Release>
+        <DllSuffix>250</DllSuffix>
+        <VerInfo_MajorVer>19</VerInfo_MajorVer>
+        <DCC_BplOutput>win32</DCC_BplOutput>
+        <DCC_UsePackage>vclx;vcl;vclactnband;vcldb;bdertl;ipstudiowindataset;$(DCC_UsePackage)</DCC_UsePackage>
+        <VerInfo_Keys>FileVersion=19.0.0.1;ProductVersion=19.0.0.0;CompanyName=Woll2Woll Software;InternalName=;LegalCopyright=Woll2Woll Software @2017;LegalTrademarks=;OriginalFilename=;ProductName=InfoPower Studio;CFBundleVersion=17.0.5;ProgramID=com.embarcadero.$(MSBuildProjectName);FileDescription=$(MSBuildProjectName)</VerInfo_Keys>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_DcpOutput>..\..\lib\rx10\win32</DCC_DcpOutput>
+        <DCC_Description>Woll2Woll InfoPower VCL for Delphi Berlin</DCC_Description>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <DllSuffix>250</DllSuffix>
+        <VerInfo_Release>0</VerInfo_Release>
+        <VerInfo_MajorVer>19</VerInfo_MajorVer>
+        <DCC_Description>Woll2Woll InfoPower VCL for Delphi Berlin</DCC_Description>
+        <DCC_BplOutput>win64</DCC_BplOutput>
+        <DCC_UsePackage>vclx;vcl;vclactnband;vcldb;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_DcuOutput>..\..\lib\rx10\win64</DCC_DcuOutput>
+        <DCC_DcpOutput>..\..\lib\rx10\win64</DCC_DcpOutput>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_Keys>CompanyName=Woll2Woll Software;FileVersion=19.0.0.1;InternalName=;LegalCopyright=Woll2Woll Software @2017;LegalTrademarks=;OriginalFilename=;ProductVersion=18.0.2;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName);FileDescription=$(MSBuildProjectName);ProductName=$(MSBuildProjectName)</VerInfo_Keys>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="VCL.dcp"/>
+        <DCCReference Include="VCLX.dcp"/>
+        <DCCReference Include="VCLDB.dcp"/>
+        <DCCReference Include="VCLACTNBAND.dcp"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwdbgrid.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwmemo.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwdblook.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwIDlg.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwdbdlg.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwkeycb.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwdotdot.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwdatsrc.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwlocate.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwdbcomb.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwdbspin.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwdbedit.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwfltdlg.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwintl.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwriched.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwrcdvw.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwrich.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwrichtb.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwrchdlg.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwfltvw.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwfltdum.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwspin.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwcommon.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwpict.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwsystem.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwstacks.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwstr.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwtypes.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwrcdpnl.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwDialog.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwdbnavigator.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwdbdatetimepicker.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwmonthcalendar.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwspeedbutton.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwricholecallback.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwtrackicon.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwrichole.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwcollection.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwdatainspector.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwframe.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwclearpanel.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwcheckbox.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwradiobutton.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwbitmap.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwchangelink.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwhistorylist.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwrichobjinfo.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwradiogroup.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwpaintoptions.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwclearbuttongroup.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.Wwexport.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwrtfconverter.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwcombobutton.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwricheditbar.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwrtfprintpreview.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwimagecombo.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwgridfilter.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwinputstring.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwinputstring2.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwgridselectcolumns.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwdbigrd.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwtreeview.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwbutton.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwtext.pas"/>
+        <DCCReference Include="..\..\source\windows\vcl.wwmenuitem.pas"/>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+    </ItemGroup>
+    <Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType>Package</Borland.ProjectType>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Parameters/>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">8</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">3</VersionInfo>
+                    <VersionInfo Name="Build">1</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1033</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="FileVersion">8.0.3.1</VersionInfoKeys>
+                    <VersionInfoKeys Name="ProductVersion">8.0.3.1</VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName">Woll2Woll Software</VersionInfoKeys>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright">Woll2Woll Software @2011</VersionInfoKeys>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName">InfoPower Studio 2011</VersionInfoKeys>
+                </VersionInfoKeys>
+                <Source>
+                    <Source Name="MainSource">ipstudiowin.dpk</Source>
+                </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k250.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp250.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k250.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp250.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
+            </Delphi.Personality>
+            <Platforms>
+                <Platform value="Android">False</Platform>
+                <Platform value="iOSSimulator">False</Platform>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">True</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+</Project>
