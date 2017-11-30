@@ -4,17 +4,22 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Provider, db, dbclient, variants, osSQLQuery,
-  osSQLDataSet;
+  osSQLDataSet, System.Generics.Collections;
 
 type
 
   TBeforeOSGetRecordsEvent = procedure(Count: Integer; Options: Integer;
       const CommandText: WideString; Params: TParams; var vParams, OwnerData: OleVariant) of object;
 
+  TTableInfo = record
+    tableName, pkName: string;
+  end;
+
   TosCustomDatasetProvider = class(TDataSetProvider)
   private
     FParams: TParams;
     FBeforeOSGetRecords: TBeforeOSGetRecordsEvent;
+    FTableList: TDictionary<string, TTableInfo>;
   protected
     {** Executa a query informada através da interface IProviderSupport }
     procedure DoGetValues(SQL: TStringList; Params: TParams; DataSet: TPacketDataSet);
@@ -23,6 +28,8 @@ type
     procedure DoBeforeGetRecords(Count: Integer; Options: Integer;
       const CommandText: WideString; var Params, OwnerData: OleVariant); override;
     procedure DoGetTableName(DataSet: TDataSet; var TableName: string); override;
+    procedure DoBeforeUpdateRecord(SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
+      UpdateKind: TUpdateKind; var Applied: Boolean); override;
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
@@ -43,6 +50,7 @@ constructor TosCustomDatasetProvider.Create(AOwner: TComponent);
 begin
   inherited;
   Options := Options + [poNoReset]; //poIncFieldProps, poNoReset;
+  FTableList := TDictionary<string,TTableInfo>.Create;
 end;
 
 function TosCustomDatasetProvider.DataRequest(Input: OleVariant): OleVariant;
@@ -198,6 +206,26 @@ begin
   inherited;
 end;
 
+procedure TosCustomDatasetProvider.DoBeforeUpdateRecord(SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
+  UpdateKind: TUpdateKind; var Applied: Boolean);
+var
+  qry: TosSQLQuery;
+  tableName, pkName: string;
+begin
+  if UpdateKind = ukDelete then
+  begin
+    tableName := FTableList.Items[SourceDS.name].tableName;
+    pkName := FTableList.Items[SourceDS.name].pkName;
+    qry := TosSQLQuery.Create(Self);
+    qry.SQLConnection := TosSQLDataSet(Self.DataSet).SQLConnection;
+    qry.SQL.Text := 'update ' + tableName + ' set deleted = ''S'' where ' + pkName + ' = ' + DeltaDS.FieldByName(pkName).AsString;
+    qry.ExecSQL;
+    Applied := True;
+  end
+  else
+    inherited DoBeforeUpdateRecord(SourceDS, DeltaDS, UpdateKind, Applied);
+end;
+
 {-------------------------------------------------------------------------
  Objetivo   > Transformar o TableName em UpperCase por que no dialect 3
                 da erro por falta de case sensitivity.
@@ -207,11 +235,28 @@ end;
  Observações>
  Atualização>
  ------------------------------------------------------------------------}
-procedure TosCustomDatasetProvider.DoGetTableName(DataSet: TDataSet;
-  var TableName: string);
+procedure TosCustomDatasetProvider.DoGetTableName(DataSet: TDataSet; var TableName: string);
+var
+  tableInfo: TTableInfo;
+  i: Integer;
 begin
   inherited DoGetTableName(DataSet, TableName);
   TableName := upperCase(TableName);
+
+  if (not FTableList.ContainsKey(DataSet.Name)) then
+  begin
+    tableInfo.tableName := TableName;
+    tableInfo.pkName := 'ID' + TableName;
+    for i := 0 to DataSet.Fields.Count -1 do
+    begin
+      if  pfInKey in DataSet.Fields[i].ProviderFlags then
+      begin
+        tableInfo.pkName := DataSet.Fields[i].FieldName;
+        Break;
+      end;
+    end;
+    FTableList.Add(DataSet.Name, tableInfo);
+  end;
 end;
 
 end.
