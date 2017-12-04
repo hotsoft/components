@@ -212,15 +212,19 @@ var
   qry: TosSQLQuery;
   tableName, pkName: string;
 begin
-  if UpdateKind = ukDelete then
+  tableName := FTableList.Items[SourceDS.name].tableName;
+  pkName := FTableList.Items[SourceDS.name].pkName;
+  if (UpdateKind = ukDelete) and (SourceDS.FindField(pkName) <> nil) then
   begin
-    tableName := FTableList.Items[SourceDS.name].tableName;
-    pkName := FTableList.Items[SourceDS.name].pkName;
     qry := TosSQLQuery.Create(Self);
-    qry.SQLConnection := TosSQLDataSet(Self.DataSet).SQLConnection;
-    qry.SQL.Text := 'update ' + tableName + ' set deleted = ''S'' where ' + pkName + ' = ' + DeltaDS.FieldByName(pkName).AsString;
-    qry.ExecSQL;
-    Applied := True;
+    try
+      qry.SQLConnection := TosSQLDataSet(Self.DataSet).SQLConnection;
+      qry.SQL.Text := 'update ' + tableName + ' set deleted = ''S'' where ' + pkName + ' = ' + DeltaDS.FieldByName(pkName).AsString;
+      qry.ExecSQL;
+      Applied := True;
+    finally
+      FreeAndNil(qry);
+    end;
   end
   else
     inherited DoBeforeUpdateRecord(SourceDS, DeltaDS, UpdateKind, Applied);
