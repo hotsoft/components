@@ -37,9 +37,11 @@ type
     FOrderByIndex: integer;
     FGroupByIndex: integer;
     FExpressionIndex: integer;
+    FTables: TStringList;
   protected
     procedure SplitClauses;
     procedure InsertExpression(Expression: string);
+    procedure ParseTables;
 
   public
     constructor Create; override;
@@ -58,6 +60,7 @@ type
     procedure InsertOrderBy(Field: string);
     procedure InsertField(Field: string);
     procedure InsertOrder(Field: string);
+    procedure RemoveDeleted;
     function SplitStringAt(Substr: string): integer;
   end;
 
@@ -80,11 +83,13 @@ begin
   FOrderByIndex := -1;
   FGroupByIndex := -1;
   FExpressionIndex := -1;
+  FTables := TStringList.Create;
 end;
 
 destructor TSQLStringList.Destroy;
 begin
   inherited Destroy;
+  FreeAndNil(FTables);
 end;
 
 function TSQLStringList.SplitStringAt(Substr: string): integer;
@@ -134,6 +139,17 @@ begin
     FExpressionIndex := FOrderByIndex;
   // Determina o ponto de inserção dos fields
   FFieldIndex := FFromIndex;
+end;
+
+procedure TSQLStringList.RemoveDeleted;
+var
+  i: Integer;
+begin
+  ParseTables;
+  for I := 0 to FTables.Count -1 do
+  begin
+    InsertWhere(FTables.Strings[i]+'.deleted <> ''S''');
+  end;
 end;
 
 procedure TSQLStringList.InsertExpression(Expression: string);
@@ -219,6 +235,48 @@ procedure TSQLStringList.InsertWhereStrOp(Field: string; Operator: string; Value
 begin
   if Trim(Value) <> '' then
     InsertExpression(Field + ' ' + Operator + ' ''' + Value + '''');
+end;
+
+procedure TSQLStringList.ParseTables;
+var
+  select: string;
+  joinList, join: TStringList;
+  i, posON: Integer;
+begin
+  FTables.Clear;
+  select := Copy(Self.Text, Pos(FROM, UpperCase(Self.Text))+4, Self.Text.Length);
+  select := StringReplace(select, 'INNER', '', [rfReplaceAll, rfIgnoreCase]);
+  select := StringReplace(select, 'LEFT', '', [rfReplaceAll, rfIgnoreCase]);
+  select := StringReplace(select, 'OUTER', '', [rfReplaceAll, rfIgnoreCase]);
+  select := StringReplace(select, 'JOIN', ';', [rfReplaceAll, rfIgnoreCase]);
+
+  joinList := TStringList.Create;
+  joinList.Delimiter := ';';
+  joinList.StrictDelimiter := True;
+  joinList.DelimitedText := trim(select);
+  join := TStringList.Create;
+  try
+    for I := 0 to joinList.Count -1 do
+    begin
+      if I = 0 then //tabela principal
+        posON := joinList.Strings[i].Length
+      else
+        posON := Pos('ON', UpperCase(joinList.Strings[i]));
+
+      if posON > 0 then
+      begin
+        join.DelimitedText := Trim(Copy(joinList.Strings[i], 0, posON));
+        if join.Count > 1 then
+          FTables.Add(join.Strings[1]) //alias
+        else
+          FTables.Add(join.Strings[0]);
+        join.Clear;
+      end;
+    end;
+  finally
+    FreeAndNil(joinList);
+    FreeAndNil(join);
+  end;
 end;
 
 procedure TSQLStringList.InsertWhereIntOp(Field: string; Operator: string; Value: string);

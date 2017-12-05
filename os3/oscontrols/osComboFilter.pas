@@ -427,6 +427,7 @@ procedure TosComboFilter.PrepareQuery(PQuery: TSQLStringList; const PExpressions
 begin
   with PQuery do
   begin
+    RemoveDeleted;
     InsertWhere(PDefaultExpressions);
     InsertWhere(PExpressions);
     InsertOrder(POrder);
