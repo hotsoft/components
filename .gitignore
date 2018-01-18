@@ -1,0 +1,17 @@
+*.dcu
+*.gitignore
+*.res
+*.identcache
+*.ddp
+*.*~
+*.bpl
+*.~bpl
+*.cfg
+*.exe
+*.ini
+*.groupproj.local
+*.txt
+*.dof
+*.pas*
+*.dfm*
+*.~*
