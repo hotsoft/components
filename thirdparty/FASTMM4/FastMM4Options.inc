@@ -42,7 +42,7 @@ Set the default options for FastMM here.
  of borlndmm.dll has been called"), FastMM cannot be uninstalled safely when
  used inside a replacement borlndmm.dll for the IDE. Setting this option will
  circumvent this problem by never uninstalling the memory manager.}
-{.$define NeverUninstall}
+{$define NeverUninstall}
 
 {Set this option when you use runtime packages in this application or library.
  This will automatically set the "AssumeMultiThreaded" option. Note that you
@@ -123,7 +123,7 @@ Set the default options for FastMM here.
  Very important: If you enable this option your application will require the
  FastMM_FullDebugMode.dll library. If this library is not available you will
  get an error on startup.}
-{.$define FullDebugMode}
+{$define FullDebugMode}
 
   {Set this option to perform "raw" stack traces, i.e. check all entries on the
    stack for valid return addresses. Note that this is significantly slower
@@ -153,7 +153,7 @@ Set the default options for FastMM here.
 
   {Deletes the error log file on startup. No effect if LogErrorsToFile is not
    also set.}
-  {.$define ClearLogFileOnStartup}
+  {$define ClearLogFileOnStartup}
 
   {Loads the FASTMM_FullDebugMode.dll dynamically. If the DLL cannot be found
    then stack traces will not be available. Note that this may cause problems
@@ -212,7 +212,7 @@ Set the default options for FastMM here.
   {Set this option to require the presence of the Delphi IDE to report memory
    leaks. This option has no effect if the option "EnableMemoryLeakReporting"
    is not also set.}
-  {.$define RequireIDEPresenceForLeakReporting}
+  {$define RequireIDEPresenceForLeakReporting}
 
   {Set this option to require the program to be run inside the IDE debugger to
    report memory leaks. This option has no effect if the option
@@ -265,7 +265,7 @@ Set the default options for FastMM here.
  files are initialized before the main application, so the main application may
  well end up sharing a statically loaded DLL's memory manager and not the other
  way around. }
-{.$define ShareMM}
+{$define ShareMM}
 
   {Allow sharing of the memory manager by a DLL with other DLLs (or the main
    application if this is a statically loaded DLL) that were also compiled with
@@ -278,14 +278,14 @@ Set the default options for FastMM here.
    if DLLs are statically linked then they will be initialized before the main
    application and then the DLL will in fact share its MM with the main
    application. This option has no effect unless ShareMM is also set.}
-  {.$define ShareMMIfLibrary}
+  {$define ShareMMIfLibrary}
 
 {Define this to attempt to share the MM of the main application or other loaded
  DLLs in the same process that were compiled with ShareMM set. When sharing a
  memory manager, memory leaks caused by the sharer will not be freed
  automatically. Take into account that statically linked DLLs are initialized
  before the main application, so set the sharing options accordingly.}
-{.$define AttemptToUseSharedMM}
+{$define AttemptToUseSharedMM}
 
 {Define this to enable backward compatibility for the memory manager sharing
  mechanism used by Delphi 2006 and 2007, as well as older FastMM versions.}
