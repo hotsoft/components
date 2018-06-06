@@ -1,0 +1,186 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{7803B416-C1B3-4801-BCDB-CB1C64840119}</ProjectGuid>
+        <MainSource>PascalScript_Core_D10.dpk</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>Package</AppType>
+        <FrameworkType>VCL</FrameworkType>
+        <ProjectVersion>14.6</ProjectVersion>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_F>false</DCC_F>
+        <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_UNIT_EXPERIMENTAL>false</DCC_UNIT_EXPERIMENTAL>
+        <GenDll>true</GenDll>
+        <GenPackage>true</GenPackage>
+        <DCC_SYMBOL_PLATFORM>false</DCC_SYMBOL_PLATFORM>
+        <DCC_UnitSearchPath>..\Dcu\D10;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_DcpOutput>..\Dcu\D10</DCC_DcpOutput>
+        <DCC_SYMBOL_EXPERIMENTAL>false</DCC_SYMBOL_EXPERIMENTAL>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_N>true</DCC_N>
+        <VerInfo_MajorVer>3</VerInfo_MajorVer>
+        <DCC_BplOutput>..\Dcu\D10</DCC_BplOutput>
+        <DCC_DcuOutput>..\Dcu\D10</DCC_DcuOutput>
+        <DCC_ImageBase>00400000</DCC_ImageBase>
+        <DCC_S>false</DCC_S>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+        <DesignOnlyPackage>true</DesignOnlyPackage>
+        <VerInfo_Build>442</VerInfo_Build>
+        <DCC_UNIT_PLATFORM>false</DCC_UNIT_PLATFORM>
+        <DCC_SYMBOL_DEPRECATED>false</DCC_SYMBOL_DEPRECATED>
+        <VerInfo_Keys>CompanyName=RemObjects Software;FileDescription=;FileVersion=3.0.6.442;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=Pascal Script;ProductVersion=3.0.0.0;CompileDate=Tuesday, March 21, 2006 1:32 PM;Compile Date=Monday, February 28, 2005 3:33 PM</VerInfo_Keys>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <DCC_UNIT_LIBRARY>false</DCC_UNIT_LIBRARY>
+        <DCC_K>false</DCC_K>
+        <DCC_OutputNeverBuildDcps>true</DCC_OutputNeverBuildDcps>
+        <DCC_SYMBOL_LIBRARY>false</DCC_SYMBOL_LIBRARY>
+        <DCC_Description>RemObjects Pascal Script - Core Package</DCC_Description>
+        <DCC_E>false</DCC_E>
+        <VerInfo_Release>6</VerInfo_Release>
+        <DCC_UNIT_DEPRECATED>false</DCC_UNIT_DEPRECATED>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_DebugInformation>false</DCC_DebugInformation>
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_Optimize>false</DCC_Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="rtl.dcp"/>
+        <DCCReference Include="vcl.dcp"/>
+        <DCCReference Include="dbrtl.dcp"/>
+        <DCCReference Include="uPSC_extctrls.pas"/>
+        <DCCReference Include="uPSC_forms.pas"/>
+        <DCCReference Include="uPSC_graphics.pas"/>
+        <DCCReference Include="uPSC_menus.pas"/>
+        <DCCReference Include="uPSC_std.pas"/>
+        <DCCReference Include="uPSC_stdctrls.pas"/>
+        <DCCReference Include="uPSCompiler.pas"/>
+        <DCCReference Include="uPSComponent.pas"/>
+        <DCCReference Include="uPSComponent_COM.pas"/>
+        <DCCReference Include="uPSComponent_Controls.pas"/>
+        <DCCReference Include="uPSComponent_DB.pas"/>
+        <DCCReference Include="uPSComponent_Default.pas"/>
+        <DCCReference Include="uPSComponent_Forms.pas"/>
+        <DCCReference Include="uPSComponent_StdCtrls.pas"/>
+        <DCCReference Include="uPSDebugger.pas"/>
+        <DCCReference Include="uPSDisassembly.pas"/>
+        <DCCReference Include="uPSPreProcessor.pas"/>
+        <DCCReference Include="uPSR_buttons.pas"/>
+        <DCCReference Include="uPSR_classes.pas"/>
+        <DCCReference Include="uPSR_comobj.pas"/>
+        <DCCReference Include="uPSR_controls.pas"/>
+        <DCCReference Include="uPSR_dateutils.pas"/>
+        <DCCReference Include="uPSR_DB.pas"/>
+        <DCCReference Include="uPSR_dll.pas"/>
+        <DCCReference Include="uPSR_extctrls.pas"/>
+        <DCCReference Include="uPSR_forms.pas"/>
+        <DCCReference Include="uPSR_graphics.pas"/>
+        <DCCReference Include="uPSR_menus.pas"/>
+        <DCCReference Include="uPSR_std.pas"/>
+        <DCCReference Include="uPSR_stdctrls.pas"/>
+        <DCCReference Include="uPSRuntime.pas"/>
+        <DCCReference Include="uPSUtils.pas"/>
+        <DCCReference Include="uPSC_buttons.pas"/>
+        <DCCReference Include="uPSC_classes.pas"/>
+        <DCCReference Include="uPSC_comobj.pas"/>
+        <DCCReference Include="uPSC_controls.pas"/>
+        <DCCReference Include="uPSC_dateutils.pas"/>
+        <DCCReference Include="uPSC_DB.pas"/>
+        <DCCReference Include="uPSC_dll.pas"/>
+        <DCCReference Include="PascalScript_Core_Reg.pas"/>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType>Package</Borland.ProjectType>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">PascalScript_Core_D10.dpk</Source>
+                </Source>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">3</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">6</VersionInfo>
+                    <VersionInfo Name="Build">442</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1033</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName">RemObjects Software</VersionInfoKeys>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">3.0.6.442</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName">Pascal Script</VersionInfoKeys>
+                    <VersionInfoKeys Name="ProductVersion">3.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="CompileDate">Tuesday, March 21, 2006 1:32 PM</VersionInfoKeys>
+                    <VersionInfoKeys Name="Compile Date">Monday, February 28, 2005 3:33 PM</VersionInfoKeys>
+                </VersionInfoKeys>
+            </Delphi.Personality>
+            <Platforms>
+                <Platform value="iOSDevice">False</Platform>
+                <Platform value="iOSSimulator">False</Platform>
+                <Platform value="Win32">True</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>
