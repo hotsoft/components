@@ -362,6 +362,8 @@ var
   ViewDef: TViewDef;
   OldCursor: TCursor;
   manager: TosAppResourceManager;
+  _FilterController: TacFilterController;
+  _LocalFilter: boolean;
 begin
   if Application.MainForm <> nil then
     manager := TosAppResourceManager(Application.MainForm.FindComponent('Manager'));
@@ -373,15 +375,21 @@ begin
     if PClassName = '' then
       PClassName := FFilterDefName;
     CheckDS;
+    _LocalFilter := False;
+    if Application.MainForm <> nil then
+      _FilterController := TacFilterController(Application.MainForm.FindComponent('FFilterDepot'))
+    else
+    begin
+      _LocalFilter := True;
+      _FilterController := TacFilterController.Create(Self);
+    end;
 
-    vViews :=  TacFilterController(
-                  Application.MainForm.FindComponent('FFilterDepot')
-                    ).findFilter(PClassName);
+
+    vViews := _FilterController.findFilter(PClassName);
     if VarIsEmpty(vViews) then
     begin
-        vViews := FClientDS.DataRequest('_CMD=GET_VIEWS UID=  CLASSNAME=' + PClassName);
-      TacFilterController(Application.MainForm.FindComponent('FFilterDepot')).
-        addFilter(PClassName, vViews);
+      vViews := FClientDS.DataRequest('_CMD=GET_VIEWS UID=  CLASSNAME=' + PClassName);
+      _FilterController.addFilter(PClassName, vViews);
     end;
     if ViewDefault <> 0 then
       iViewDefault := ViewDefault
@@ -420,6 +428,8 @@ begin
       Items.AddObject('<genérica>', FBaseView);
   finally
     Screen.Cursor := OldCursor;
+    if _LocalFilter then
+      _FilterController.Free;
   end;
 end;
 
