@@ -271,6 +271,8 @@ end;
 destructor TosComboSearch.Destroy;
 begin
   FFilterDefParams.Free;
+  if (not application.terminated) and (Assigned(FSearchDlg)) then
+    FreeAndNil(FSearchDlg);
 
   inherited;
 end;
