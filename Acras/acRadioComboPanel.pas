@@ -30,7 +30,7 @@ type
   protected
     procedure AdjustClientRect(var Rect: TRect); override;
   public
-    constructor create (AOwner: TComponent); override;
+    constructor Create (AOwner: TComponent); override;
     procedure CreateWnd; override;
     procedure Resize; override;
   published
