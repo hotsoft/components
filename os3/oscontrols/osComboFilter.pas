@@ -16,7 +16,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   StdCtrls, Mask, wwdbedit, Wwdotdot, Wwdbcomb, osFilterInspectorForm,
   osExtStringList, osUtils, dbclient, variants, db, osCustomFilterUn,
-  osSQLConnection, acFilterController;
+  osSQLConnection, acFilterController, System.UITypes;
 
 type
   TGetCustomExprListEvent = procedure(exprList: TStrings) of object;
@@ -361,30 +361,27 @@ var
   i, iMax, iViewDefault, iAux: integer;
   ViewDef: TViewDef;
   OldCursor: TCursor;
-  manager: TosAppResourceManager;
   _FilterController: TacFilterController;
   _LocalFilter: boolean;
 begin
-  if Application.MainForm <> nil then
-    manager := TosAppResourceManager(Application.MainForm.FindComponent('Manager'));
   OldCursor := Screen.Cursor;
   Screen.Cursor := crHourglass;
+  _LocalFilter := False;
+
+  if PUserID = '' then
+    PUserID := FUserID;
+  if PClassName = '' then
+    PClassName := FFilterDefName;
+  CheckDS;
+  if Application.MainForm <> nil then
+    _FilterController := TacFilterController(Application.MainForm.FindComponent('FFilterDepot'))
+  else
+  begin
+    _LocalFilter := True;
+    _FilterController := TacFilterController.Create(Self);
+  end;
+
   try
-    if PUserID = '' then
-      PUserID := FUserID;
-    if PClassName = '' then
-      PClassName := FFilterDefName;
-    CheckDS;
-    _LocalFilter := False;
-    if Application.MainForm <> nil then
-      _FilterController := TacFilterController(Application.MainForm.FindComponent('FFilterDepot'))
-    else
-    begin
-      _LocalFilter := True;
-      _FilterController := TacFilterController.Create(Self);
-    end;
-
-
     vViews := _FilterController.findFilter(PClassName);
     if VarIsEmpty(vViews) then
     begin
@@ -396,7 +393,6 @@ begin
     else
       iViewDefault := -1;
 
-    iMax := iAux;
     iAux := 0;
     iMax := VarArrayHighBound(vViews, 1);
     for i:=0 to iMax do
