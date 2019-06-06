@@ -9,7 +9,7 @@ uses
   osActionList, Mask, wwdbedit, Wwdotdot, Wwdbcomb,
   osComboFilter, Wwintl, osClientDataset, provider, Wwdbigrd, Wwdbgrid,
   osFilterInspectorFrame, osExtStringList, wwDataInspector, osUtils,
-  wwCheckBox;
+  wwCheckBox, System.UITypes;
 
 type
   TTipoAviso = (taInformar, taNaoEncontrado);
@@ -1091,7 +1091,6 @@ end;
 procedure TCustomSearchForm.getUserFills(fills: TStringList);
 var
   di: TwwDataInspector;
-  i: integer;
 begin
   di := FilterInspectorFrame.DataInspector;
   if di=nil then

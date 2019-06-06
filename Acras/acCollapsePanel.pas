@@ -36,7 +36,7 @@ type
   public
     { Public declarations }
     procedure CreateWnd; override;
-    procedure MouseDown(Sender: TObject; Button: TMouseButton;
+    procedure MouseDownOwn(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
   published
     { Published declarations }
@@ -120,10 +120,10 @@ end;
 procedure TCollapsePanel.CreateWnd;
 begin
   inherited CreateWnd;
-  OnMouseDown := MouseDown;
+  OnMouseDown := MouseDownOwn;
 end;
 
-procedure TCollapsePanel.MouseDown(Sender: TObject;
+procedure TCollapsePanel.MouseDownOwn(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   if (x<15) and (y<15) then
