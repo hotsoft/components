@@ -291,7 +291,7 @@ uses
   Windows,
   {$ENDIF}
   SysUtils,
-  AbBitBkt, AbCharset, AbDfBase, AbDfDec, AbDfEnc, AbExcept, AbResString, AbVMStrm;
+  AbBitBkt, AbCharset, AbDfBase, AbDfDec, AbDfEnc, AbExcept, AbResString, AbVMStrm, AnsiStrings;
 
 const
   { Header Signature Values}
@@ -497,7 +497,7 @@ begin
   repeat
     DataRead := AStream.Read(Buff, BuffSiz - 1);
     Buff[DataRead] := #0;
-    Len := StrLen(Buff);
+    Len := AnsiStrings.StrLen(Buff);
     if Len > 0 then begin
       SetLength(Result, Length(Result) + Len);
       Move(Buff, Result[Length(Result) - Len + 1], Len);
