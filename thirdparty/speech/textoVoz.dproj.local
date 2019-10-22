@@ -1,9 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2019/10/14 17:16:05.697,=rtl.dcp</Transaction>
-    <Transaction>2019/10/14 17:16:14.849,=C:\Users\hotsoft\Documents\RAD Studio\11.0\Imports\SpeechLib_TLB.pas</Transaction>
-    <Transaction>2019/10/14 17:16:14.868,=C:\Users\hotsoft\Documents\RAD Studio\11.0\Imports\SpeechLib_TLB.pas</Transaction>
-    <Transaction>2019/10/14 17:16:14.873,=vcl.dcp</Transaction>
+	<Transactions>
+    <Transaction>2019/10/14 17:16:05.000.697,=rtl.dcp</Transaction>
+    <Transaction>2019/10/14 17:16:14.000.873,=vcl.dcp</Transaction>
+    <Transaction>2019/10/14 17:16:14.000.868,=C:\Users\hotsoft\Documents\RAD Studio\11.0\Imports\SpeechLib_TLB.pas</Transaction>
+    <Transaction>2019/10/14 17:16:14.000.849,=C:\Users\hotsoft\Documents\RAD Studio\11.0\Imports\SpeechLib_TLB.pas</Transaction>
   </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="C:"/>
+    <File Path="C:\Users"/>
+    <File Path="C:\Users\hotsoft"/>
+    <File Path="C:\Users\hotsoft\Documents"/>
+    <File Path="C:\Users\hotsoft\Documents\RAD Studio"/>
+    <File Path="C:\Users\hotsoft\Documents\RAD Studio\11.0"/>
+    <File Path="C:\Users\hotsoft\Documents\RAD Studio\11.0\Imports"/>
+    <File Path="C:\Users\hotsoft\Documents\RAD Studio\11.0\Imports\SpeechLib_TLB.dcr"/>
+    <File Path="SpeechLib_TLB.pas"/>
+    <File Path="rtl.dcp"/>
+    <File Path="vcl.dcp"/>
+  </ProjectSortOrder>
 </BorlandProject>
