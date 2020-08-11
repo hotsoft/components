@@ -1,0 +1,300 @@
+// CodeGear C++Builder
+// Copyright (c) 1995, 2013 by Embarcadero Technologies, Inc.
+// All rights reserved
+
+// (DO NOT EDIT: machine generated header) 'IndyProtocols180.pas' rev: 25.00 (Windows)
+
+#ifndef Indyprotocols180HPP
+#define Indyprotocols180HPP
+
+#pragma delphiheader begin
+#pragma option push
+#pragma option -w-      // All warnings off
+#pragma option -Vx      // Zero-length empty class member 
+#pragma pack(push,8)
+#include <System.hpp>	// Pascal unit
+#include <SysInit.hpp>	// Pascal unit
+#include <IdASN1Util.hpp>	// Pascal unit
+#include <IdAllAuthentications.hpp>	// Pascal unit
+#include <IdAllFTPListParsers.hpp>	// Pascal unit
+#include <IdAllHeaderCoders.hpp>	// Pascal unit
+#include <IdAttachment.hpp>	// Pascal unit
+#include <IdAttachmentFile.hpp>	// Pascal unit
+#include <IdAttachmentMemory.hpp>	// Pascal unit
+#include <IdAuthentication.hpp>	// Pascal unit
+#include <IdAuthenticationDigest.hpp>	// Pascal unit
+#include <IdAuthenticationManager.hpp>	// Pascal unit
+#include <IdAuthenticationNTLM.hpp>	// Pascal unit
+#include <IdAuthenticationSSPI.hpp>	// Pascal unit
+#include <IdBlockCipherIntercept.hpp>	// Pascal unit
+#include <IdChargenServer.hpp>	// Pascal unit
+#include <IdChargenUDPServer.hpp>	// Pascal unit
+#include <IdCharsets.hpp>	// Pascal unit
+#include <IdCoder.hpp>	// Pascal unit
+#include <IdCoder00E.hpp>	// Pascal unit
+#include <IdCoder3to4.hpp>	// Pascal unit
+#include <IdCoderBinHex4.hpp>	// Pascal unit
+#include <IdCoderHeader.hpp>	// Pascal unit
+#include <IdCoderMIME.hpp>	// Pascal unit
+#include <IdCoderQuotedPrintable.hpp>	// Pascal unit
+#include <IdCoderUUE.hpp>	// Pascal unit
+#include <IdCoderXXE.hpp>	// Pascal unit
+#include <IdCompressionIntercept.hpp>	// Pascal unit
+#include <IdCompressorZLib.hpp>	// Pascal unit
+#include <IdConnectThroughHttpProxy.hpp>	// Pascal unit
+#include <IdContainers.hpp>	// Pascal unit
+#include <IdCookie.hpp>	// Pascal unit
+#include <IdCookieManager.hpp>	// Pascal unit
+#include <IdCustomHTTPServer.hpp>	// Pascal unit
+#include <IdDICT.hpp>	// Pascal unit
+#include <IdDICTCommon.hpp>	// Pascal unit
+#include <IdDICTServer.hpp>	// Pascal unit
+#include <IdDNSCommon.hpp>	// Pascal unit
+#include <IdDNSResolver.hpp>	// Pascal unit
+#include <IdDNSServer.hpp>	// Pascal unit
+#include <IdDateTimeStamp.hpp>	// Pascal unit
+#include <IdDayTime.hpp>	// Pascal unit
+#include <IdDayTimeServer.hpp>	// Pascal unit
+#include <IdDayTimeUDP.hpp>	// Pascal unit
+#include <IdDayTimeUDPServer.hpp>	// Pascal unit
+#include <IdDiscardServer.hpp>	// Pascal unit
+#include <IdDiscardUDPServer.hpp>	// Pascal unit
+#include <IdEMailAddress.hpp>	// Pascal unit
+#include <IdEcho.hpp>	// Pascal unit
+#include <IdEchoServer.hpp>	// Pascal unit
+#include <IdEchoUDP.hpp>	// Pascal unit
+#include <IdEchoUDPServer.hpp>	// Pascal unit
+#include <IdExplicitTLSClientServerBase.hpp>	// Pascal unit
+#include <IdFIPS.hpp>	// Pascal unit
+#include <IdFSP.hpp>	// Pascal unit
+#include <IdFTP.hpp>	// Pascal unit
+#include <IdFTPBaseFileSystem.hpp>	// Pascal unit
+#include <IdFTPCommon.hpp>	// Pascal unit
+#include <IdFTPList.hpp>	// Pascal unit
+#include <IdFTPListOutput.hpp>	// Pascal unit
+#include <IdFTPListParseAS400.hpp>	// Pascal unit
+#include <IdFTPListParseBase.hpp>	// Pascal unit
+#include <IdFTPListParseBullGCOS7.hpp>	// Pascal unit
+#include <IdFTPListParseBullGCOS8.hpp>	// Pascal unit
+#include <IdFTPListParseChameleonNewt.hpp>	// Pascal unit
+#include <IdFTPListParseCiscoIOS.hpp>	// Pascal unit
+#include <IdFTPListParseDistinctTCPIP.hpp>	// Pascal unit
+#include <IdFTPListParseEPLF.hpp>	// Pascal unit
+#include <IdFTPListParseHellSoft.hpp>	// Pascal unit
+#include <IdFTPListParseIEFTPGateway.hpp>	// Pascal unit
+#include <IdFTPListParseKA9Q.hpp>	// Pascal unit
+#include <IdFTPListParseMPEiX.hpp>	// Pascal unit
+#include <IdFTPListParseMVS.hpp>	// Pascal unit
+#include <IdFTPListParseMicrowareOS9.hpp>	// Pascal unit
+#include <IdFTPListParseMusic.hpp>	// Pascal unit
+#include <IdFTPListParseNCSAForDOS.hpp>	// Pascal unit
+#include <IdFTPListParseNCSAForMACOS.hpp>	// Pascal unit
+#include <IdFTPListParseNovellNetware.hpp>	// Pascal unit
+#include <IdFTPListParseNovellNetwarePSU.hpp>	// Pascal unit
+#include <IdFTPListParseOS2.hpp>	// Pascal unit
+#include <IdFTPListParsePCNFSD.hpp>	// Pascal unit
+#include <IdFTPListParsePCTCP.hpp>	// Pascal unit
+#include <IdFTPListParseStercomOS390Exp.hpp>	// Pascal unit
+#include <IdFTPListParseStercomUnixEnt.hpp>	// Pascal unit
+#include <IdFTPListParseStratusVOS.hpp>	// Pascal unit
+#include <IdFTPListParseSuperTCP.hpp>	// Pascal unit
+#include <IdFTPListParseTOPS20.hpp>	// Pascal unit
+#include <IdFTPListParseTSXPlus.hpp>	// Pascal unit
+#include <IdFTPListParseTandemGuardian.hpp>	// Pascal unit
+#include <IdFTPListParseUnisysClearPath.hpp>	// Pascal unit
+#include <IdFTPListParseUnix.hpp>	// Pascal unit
+#include <IdFTPListParseVM.hpp>	// Pascal unit
+#include <IdFTPListParseVMS.hpp>	// Pascal unit
+#include <IdFTPListParseVSE.hpp>	// Pascal unit
+#include <IdFTPListParseVxWorks.hpp>	// Pascal unit
+#include <IdFTPListParseWfFTP.hpp>	// Pascal unit
+#include <IdFTPListParseWinQVTNET.hpp>	// Pascal unit
+#include <IdFTPListParseWindowsNT.hpp>	// Pascal unit
+#include <IdFTPListParseXecomMicroRTOS.hpp>	// Pascal unit
+#include <IdFTPListTypes.hpp>	// Pascal unit
+#include <IdFTPServer.hpp>	// Pascal unit
+#include <IdFTPServerContextBase.hpp>	// Pascal unit
+#include <IdFinger.hpp>	// Pascal unit
+#include <IdFingerServer.hpp>	// Pascal unit
+#include <IdGlobalProtocols.hpp>	// Pascal unit
+#include <IdGopher.hpp>	// Pascal unit
+#include <IdGopherConsts.hpp>	// Pascal unit
+#include <IdGopherServer.hpp>	// Pascal unit
+#include <IdHMAC.hpp>	// Pascal unit
+#include <IdHMACMD5.hpp>	// Pascal unit
+#include <IdHMACSHA1.hpp>	// Pascal unit
+#include <IdHTTP.hpp>	// Pascal unit
+#include <IdHTTPHeaderInfo.hpp>	// Pascal unit
+#include <IdHTTPProxyServer.hpp>	// Pascal unit
+#include <IdHTTPServer.hpp>	// Pascal unit
+#include <IdHash.hpp>	// Pascal unit
+#include <IdHashCRC.hpp>	// Pascal unit
+#include <IdHashElf.hpp>	// Pascal unit
+#include <IdHashMessageDigest.hpp>	// Pascal unit
+#include <IdHashSHA.hpp>	// Pascal unit
+#include <IdHeaderCoder2022JP.hpp>	// Pascal unit
+#include <IdHeaderCoderBase.hpp>	// Pascal unit
+#include <IdHeaderCoderIndy.hpp>	// Pascal unit
+#include <IdHeaderCoderPlain.hpp>	// Pascal unit
+#include <IdHeaderList.hpp>	// Pascal unit
+#include <IdIMAP4.hpp>	// Pascal unit
+#include <IdIMAP4Server.hpp>	// Pascal unit
+#include <IdIPAddrMon.hpp>	// Pascal unit
+#include <IdIPWatch.hpp>	// Pascal unit
+#include <IdIRC.hpp>	// Pascal unit
+#include <IdIdent.hpp>	// Pascal unit
+#include <IdIdentServer.hpp>	// Pascal unit
+#include <IdIrcServer.hpp>	// Pascal unit
+#include <IdLPR.hpp>	// Pascal unit
+#include <IdMailBox.hpp>	// Pascal unit
+#include <IdMappedFTP.hpp>	// Pascal unit
+#include <IdMappedPOP3.hpp>	// Pascal unit
+#include <IdMappedPortTCP.hpp>	// Pascal unit
+#include <IdMappedPortUDP.hpp>	// Pascal unit
+#include <IdMappedTelnet.hpp>	// Pascal unit
+#include <IdMessage.hpp>	// Pascal unit
+#include <IdMessageBuilder.hpp>	// Pascal unit
+#include <IdMessageClient.hpp>	// Pascal unit
+#include <IdMessageCoder.hpp>	// Pascal unit
+#include <IdMessageCoderBinHex4.hpp>	// Pascal unit
+#include <IdMessageCoderMIME.hpp>	// Pascal unit
+#include <IdMessageCoderQuotedPrintable.hpp>	// Pascal unit
+#include <IdMessageCoderUUE.hpp>	// Pascal unit
+#include <IdMessageCoderXXE.hpp>	// Pascal unit
+#include <IdMessageCoderYenc.hpp>	// Pascal unit
+#include <IdMessageCollection.hpp>	// Pascal unit
+#include <IdMessageHelper.hpp>	// Pascal unit
+#include <IdMessageParts.hpp>	// Pascal unit
+#include <IdMultipartFormData.hpp>	// Pascal unit
+#include <IdNNTP.hpp>	// Pascal unit
+#include <IdNNTPServer.hpp>	// Pascal unit
+#include <IdNTLM.hpp>	// Pascal unit
+#include <IdNetworkCalculator.hpp>	// Pascal unit
+#include <IdOSFileName.hpp>	// Pascal unit
+#include <IdOTPCalculator.hpp>	// Pascal unit
+#include <IdPOP3.hpp>	// Pascal unit
+#include <IdPOP3Server.hpp>	// Pascal unit
+#include <IdQOTDUDP.hpp>	// Pascal unit
+#include <IdQOTDUDPServer.hpp>	// Pascal unit
+#include <IdQotd.hpp>	// Pascal unit
+#include <IdQotdServer.hpp>	// Pascal unit
+#include <IdRSH.hpp>	// Pascal unit
+#include <IdRSHServer.hpp>	// Pascal unit
+#include <IdRemoteCMDClient.hpp>	// Pascal unit
+#include <IdRemoteCMDServer.hpp>	// Pascal unit
+#include <IdReplyFTP.hpp>	// Pascal unit
+#include <IdReplyIMAP4.hpp>	// Pascal unit
+#include <IdReplyPOP3.hpp>	// Pascal unit
+#include <IdReplySMTP.hpp>	// Pascal unit
+#include <IdResourceStringsOpenSSL.hpp>	// Pascal unit
+#include <IdResourceStringsProtocols.hpp>	// Pascal unit
+#include <IdResourceStringsSSPI.hpp>	// Pascal unit
+#include <IdResourceStringsUriUtils.hpp>	// Pascal unit
+#include <IdRexec.hpp>	// Pascal unit
+#include <IdRexecServer.hpp>	// Pascal unit
+#include <IdSASL.hpp>	// Pascal unit
+#include <IdSASLAnonymous.hpp>	// Pascal unit
+#include <IdSASLCollection.hpp>	// Pascal unit
+#include <IdSASLDigest.hpp>	// Pascal unit
+#include <IdSASLExternal.hpp>	// Pascal unit
+#include <IdSASLLogin.hpp>	// Pascal unit
+#include <IdSASLOTP.hpp>	// Pascal unit
+#include <IdSASLPlain.hpp>	// Pascal unit
+#include <IdSASLSKey.hpp>	// Pascal unit
+#include <IdSASLUserPass.hpp>	// Pascal unit
+#include <IdSASL_CRAMBase.hpp>	// Pascal unit
+#include <IdSASL_CRAM_MD5.hpp>	// Pascal unit
+#include <IdSASL_CRAM_SHA1.hpp>	// Pascal unit
+#include <IdSMTP.hpp>	// Pascal unit
+#include <IdSMTPBase.hpp>	// Pascal unit
+#include <IdSMTPRelay.hpp>	// Pascal unit
+#include <IdSMTPServer.hpp>	// Pascal unit
+#include <IdSNMP.hpp>	// Pascal unit
+#include <IdSNPP.hpp>	// Pascal unit
+#include <IdSNTP.hpp>	// Pascal unit
+#include <IdSSL.hpp>	// Pascal unit
+#include <IdSSLOpenSSL.hpp>	// Pascal unit
+#include <IdSSLOpenSSLHeaders.hpp>	// Pascal unit
+#include <IdSSPI.hpp>	// Pascal unit
+#include <IdServerInterceptLogBase.hpp>	// Pascal unit
+#include <IdServerInterceptLogEvent.hpp>	// Pascal unit
+#include <IdServerInterceptLogFile.hpp>	// Pascal unit
+#include <IdSocksServer.hpp>	// Pascal unit
+#include <IdStrings.hpp>	// Pascal unit
+#include <IdSysLog.hpp>	// Pascal unit
+#include <IdSysLogMessage.hpp>	// Pascal unit
+#include <IdSysLogServer.hpp>	// Pascal unit
+#include <IdSystat.hpp>	// Pascal unit
+#include <IdSystatServer.hpp>	// Pascal unit
+#include <IdSystatUDP.hpp>	// Pascal unit
+#include <IdSystatUDPServer.hpp>	// Pascal unit
+#include <IdTelnet.hpp>	// Pascal unit
+#include <IdTelnetServer.hpp>	// Pascal unit
+#include <IdText.hpp>	// Pascal unit
+#include <IdTime.hpp>	// Pascal unit
+#include <IdTimeServer.hpp>	// Pascal unit
+#include <IdTimeUDP.hpp>	// Pascal unit
+#include <IdTimeUDPServer.hpp>	// Pascal unit
+#include <IdTrivialFTP.hpp>	// Pascal unit
+#include <IdTrivialFTPBase.hpp>	// Pascal unit
+#include <IdTrivialFTPServer.hpp>	// Pascal unit
+#include <IdURI.hpp>	// Pascal unit
+#include <IdUnixTime.hpp>	// Pascal unit
+#include <IdUnixTimeServer.hpp>	// Pascal unit
+#include <IdUnixTimeUDP.hpp>	// Pascal unit
+#include <IdUnixTimeUDPServer.hpp>	// Pascal unit
+#include <IdUriUtils.hpp>	// Pascal unit
+#include <IdUserAccounts.hpp>	// Pascal unit
+#include <IdUserPassProvider.hpp>	// Pascal unit
+#include <IdVCard.hpp>	// Pascal unit
+#include <IdWebDAV.hpp>	// Pascal unit
+#include <IdWhoIsServer.hpp>	// Pascal unit
+#include <IdWhois.hpp>	// Pascal unit
+#include <IdZLib.hpp>	// Pascal unit
+#include <IdZLibCompressorBase.hpp>	// Pascal unit
+#include <IdZLibConst.hpp>	// Pascal unit
+#include <IdZLibHeaders.hpp>	// Pascal unit
+#include <Winapi.Windows.hpp>	// Pascal unit
+#include <System.Internal.ExcUtils.hpp>	// Pascal unit
+#include <System.SysUtils.hpp>	// Pascal unit
+#include <System.VarUtils.hpp>	// Pascal unit
+#include <System.Variants.hpp>	// Pascal unit
+#include <System.AnsiStrings.hpp>	// Pascal unit
+#include <System.Math.hpp>	// Pascal unit
+#include <System.TimeSpan.hpp>	// Pascal unit
+#include <System.SyncObjs.hpp>	// Pascal unit
+#include <System.Generics.Defaults.hpp>	// Pascal unit
+#include <System.Rtti.hpp>	// Pascal unit
+#include <System.TypInfo.hpp>	// Pascal unit
+#include <System.Classes.hpp>	// Pascal unit
+#include <System.DateUtils.hpp>	// Pascal unit
+#include <IdGlobal.hpp>	// Pascal unit
+#include <IdWinsock2.hpp>	// Pascal unit
+#include <IdWship6.hpp>	// Pascal unit
+#include <IdIDN.hpp>	// Pascal unit
+#include <IdStackWindows.hpp>	// Pascal unit
+#include <IdStack.hpp>	// Pascal unit
+#include <System.IOUtils.hpp>	// Pascal unit
+#include <System.Win.Registry.hpp>	// Pascal unit
+#include <IdComponent.hpp>	// Pascal unit
+#include <IdIOHandler.hpp>	// Pascal unit
+#include <IdIOHandlerStack.hpp>	// Pascal unit
+#include <IdThread.hpp>	// Pascal unit
+#include <IdLogBase.hpp>	// Pascal unit
+
+//-- user supplied -----------------------------------------------------------
+
+namespace Indyprotocols180
+{
+//-- type declarations -------------------------------------------------------
+//-- var, const, procedure ---------------------------------------------------
+}	/* namespace Indyprotocols180 */
+#if !defined(DELPHIHEADER_NO_IMPLICIT_NAMESPACE_USE) && !defined(NO_USING_NAMESPACE_INDYPROTOCOLS180)
+using namespace Indyprotocols180;
+#endif
+#pragma pack(pop)
+#pragma option pop
+
+#pragma delphiheader end.
+//-- end unit ----------------------------------------------------------------
+#endif	// Indyprotocols180HPP
