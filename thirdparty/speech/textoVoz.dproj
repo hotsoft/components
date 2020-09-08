@@ -84,10 +84,10 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="C:\Users\hotsoft\Documents\RAD Studio\11.0\Imports\SpeechLib_TLB.dcr"/>
+        <DCCReference Include="SpeechLib_TLB.dcr"/>
         <DCCReference Include="rtl.dcp"/>
         <DCCReference Include="vcl.dcp"/>
-        <DCCReference Include="C:\Users\hotsoft\Documents\RAD Studio\11.0\Imports\SpeechLib_TLB.pas"/>
+        <DCCReference Include="SpeechLib_TLB.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

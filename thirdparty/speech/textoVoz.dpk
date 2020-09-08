@@ -1,7 +1,7 @@
 package textoVoz;
 
 {$R *.res}
-{$R 'C:\Users\hotsoft\Documents\RAD Studio\11.0\Imports\SpeechLib_TLB.dcr'}
+{$R 'C:\repositorio\components\thirdparty\speech\SpeechLib_TLB.dcr'}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
 {$ASSERTIONS ON}
@@ -34,7 +34,7 @@ requires
   vcl;
 
 contains
-  SpeechLib_TLB in 'C:\Users\hotsoft\Documents\RAD Studio\11.0\Imports\SpeechLib_TLB.pas';
+  SpeechLib_TLB in 'C:\repositorio\components\thirdparty\speech\SpeechLib_TLB.pas';
 
 end.
 
