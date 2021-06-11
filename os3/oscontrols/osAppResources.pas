@@ -6,8 +6,8 @@ uses
   Classes, SysUtils, Forms, osUtils;
 
 type
-
-  TResourceType = (rtEdit, rtQuery, rtReport, rtOther);
+  //rtOld não é usado, ele apenas preenche a posição 0 no array, pois o primeiro ID da tabela TipoRecurso é 1
+  TResourceType = (rtOld, rtEdit, rtQuery, rtReport, rtOther);
 
   { TosAppResource }
 
@@ -144,7 +144,7 @@ begin
     ReportClassName  := PReportClassName;
     DomainName       := PDomainName;
     ImageIndex       := PImageIndex;
-    if PResType > 2 then
+    if PResType > 3 then
       ResType          := rtOther
     else
       ResType          := TResourceType(PResType);
