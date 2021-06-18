@@ -435,7 +435,7 @@ begin
   // daquele que verifica o tipo do field para impedir que seja feito o acesso a
   // uma propriedade cujo objeto não existe
   if (not CtrlOrAltPressed) and (Ord(Key) >= 32) and FilterDataset.Active
-      and (SortField.DataType = ftString) then
+      and ((SortField.DataType = ftString) or (SortField.DataType = ftWideString)) then
   begin
     // Adiciona o novo caractere à string de busca incremental
     CurrentSearchString := CurrentSearchString + Key;
