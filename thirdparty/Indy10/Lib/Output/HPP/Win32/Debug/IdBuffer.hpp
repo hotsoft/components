@@ -115,11 +115,11 @@ public:
 	void __fastcall ExtractToBytes(Idglobal::TIdBytes &VBytes, int AByteCount = 0xffffffff, bool AAppend = true, int AIndex = 0xffffffff);
 	System::Byte __fastcall ExtractToUInt8(const int AIndex);
 	System::Byte __fastcall ExtractToByte _DEPRECATED_ATTRIBUTE1("Use ExtractToUInt8()") (const int AIndex);
-	System::Word __fastcall ExtractToUInt16(const int AIndex);
+	System::Word __fastcall ExtractToUInt16(const int AIndex, bool AConvert = true);
 	System::Word __fastcall ExtractToWord _DEPRECATED_ATTRIBUTE1("Use ExtractToUInt16()") (const int AIndex);
-	unsigned __fastcall ExtractToUInt32(const int AIndex);
+	unsigned __fastcall ExtractToUInt32(const int AIndex, bool AConvert = true);
 	unsigned __fastcall ExtractToLongWord _DEPRECATED_ATTRIBUTE1("Use ExtractToUInt32()") (const int AIndex);
-	unsigned __int64 __fastcall ExtractToUInt64(const int AIndex);
+	unsigned __int64 __fastcall ExtractToUInt64(const int AIndex, bool AConvert = true);
 	void __fastcall ExtractToIPv6(const int AIndex, Idglobal::TIdIPv6Address &VAddress);
 	int __fastcall IndexOf(const System::Byte AByte, int AStartPos = 0x0)/* overload */;
 	int __fastcall IndexOf(const Idglobal::TIdBytes ABytes, int AStartPos = 0x0)/* overload */;

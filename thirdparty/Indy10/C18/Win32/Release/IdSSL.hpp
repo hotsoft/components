@@ -93,18 +93,18 @@ typedef System::TMetaClass* TIdServerSSLClass;
 
 class DELPHICLASS TIdSSLRegEntry;
 #pragma pack(push,4)
-class PASCALIMPLEMENTATION TIdSSLRegEntry : public System::Classes::TCollectionItem
+class PASCALIMPLEMENTATION TIdSSLRegEntry _DEPRECATED_ATTRIBUTE0  : public System::Classes::TCollectionItem
 {
 	typedef System::Classes::TCollectionItem inherited;
 	
 protected:
-	System::UnicodeString FProductName;
-	System::UnicodeString FVendor;
-	System::UnicodeString FCopyright;
-	System::UnicodeString FDescription;
-	System::UnicodeString FURL;
-	TIdClientSSLClass FClientClass;
-	TIdServerSSLClass FServerClass;
+	System::UnicodeString FProductName _DEPRECATED_ATTRIBUTE0 ;
+	System::UnicodeString FVendor _DEPRECATED_ATTRIBUTE0 ;
+	System::UnicodeString FCopyright _DEPRECATED_ATTRIBUTE0 ;
+	System::UnicodeString FDescription _DEPRECATED_ATTRIBUTE0 ;
+	System::UnicodeString FURL _DEPRECATED_ATTRIBUTE0 ;
+	TIdClientSSLClass FClientClass _DEPRECATED_ATTRIBUTE0 ;
+	TIdServerSSLClass FServerClass _DEPRECATED_ATTRIBUTE0 ;
 	
 public:
 	__property System::UnicodeString ProductName = {read=FProductName, write=FProductName};
@@ -124,7 +124,7 @@ public:
 
 class DELPHICLASS TIdSSLRegistry;
 #pragma pack(push,4)
-class PASCALIMPLEMENTATION TIdSSLRegistry : public System::Classes::TCollection
+class PASCALIMPLEMENTATION TIdSSLRegistry _DEPRECATED_ATTRIBUTE0  : public System::Classes::TCollection
 {
 	typedef System::Classes::TCollection inherited;
 	
@@ -132,13 +132,13 @@ public:
 	TIdSSLRegEntry* operator[](int Index) { return Items[Index]; }
 	
 protected:
-	HIDESBASE TIdSSLRegEntry* __fastcall GetItem(int Index);
-	HIDESBASE void __fastcall SetItem(int Index, TIdSSLRegEntry* const Value);
+	HIDESBASE TIdSSLRegEntry* __fastcall GetItem _DEPRECATED_ATTRIBUTE0 (int Index);
+	HIDESBASE void __fastcall SetItem _DEPRECATED_ATTRIBUTE0 (int Index, TIdSSLRegEntry* const Value);
 	
 public:
-	__fastcall TIdSSLRegistry(void);
-	HIDESBASE TIdSSLRegEntry* __fastcall Add(void);
-	__property TIdSSLRegEntry* Items[int Index] = {read=GetItem, write=SetItem/*, default*/};
+	__fastcall TIdSSLRegistry _DEPRECATED_ATTRIBUTE0 (void);
+	HIDESBASE TIdSSLRegEntry* __fastcall Add _DEPRECATED_ATTRIBUTE0 (void);
+	__property TIdSSLRegEntry* Items _DEPRECATED_ATTRIBUTE0 [int Index] = {read=GetItem, write=SetItem/*, default*/};
 public:
 	/* TCollection.Destroy */ inline __fastcall virtual ~TIdSSLRegistry(void) { }
 	
@@ -147,8 +147,8 @@ public:
 #pragma pack(pop)
 
 //-- var, const, procedure ---------------------------------------------------
-extern DELPHI_PACKAGE TIdSSLRegistry* GSSLRegistry;
-extern DELPHI_PACKAGE void __fastcall RegisterSSL(const System::UnicodeString AProduct, const System::UnicodeString AVendor, const System::UnicodeString ACopyright, const System::UnicodeString ADescription, const System::UnicodeString AURL, const TIdClientSSLClass AClientClass, const TIdServerSSLClass AServerClass);
+extern DELPHI_PACKAGE TIdSSLRegistry* GSSLRegistry _DEPRECATED_ATTRIBUTE0 ;
+extern DELPHI_PACKAGE void __fastcall RegisterSSL _DEPRECATED_ATTRIBUTE0 (const System::UnicodeString AProduct, const System::UnicodeString AVendor, const System::UnicodeString ACopyright, const System::UnicodeString ADescription, const System::UnicodeString AURL, const TIdClientSSLClass AClientClass, const TIdServerSSLClass AServerClass);
 }	/* namespace Idssl */
 #if !defined(DELPHIHEADER_NO_IMPLICIT_NAMESPACE_USE) && !defined(NO_USING_NAMESPACE_IDSSL)
 using namespace Idssl;

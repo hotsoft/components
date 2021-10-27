@@ -703,6 +703,8 @@ extern DELPHI_PACKAGE System::UnicodeString __fastcall LocalDateTimeToGMT(const 
 extern DELPHI_PACKAGE System::UnicodeString __fastcall DateTimeToGmtOffSetStr _DEPRECATED_ATTRIBUTE1("Use UTCOffsetToStr()") (System::TDateTime ADateTime, const bool AUseGMTStr = false);
 extern DELPHI_PACKAGE System::TDateTime __fastcall OffsetFromUTC(void);
 extern DELPHI_PACKAGE System::UnicodeString __fastcall UTCOffsetToStr(const System::TDateTime AOffset, const bool AUseGMTStr = false);
+extern DELPHI_PACKAGE System::TDateTime __fastcall LocalTimeToUTCTime(const System::TDateTime Value);
+extern DELPHI_PACKAGE System::TDateTime __fastcall UTCTimeToLocalTime(const System::TDateTime Value);
 extern DELPHI_PACKAGE System::UnicodeString __fastcall IndyIncludeTrailingPathDelimiter(const System::UnicodeString S);
 extern DELPHI_PACKAGE System::UnicodeString __fastcall IndyExcludeTrailingPathDelimiter(const System::UnicodeString S);
 extern DELPHI_PACKAGE System::UnicodeString __fastcall StringsReplace(const System::UnicodeString S, System::UnicodeString const *OldPattern, const int OldPattern_Size, System::UnicodeString const *NewPattern, const int NewPattern_Size);

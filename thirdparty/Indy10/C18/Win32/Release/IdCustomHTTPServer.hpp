@@ -258,6 +258,7 @@ protected:
 	System::UnicodeString FQueryParams;
 	System::UnicodeString FFormParams;
 	THTTPCommandType FCommandType;
+	System::UnicodeString FAuthType;
 	virtual void __fastcall DecodeAndSetParams(const System::UnicodeString AValue);
 	
 public:
@@ -266,6 +267,7 @@ public:
 	bool __fastcall IsVersionAtLeast(const int AMajor, const int AMinor);
 	__property TIdHTTPSession* Session = {read=FSession};
 	__property bool AuthExists = {read=FAuthExists, nodefault};
+	__property System::UnicodeString AuthType = {read=FAuthType};
 	__property System::UnicodeString AuthPassword = {read=FAuthPassword};
 	__property System::UnicodeString AuthUsername = {read=FAuthUsername};
 	__property System::UnicodeString Command = {read=FCommand};
