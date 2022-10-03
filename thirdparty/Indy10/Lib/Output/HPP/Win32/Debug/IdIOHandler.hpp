@@ -129,6 +129,7 @@ class PASCALIMPLEMENTATION TIdIOHandler : public Idcomponent::TIdComponent
 	
 private:
 	bool FLargeStream;
+	void __fastcall EnsureInputBytes(int AByteCount);
 	
 protected:
 	bool FClosedGracefully;

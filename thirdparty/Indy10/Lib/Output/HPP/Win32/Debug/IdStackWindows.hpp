@@ -156,7 +156,7 @@ public:
 #pragma pack(pop)
 
 //-- var, const, procedure ---------------------------------------------------
-extern DELPHI_PACKAGE TIdStackWindows* GWindowsStack;
+extern DELPHI_PACKAGE TIdStackWindows* GWindowsStack _DEPRECATED_ATTRIBUTE1("Use GStack or GBSDStack instead") ;
 }	/* namespace Idstackwindows */
 #if !defined(DELPHIHEADER_NO_IMPLICIT_NAMESPACE_USE) && !defined(NO_USING_NAMESPACE_IDSTACKWINDOWS)
 using namespace Idstackwindows;

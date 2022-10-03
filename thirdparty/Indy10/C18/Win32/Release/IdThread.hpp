@@ -129,6 +129,7 @@ public:
 	HIDESBASE virtual void __fastcall Start(void);
 	virtual void __fastcall Stop(void);
 	HIDESBASE void __fastcall Synchronize(System::Classes::TThreadMethod Method)/* overload */;
+	HIDESBASE void __fastcall Synchronize(System::Classes::_di_TThreadProcedure Method)/* overload */;
 	HIDESBASE virtual void __fastcall Terminate(void);
 	virtual void __fastcall TerminateAndWaitFor(void);
 	__property System::TObject* Data = {read=FData, write=FData};
@@ -144,9 +145,6 @@ public:
 	__property TIdExceptionThreadEvent OnException = {read=FOnException, write=FOnException};
 	__property TIdNotifyThreadEvent OnStopped = {read=FOnStopped, write=FOnStopped};
 /* Hoisted overloads: */
-	
-protected:
-	inline void __fastcall  Synchronize(System::Classes::_di_TThreadProcedure AThreadProc){ System::Classes::TThread::Synchronize(AThreadProc); }
 	
 public:
 	inline void __fastcall  Synchronize(System::Classes::TThread* const AThread, System::Classes::TThreadMethod AMethod){ System::Classes::TThread::Synchronize(AThread, AMethod); }

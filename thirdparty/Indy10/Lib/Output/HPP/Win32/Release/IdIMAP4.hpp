@@ -342,7 +342,6 @@ protected:
 	bool FHasCapa;
 	Idsaslcollection::TIdSASLEntries* FSASLMechanisms;
 	TIdIMAP4AuthenticationType FAuthType;
-	System::Classes::TStrings* FCapabilities;
 	TIdIMAPLineStruct* FLineStruct;
 	virtual Idreply::TIdReplyClass __fastcall GetReplyClass(void);
 	virtual bool __fastcall GetSupportsTLS(void);
@@ -532,6 +531,7 @@ public:
 	HIDESBASE System::UnicodeString __fastcall SendCmd(const System::UnicodeString ATag, const System::UnicodeString AOut, System::UnicodeString *AExpectedResponses, const int AExpectedResponses_Size, bool ASingleLineMode = false, bool ASingleLineMayBeSplit = true)/* overload */;
 	System::UnicodeString __fastcall ReadLnWait _DEPRECATED_ATTRIBUTE1("Use IOHandler.ReadLnWait()") (void);
 	void __fastcall WriteLn _DEPRECATED_ATTRIBUTE1("Use IOHandler.WriteLn()") (const System::UnicodeString AOut = System::UnicodeString());
+	__property IPVersion;
 	
 __published:
 	__property TIdAlertEvent OnAlert = {read=FOnAlert, write=FOnAlert};

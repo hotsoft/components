@@ -136,7 +136,10 @@ public:
 
 #pragma pack(pop)
 
+enum DECLSPEC_DENUM TIdMIMEFilenamePathDelimiterAction : unsigned char { actTruncatePath, actReplaceWithUnderscore };
+
 //-- var, const, procedure ---------------------------------------------------
+extern DELPHI_PACKAGE TIdMIMEFilenamePathDelimiterAction DecodeFilenamePathDelimiterAction;
 }	/* namespace Idmessagecodermime */
 #if !defined(DELPHIHEADER_NO_IMPLICIT_NAMESPACE_USE) && !defined(NO_USING_NAMESPACE_IDMESSAGECODERMIME)
 using namespace Idmessagecodermime;
