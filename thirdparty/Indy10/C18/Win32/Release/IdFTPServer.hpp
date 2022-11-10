@@ -445,6 +445,8 @@ public:
 
 typedef void __fastcall (__closure *TIdOnGetCustomListFormat)(TIdFTPServer* ASender, Idftplist::TIdFTPListItem* AItem, System::UnicodeString &VText);
 
+typedef void __fastcall (__closure *TIdOnQuerySSLPort)(System::Word APort, bool &VUseSSL);
+
 class PASCALIMPLEMENTATION TIdFTPServer : public Idexplicittlsclientserverbase::TIdExplicitTLSServer
 {
 	typedef Idexplicittlsclientserverbase::TIdExplicitTLSServer inherited;
@@ -514,6 +516,7 @@ protected:
 	TIdOnMLST FOnMLST;
 	TOnSiteUTIME FOnSiteUTIME;
 	TOnHostCheck FOnHostCheck;
+	TIdOnQuerySSLPort FOnQuerySSLPort;
 	void __fastcall SetOnUserAccount(TOnFTPUserAccountEvent AValue);
 	void __fastcall AuthenticateUser(Idcommandhandlers::TIdCommand* ASender);
 	bool __fastcall SupportTaDirSwitches(TIdFTPServerContext* AContext);
@@ -652,6 +655,7 @@ protected:
 	virtual void __fastcall DoDataChannelOperation(Idcommandhandlers::TIdCommand* ASender, const bool AConnectMode = false);
 	virtual void __fastcall DoOnDataPortAfterBind(TIdFTPServerContext* ASender);
 	void __fastcall DoOnCustomListDirectory(TIdFTPServerContext* ASender, const System::UnicodeString APath, System::Classes::TStrings* ADirectoryListing, const System::UnicodeString ACmd, const System::UnicodeString ASwitches);
+	virtual bool __fastcall DoQuerySSLPort(System::Word APort);
 	virtual Idreply::TIdReplyClass __fastcall GetReplyClass(void);
 	virtual Idreply::TIdRepliesClass __fastcall GetRepliesClass(void);
 	virtual void __fastcall InitComponent(void);
@@ -726,6 +730,7 @@ __published:
 	__property TIdMLSDAttrs MLSDFacts = {read=FMLSDFacts, write=FMLSDFacts, nodefault};
 	__property TIdOnClientID OnClientID = {read=FOnClientID, write=FOnClientID};
 	__property Idreply::TIdReply* ReplyUnknownSITCommand = {read=FReplyUnknownSITECommand, write=SetReplyUnknownSITECommand};
+	__property TIdOnQuerySSLPort OnQuerySSLPort = {read=FOnQuerySSLPort, write=FOnQuerySSLPort};
 public:
 	/* TIdBaseComponent.Create */ inline __fastcall TIdFTPServer(System::Classes::TComponent* AOwner)/* overload */ : Idexplicittlsclientserverbase::TIdExplicitTLSServer(AOwner) { }
 	

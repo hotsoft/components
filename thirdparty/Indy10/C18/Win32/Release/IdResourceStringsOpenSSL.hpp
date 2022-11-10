@@ -23,6 +23,14 @@ namespace Idresourcestringsopenssl
 //-- var, const, procedure ---------------------------------------------------
 extern DELPHI_PACKAGE System::ResourceString _RSOSSFailedToLoad;
 #define Idresourcestringsopenssl_RSOSSFailedToLoad System::LoadResourceString(&Idresourcestringsopenssl::_RSOSSFailedToLoad)
+extern DELPHI_PACKAGE System::ResourceString _RSOSSFailedToLoad_WithErrCode;
+#define Idresourcestringsopenssl_RSOSSFailedToLoad_WithErrCode System::LoadResourceString(&Idresourcestringsopenssl::_RSOSSFailedToLoad_WithErrCode)
+extern DELPHI_PACKAGE System::ResourceString _RSOSSMissingExport_WithErrCode;
+#define Idresourcestringsopenssl_RSOSSMissingExport_WithErrCode System::LoadResourceString(&Idresourcestringsopenssl::_RSOSSMissingExport_WithErrCode)
+extern DELPHI_PACKAGE System::ResourceString _RSOSSUnsupportedVersion;
+#define Idresourcestringsopenssl_RSOSSUnsupportedVersion System::LoadResourceString(&Idresourcestringsopenssl::_RSOSSUnsupportedVersion)
+extern DELPHI_PACKAGE System::ResourceString _RSOSSUnsupportedLibrary;
+#define Idresourcestringsopenssl_RSOSSUnsupportedLibrary System::LoadResourceString(&Idresourcestringsopenssl::_RSOSSUnsupportedLibrary)
 extern DELPHI_PACKAGE System::ResourceString _RSOSSLModeNotSet;
 #define Idresourcestringsopenssl_RSOSSLModeNotSet System::LoadResourceString(&Idresourcestringsopenssl::_RSOSSLModeNotSet)
 extern DELPHI_PACKAGE System::ResourceString _RSOSSLCouldNotLoadSSLLibrary;

@@ -33,6 +33,8 @@ namespace Idsmtpbase
 //-- type declarations -------------------------------------------------------
 typedef void __fastcall (__closure *TIdSMTPFailedRecipient)(System::TObject* Sender, const System::UnicodeString AAddress, const System::UnicodeString ACode, const System::UnicodeString AText, bool &VContinue);
 
+typedef void __fastcall (__closure *TIdSMTPFailedEHLO)(System::TObject* Sender, const System::UnicodeString ACode, const System::UnicodeString AText, bool &VContinue);
+
 class DELPHICLASS TIdSMTPBase;
 class PASCALIMPLEMENTATION TIdSMTPBase : public Idmessageclient::TIdMessageClient
 {
@@ -46,6 +48,7 @@ protected:
 	bool FUseVerp;
 	System::UnicodeString FVerpDelims;
 	TIdSMTPFailedRecipient FOnFailedRecipient;
+	TIdSMTPFailedEHLO FOnFailedEHLO;
 	virtual bool __fastcall GetSupportsTLS(void);
 	virtual Idreply::TIdReplyClass __fastcall GetReplyClass(void);
 	virtual void __fastcall InitComponent(void);
@@ -76,6 +79,7 @@ __published:
 	__property bool UseVerp = {read=FUseVerp, write=FUseVerp, default=0};
 	__property System::UnicodeString VerpDelims = {read=FVerpDelims, write=FVerpDelims};
 	__property TIdSMTPFailedRecipient OnFailedRecipient = {read=FOnFailedRecipient, write=FOnFailedRecipient};
+	__property TIdSMTPFailedEHLO OnFailedEHLO = {read=FOnFailedEHLO, write=FOnFailedEHLO};
 public:
 	/* TIdMessageClient.Destroy */ inline __fastcall virtual ~TIdSMTPBase(void) { }
 	

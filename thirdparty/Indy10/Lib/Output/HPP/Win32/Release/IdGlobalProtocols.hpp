@@ -172,7 +172,7 @@ extern DELPHI_PACKAGE bool __fastcall IsVolume(const System::UnicodeString APath
 extern DELPHI_PACKAGE __int64 __fastcall FileSizeByName(const System::UnicodeString AFilename);
 extern DELPHI_PACKAGE System::TDateTime __fastcall GetGMTDateByName(const System::UnicodeString AFileName);
 extern DELPHI_PACKAGE System::UnicodeString __fastcall RightStr(const System::UnicodeString AStr, const int Len);
-extern DELPHI_PACKAGE System::TDateTime __fastcall TimeZoneBias(void);
+extern DELPHI_PACKAGE System::TDateTime __fastcall TimeZoneBias _DEPRECATED_ATTRIBUTE1("Use IdGlobal.LocalTimeToUTCTime() or IdGlobal.UTCTimeToLocalTime()") (void);
 extern DELPHI_PACKAGE bool __fastcall IndyStrToBool(const System::UnicodeString AString);
 extern DELPHI_PACKAGE bool __fastcall IndySetLocalTime(System::TDateTime Value);
 extern DELPHI_PACKAGE System::Byte __fastcall StrToDay(const System::UnicodeString ADay);
@@ -185,6 +185,7 @@ extern DELPHI_PACKAGE int __fastcall BinStrToInt(const System::UnicodeString ABi
 extern DELPHI_PACKAGE System::UnicodeString __fastcall ABNFToText(const System::UnicodeString AText);
 extern DELPHI_PACKAGE System::UnicodeString __fastcall GetMIMETypeFromFile(const System::UnicodeString AFile);
 extern DELPHI_PACKAGE System::UnicodeString __fastcall GetMIMEDefaultFileExt(const System::UnicodeString MIMEType);
+extern DELPHI_PACKAGE System::UnicodeString __fastcall GetGMTOffsetStr(const System::UnicodeString S);
 extern DELPHI_PACKAGE System::TDateTime __fastcall GmtOffsetStrToDateTime(const System::UnicodeString S);
 extern DELPHI_PACKAGE System::TDateTime __fastcall GMTToLocalDateTime(System::UnicodeString S);
 extern DELPHI_PACKAGE System::TDateTime __fastcall CookieStrToLocalDateTime(System::UnicodeString S);

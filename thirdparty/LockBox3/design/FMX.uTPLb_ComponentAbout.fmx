@@ -1,0 +1,717 @@
+object TPLb_fmComponentAbout: TTPLb_fmComponentAbout
+  Left = 0
+  Top = 0
+  Caption = 'Component About'
+  ClientHeight = 442
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [dkDesktop, dkiPhone, dkiPad]
+  OnCreate = FormCreate
+  DesignerMobile = False
+  DesignerWidth = 0
+  DesignerHeight = 0
+  DesignerDeviceName = ''
+  DesignerOrientation = 0
+  object pnlAbout: TPanel
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    Height = 120.000000000000000000
+    Width = 120.000000000000000000
+    TabOrder = 0
+    object pgAboutContent: TTabControl
+      Height = 200.000000000000000000
+      TabIndex = 6
+      TabOrder = 0
+      Width = 200.000000000000000000
+      object tsMain: TTabItem
+        WordWrap = False
+        Height = 23.000000000000000000
+        IsSelected = False
+        Position.X = 1.000000000000000000
+        TabOrder = 0
+        Text = 'Main'
+        Width = 44.000000000000000000
+        object Image1: TImage
+          Height = 50.000000000000000000
+          Width = 50.000000000000000000
+        end
+        object lblTitle: TLabel
+          Anchors = [akLeft, akTop, akRight]
+          Height = 17.000000000000000000
+          Position.X = 231.000000000000000000
+          Position.Y = 3.000000000000000000
+          Text = 'TurboPower LockBox 3'
+          Width = 120.000000000000000000
+        end
+        object Label1: TLabel
+          Height = 17.000000000000000000
+          Position.X = 231.000000000000000000
+          Position.Y = 65.000000000000000000
+          Text = 
+            'TurboPower LockBox 3 (TPLB3) is a Delphi Library, whose purpose ' +
+            'is to provide basic cryptographic functionality, implemented nat' +
+            'ively as a white box.'#13#10'Block mode ciphers include AES, Blowfish,' +
+            ' Twofish, DES, 3DES and XXTEA. Hashes include MD5, SHA-1 and the' +
+            ' SHA-2 family. Chaining modes include ECB, CBC, PCBC, CFB, CFB-8' +
+            'Bit, OFB and CTR. The source code is highly readable and underst' +
+            'andable. Salting is provided where it is needed, transparently. ' +
+            'The design is very extensible. Extending the range of ciphers an' +
+            'd hashes can be done cheaply, easily and quickly.'
+          Width = 120.000000000000000000
+        end
+        object lblRunTimeVersion: TLabel
+          AutoSize = True
+          Height = 17.000000000000000000
+          Position.X = 231.000000000000000000
+          Position.Y = 208.000000000000000000
+          Text = 'run-time version'
+          Width = 120.000000000000000000
+        end
+        object lblDesignTimeVersion: TLabel
+          AutoSize = True
+          Height = 17.000000000000000000
+          Position.X = 231.000000000000000000
+          Position.Y = 224.000000000000000000
+          Text = 'design-time version'
+          Width = 120.000000000000000000
+        end
+        object lblLogoAttribution: TLabel
+          Height = 17.000000000000000000
+          Position.Y = 330.000000000000000000
+          Text = 
+            'The above photo was sourced from http://www.flickr.com/photos/ml' +
+            'iu92/3146549932 and has been copied with the kind permission of ' +
+            'the copyright holder,  Mike Liu (mliu92).'#13#10'The photo is copyable' +
+            ' under the Creative Commons license (http://creativecommons.org/' +
+            'licenses/by-nc-sa/2.0/deed.en).'
+          Width = 120.000000000000000000
+        end
+        object Memo1: TMemo
+          Height = 50.000000000000000000
+          Position.X = 231.000000000000000000
+          Position.Y = 243.000000000000000000
+          TabOrder = 0
+          Width = 100.000000000000000000
+          Lines.Strings = (
+            'TPLB3 is free and open source '
+            'software. It is made available for '
+            'use and copying by an LGPL or an'
+            'MPL license at your choice. '
+            'Refer to the "Statement of copying'
+            'permission" tab for details.')
+          ReadOnly = True
+        end
+      end
+      object tsWelcome: TTabItem
+        WordWrap = False
+        Height = 23.000000000000000000
+        IsSelected = False
+        Position.X = 45.000000000000000000
+        TabOrder = 1
+        Text = 'Welcome'
+        Width = 65.000000000000000000
+        object browserIntro: TWebBrowser
+          Height = 50.000000000000000000
+          Position.X = 114.000000000000000000
+          Width = 50.000000000000000000
+          Left = 104
+        end
+        object memoWelcomeInstructions: TMemo
+          Height = 50.000000000000000000
+          TabOrder = 1
+          Width = 100.000000000000000000
+          Lines.Strings = (
+            'The video to the '
+            'right requires an '
+            'internet connection '
+            'and Adobe Flash '
+            'Player 10 to be '
+            'installed, in order to '
+            'play.'
+            ''
+            'The video is hosted '
+            'on YouTube. If you '
+            'are on a corporate '
+            'network and having '
+            'trouble accessing '
+            'the video, check '
+            'your firewall '
+            'configuration for '
+            'access to '
+            'www.youtube.com .')
+          ReadOnly = True
+        end
+      end
+      object tsProject: TTabItem
+        WordWrap = False
+        Height = 23.000000000000000000
+        IsSelected = False
+        Position.X = 110.000000000000000000
+        TabOrder = 2
+        Text = 'Project'
+        Width = 54.000000000000000000
+        object Label4: TLabel
+          AutoSize = True
+          Height = 17.000000000000000000
+          Position.Y = 3.000000000000000000
+          Text = 'This product has been brought to you by ...'
+          Width = 120.000000000000000000
+        end
+        object lblWebsite: TLabel
+          AutoSize = True
+          Height = 17.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 312.000000000000000000
+          Text = 'http://sourceforge.net/projects/tplockbox/'
+          Width = 120.000000000000000000
+        end
+        object Memo2: TMemo
+          Height = 50.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 32.000000000000000000
+          TabOrder = 0
+          Width = 100.000000000000000000
+          Lines.Strings = (
+            
+              'The TPLB3 product is produced under the organisational umbrella ' +
+              'of the TurboPower LockBox project. This project has no '
+            
+              'legal incorporation. It is an informal organisation with no defi' +
+              'ned membership. The TPLB3 product is owned by the '
+            
+              'individual contributors to its parts. The Project on SourceForge' +
+              ' is administered by the TurboPower SourceForge '
+            'Administrator (tpsfadmin).'
+            ''
+            
+              'LockBox was originally produced and released by TurboPower Softw' +
+              'are Company as a commercial product. Versions 1 and'
+            
+              '2 of the product were commericial and were released in the perio' +
+              'd from 1997 to 2002. The copyright holder was'
+            
+              'TurboPower Software Company. Version 2 source code was donated t' +
+              'o the the TurboPower LockBox SourceForge project'
+            'under an MPL 1.1 license, which is free and open-source license.'
+            ''
+            
+              'LockBox3 was developed from scratch in 2009/2010. It is not a de' +
+              'rivative work of LockBox 2 and does not share any'
+            
+              'common code, but the mission of the library remains the same. An' +
+              ' exception is the unit DCPtwofish_LB3Modified'
+            
+              'which is a modified version of a file from David Barton'#39's DCPCry' +
+              'pt package. The original unit of this was'
+            'developed by David Barton.')
+          ReadOnly = True
+        end
+        object lblTpsfaIntro: TLabel
+          AutoSize = True
+          Height = 17.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 255.000000000000000000
+          Text = 
+            'The TurboPower Source Forge Administrator (tpsfa) can be contact' +
+            'ed at:'
+          Width = 120.000000000000000000
+        end
+        object lblTpsfaContact: TLabel
+          AutoSize = True
+          Cursor = crHandPoint
+          Height = 17.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 272.000000000000000000
+          Text = 'http://sourceforge.net/sendmessage.php?touser=625421'
+          Width = 120.000000000000000000
+          OnClick = lblTpsfaContactClick
+        end
+        object lblWebLabel: TLabel
+          AutoSize = True
+          Height = 17.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 295.000000000000000000
+          Text = 'TPLB3 on SourceForge is located at:'
+          Width = 120.000000000000000000
+        end
+      end
+      object tsCopyLeft: TTabItem
+        WordWrap = False
+        Height = 23.000000000000000000
+        IsSelected = False
+        Position.X = 164.000000000000000000
+        Position.Y = 65535.000000000000000000
+        TabOrder = 3
+        Text = 'Statement of copying permission'
+        Width = 180.000000000000000000
+        object Label7: TLabel
+          AutoSize = True
+          Height = 17.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 3.000000000000000000
+          Text = 
+            'Copyright 2009..2011 Sean B. Durkin (except for portions marked ' +
+            'otherwise)'
+          Width = 120.000000000000000000
+        end
+        object Label8: TLabel
+          AutoSize = True
+          Height = 17.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 18.000000000000000000
+          Text = 
+            'The below copyright applies to all the source code and compiled ' +
+            'binaries of the TPBL3 project, except the DCPtwofish_LB3Modified' +
+            ' unit which comes with its own statement of copying permission i' +
+            'n its header comment.'
+          Width = 120.000000000000000000
+        end
+        object Label9: TLabel
+          AutoSize = True
+          Height = 17.000000000000000000
+          Position.X = 8.000000000000000000
+          Position.Y = 48.000000000000000000
+          Text = 'Statement of copying permission:'
+          Width = 120.000000000000000000
+        end
+        object Memo3: TMemo
+          Anchors = [akLeft, akTop, akRight]
+          Height = 50.000000000000000000
+          Position.X = 2.000000000000000000
+          Position.Y = 67.000000000000000000
+          TabOrder = 0
+          Width = 100.000000000000000000
+          Lines.Strings = (
+            
+              'This component library is part of TurboPower LockBox 3. TurboPow' +
+              'er LockBox '
+            '3'
+            
+              'is free software being offered under a dual licensing scheme: LG' +
+              'PL3 or '
+            'MPL1.1.'
+            ''
+            
+              'The contents of this library are subject to the Mozilla Public L' +
+              'icense '
+            '(MPL)'
+            
+              'Version 1.1 (the "License"); you may not use this file except in' +
+              ' compliance'
+            'with the License. You may obtain a copy of the License at'
+            'http://www.mozilla.org/MPL/'
+            ''
+            
+              'Alternatively, you may redistribute it and/or modify it under th' +
+              'e terms of'
+            
+              'the GNU Lesser General Public License (LGPL) as published by the' +
+              ' Free '
+            'Software'
+            
+              'Foundation, either version 3 of the License, or (at your option)' +
+              ' any later'
+            'version.'
+            ''
+            
+              'You should have received a copy of the Lesser GNU General Public' +
+              ' License'
+            'along with TurboPower LockBox 3.  If not, see '
+            '<http://www.gnu.org/licenses/>.'
+            ''
+            
+              'TurboPower LockBox is distributed in the hope that it will be us' +
+              'eful,'
+            'but WITHOUT ANY WARRANTY; without even the implied warranty of'
+            
+              'MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. In relation' +
+              ' to LGPL,'
+            
+              'see the GNU Lesser General Public License for more details. In r' +
+              'elation to '
+            'MPL,'
+            
+              'see the MPL License for the specific language governing rights a' +
+              'nd '
+            'limitations'
+            'under the License.'
+            ''
+            
+              'The Initial Developer of the Original Code for TurboPower LockBo' +
+              'x version 2'
+            'and earlier was TurboPower Software.'
+            '')
+          ReadOnly = True
+        end
+      end
+      object tsAuthors: TTabItem
+        WordWrap = False
+        Height = 23.000000000000000000
+        IsSelected = False
+        Position.X = 344.000000000000000000
+        Position.Y = 65535.000000000000000000
+        TabOrder = 4
+        Text = 'Authors'
+        Width = 58.000000000000000000
+        object Bevel1: TPanel
+          Height = 120.000000000000000000
+          Position.X = 328.000000000000000000
+          Position.Y = 16.000000000000000000
+          Width = 120.000000000000000000
+          TabOrder = 6
+        end
+        object imgAuthorPic: TImage
+          Height = 50.000000000000000000
+          Position.X = 336.000000000000000000
+          Position.Y = 24.000000000000000000
+          Width = 50.000000000000000000
+        end
+        object lblAuthorEmail: TLabel
+          AutoSize = True
+          Height = 17.000000000000000000
+          Position.X = 328.000000000000000000
+          Position.Y = 293.000000000000000000
+          Text = 'email: sean@seanbdurkin.id.au'
+          Width = 120.000000000000000000
+        end
+        object lblAuthorWeb: TLabel
+          AutoSize = True
+          Height = 17.000000000000000000
+          Position.X = 328.000000000000000000
+          Position.Y = 312.000000000000000000
+          Text = 'web: http:\\www.seanbdurkin.id.au'
+          Width = 120.000000000000000000
+        end
+        object Label12: TLabel
+          AutoSize = True
+          Height = 17.000000000000000000
+          Position.X = 175.000000000000000000
+          Position.Y = 135.000000000000000000
+          Text = 'Select author to see details.'
+          Width = 120.000000000000000000
+        end
+        object imgSean: TImage
+          Height = 50.000000000000000000
+          Position.X = 175.000000000000000000
+          Position.Y = 272.000000000000000000
+          Width = 50.000000000000000000
+        end
+        object Memo4: TMemo
+          Anchors = [akLeft, akTop, akBottom]
+          Height = 50.000000000000000000
+          Position.X = 8.000000000000000000
+          Position.Y = 8.000000000000000000
+          TabOrder = 0
+          Width = 100.000000000000000000
+          Lines.Strings = (
+            'To the right is a list of authors '
+            'and contributors to '
+            'TurboPower LockBox 3.'
+            'Not included are the authors '
+            'of LockBox 1 & 2, as there is '
+            'no common'
+            'copyrightable content '
+            'between them and LockBox 3.'
+            ''
+            'The LockBox 3 project '
+            'welcomes any contributions. If '
+            'you wish to contribute,'
+            'and your contributions are '
+            'accepted, your details can, if '
+            'you request, be'
+            'added to this list of authors.')
+        end
+        object lbxAuthors: TListBox
+          Height = 200.000000000000000000
+          Position.X = 175.000000000000000000
+          Position.Y = 8.000000000000000000
+          TabOrder = 1
+          Width = 200.000000000000000000
+          OnClick = lbxAuthorsClick
+          ItemHeight = 13.000000000000000000
+          DefaultItemStyles.ItemStyle = ''
+          DefaultItemStyles.GroupHeaderStyle = ''
+          DefaultItemStyles.GroupFooterStyle = ''
+          object TListBoxItem
+            Height = 19.000000000000000000
+            Text = 'Sean B. Durkin'
+            Width = 19.000000000000000000
+          end
+          object TListBoxItem
+            Height = 19.000000000000000000
+            Text = 'David Barton'
+            Width = 19.000000000000000000
+          end
+        end
+      end
+      object tsSupport: TTabItem
+        WordWrap = False
+        Height = 23.000000000000000000
+        IsSelected = False
+        Position.X = 402.000000000000000000
+        Position.Y = 65535.000000000000000000
+        TabOrder = 5
+        Text = 'Support'
+        Width = 59.000000000000000000
+        object memoSupport: TMemo
+          Height = 50.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 24.000000000000000000
+          TabOrder = 0
+          Width = 100.000000000000000000
+          Lines.Strings = (
+            'Support can be obtained through the '
+            'forums at:'
+            'http://lockbox.seanbdurkin.id.au/tiki-f'
+            'orums.php')
+          ReadOnly = True
+        end
+        object memoHelp: TMemo
+          Height = 50.000000000000000000
+          Position.X = 295.000000000000000000
+          Position.Y = 24.000000000000000000
+          TabOrder = 1
+          Width = 100.000000000000000000
+          Lines.Strings = (
+            'User help for this component suite'
+            'can be found at'
+            'http://lockbox.seanbdurkin.id.au/LB3Help_H'
+            'ome .'
+            'If the help is still partially'
+            'under construction, please either be'
+            'patient, or offer your own content.'
+            '')
+          ReadOnly = True
+        end
+      end
+      object tsAlgorithms: TTabItem
+        WordWrap = False
+        Height = 23.000000000000000000
+        IsSelected = True
+        Position.X = 461.000000000000000000
+        Position.Y = 65535.000000000000000000
+        TabOrder = 6
+        Text = 'Algorithms'
+        Width = 73.000000000000000000
+        object Panel1: TPanel
+          Height = 120.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 16.000000000000000000
+          Width = 120.000000000000000000
+          TabOrder = 0
+          object Label13: TLabel
+            AutoSize = True
+            Height = 17.000000000000000000
+            Position.X = 16.000000000000000000
+            Text = 'About selected Hash'
+            Width = 120.000000000000000000
+          end
+          object lblHashDisplayName: TLabel
+            AutoSize = True
+            Height = 17.000000000000000000
+            Position.X = 24.000000000000000000
+            Position.Y = 24.000000000000000000
+            Text = 'DisplayName'
+            Width = 120.000000000000000000
+          end
+          object Label15: TLabel
+            AutoSize = True
+            Height = 17.000000000000000000
+            Position.X = 14.000000000000000000
+            Position.Y = 43.000000000000000000
+            Text = 'Features:'
+            Width = 120.000000000000000000
+          end
+          object lblHashDefinitionURL: TLabel
+            AutoSize = True
+            Cursor = crHandPoint
+            Height = 17.000000000000000000
+            Position.X = 16.000000000000000000
+            Position.Y = 112.000000000000000000
+            Text = 'definition url'
+            Width = 120.000000000000000000
+            OnClick = OnURL_Click
+          end
+          object lblHashWikipediaURL: TLabel
+            AutoSize = True
+            Cursor = crHandPoint
+            Height = 17.000000000000000000
+            Position.X = 16.000000000000000000
+            Position.Y = 136.000000000000000000
+            Text = 'wikipedia url'
+            Width = 120.000000000000000000
+            OnClick = OnURL_Click
+          end
+          object lblHashBlockSize: TLabel
+            AutoSize = True
+            Height = 17.000000000000000000
+            Position.X = 16.000000000000000000
+            Position.Y = 160.000000000000000000
+            Text = 'Block size = 128 bits'
+            Width = 120.000000000000000000
+          end
+          object lblHashDigestSize: TLabel
+            AutoSize = True
+            Height = 17.000000000000000000
+            Position.X = 16.000000000000000000
+            Position.Y = 184.000000000000000000
+            Text = 'Digest size = 64 bits'
+            Width = 120.000000000000000000
+          end
+          object lbxHashFeatures: TListBox
+            Height = 200.000000000000000000
+            Position.X = 67.000000000000000000
+            Position.Y = 40.000000000000000000
+            TabOrder = 0
+            Width = 200.000000000000000000
+            ItemHeight = 13.000000000000000000
+            DefaultItemStyles.ItemStyle = ''
+            DefaultItemStyles.GroupHeaderStyle = ''
+            DefaultItemStyles.GroupFooterStyle = ''
+          end
+        end
+        object pnlCipherDescription: TPanel
+          Height = 120.000000000000000000
+          Position.X = 299.000000000000000000
+          Position.Y = 16.000000000000000000
+          Width = 120.000000000000000000
+          TabOrder = 1
+          object Label20: TLabel
+            AutoSize = True
+            Height = 17.000000000000000000
+            Position.X = 16.000000000000000000
+            Text = 'About selected Cipher'
+            Width = 120.000000000000000000
+          end
+          object lblCipherDisplayName: TLabel
+            AutoSize = True
+            Height = 17.000000000000000000
+            Position.X = 24.000000000000000000
+            Position.Y = 24.000000000000000000
+            Text = 'DisplayName'
+            Width = 120.000000000000000000
+          end
+          object Label22: TLabel
+            AutoSize = True
+            Height = 17.000000000000000000
+            Position.X = 14.000000000000000000
+            Position.Y = 43.000000000000000000
+            Text = 'Features:'
+            Width = 120.000000000000000000
+          end
+          object lblCipherDefinitionURL: TLabel
+            AutoSize = True
+            Cursor = crHandPoint
+            Height = 17.000000000000000000
+            Position.X = 16.000000000000000000
+            Position.Y = 112.000000000000000000
+            Text = 'definition url'
+            Width = 120.000000000000000000
+            OnClick = OnURL_Click
+          end
+          object lblCipherWikipediaURL: TLabel
+            AutoSize = True
+            Cursor = crHandPoint
+            Height = 17.000000000000000000
+            Position.X = 16.000000000000000000
+            Position.Y = 141.000000000000000000
+            Text = 'wikipedia url'
+            Width = 120.000000000000000000
+            OnClick = OnURL_Click
+          end
+          object lblCipherBlockSize: TLabel
+            AutoSize = True
+            Height = 17.000000000000000000
+            Position.X = 16.000000000000000000
+            Position.Y = 160.000000000000000000
+            Text = 'Block size = 128 bits'
+            Width = 120.000000000000000000
+          end
+          object lbxCipherFeatures: TListBox
+            Height = 200.000000000000000000
+            Position.X = 67.000000000000000000
+            Position.Y = 40.000000000000000000
+            TabOrder = 0
+            Width = 200.000000000000000000
+            ItemHeight = 13.000000000000000000
+            DefaultItemStyles.ItemStyle = ''
+            DefaultItemStyles.GroupHeaderStyle = ''
+            DefaultItemStyles.GroupFooterStyle = ''
+          end
+          object memoExtraCipherDescription: TMemo
+            Height = 50.000000000000000000
+            Position.X = 16.000000000000000000
+            Position.Y = 192.000000000000000000
+            TabOrder = 1
+            Visible = False
+            Width = 100.000000000000000000
+            Lines.Strings = (
+              'Extra Cipher Description')
+            ReadOnly = True
+          end
+        end
+        object Panel3: TPanel
+          Height = 120.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 231.000000000000000000
+          Width = 120.000000000000000000
+          TabOrder = 2
+          object Label27: TLabel
+            AutoSize = True
+            Height = 17.000000000000000000
+            Position.X = 16.000000000000000000
+            Text = 'About selected Chaining Mode'
+            Width = 120.000000000000000000
+          end
+          object lblChainName: TLabel
+            AutoSize = True
+            Height = 17.000000000000000000
+            Position.X = 24.000000000000000000
+            Position.Y = 24.000000000000000000
+            Text = 'DisplayName'
+            Width = 120.000000000000000000
+          end
+          object Label29: TLabel
+            AutoSize = True
+            Height = 17.000000000000000000
+            Position.X = 14.000000000000000000
+            Position.Y = 43.000000000000000000
+            Text = 'Features:'
+            Width = 120.000000000000000000
+          end
+          object lblChainWikipedia: TLabel
+            AutoSize = True
+            Cursor = crHandPoint
+            Height = 17.000000000000000000
+            Position.X = 16.000000000000000000
+            Position.Y = 120.000000000000000000
+            Text = 'wikipedia url'
+            Width = 120.000000000000000000
+            OnClick = OnURL_Click
+          end
+          object lbxChainFeatures: TListBox
+            Height = 200.000000000000000000
+            Position.X = 67.000000000000000000
+            Position.Y = 40.000000000000000000
+            TabOrder = 0
+            Width = 200.000000000000000000
+            ItemHeight = 13.000000000000000000
+            DefaultItemStyles.ItemStyle = ''
+            DefaultItemStyles.GroupHeaderStyle = ''
+            DefaultItemStyles.GroupFooterStyle = ''
+          end
+        end
+      end
+    end
+  end
+  object btnClose: TButton
+    Anchors = [akLeft, akBottom]
+    Height = 22.000000000000000000
+    ModalResult = 1
+    Position.X = 280.000000000000000000
+    Position.Y = 416.000000000000000000
+    TabOrder = 1
+    Text = 'Close'
+    Width = 80.000000000000000000
+  end
+end

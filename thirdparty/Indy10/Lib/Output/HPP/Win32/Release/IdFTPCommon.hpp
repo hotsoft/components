@@ -18,6 +18,8 @@
 #include <IdGlobal.hpp>	// Pascal unit
 #include <IdGlobalProtocols.hpp>	// Pascal unit
 #include <System.SysUtils.hpp>	// Pascal unit
+#include <System.TimeSpan.hpp>	// Pascal unit
+#include <System.DateUtils.hpp>	// Pascal unit
 
 //-- user supplied -----------------------------------------------------------
 
