@@ -130,7 +130,7 @@ const
   ACS_NCCHANGED     = $40000;
   ACS_TEXTANIMATING = $80000;
   ACS_INIT          = $100000;
-//  ACS_GLASSPAINT    = $80000;
+  ACS_SIZING        = $200000;
 
   // Background types
   BGT_NONE          = 0;

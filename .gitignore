@@ -1,6 +1,4 @@
-*.dcu
 *.gitignore
-*.res
 *.identcache
 *.ddp
 *.*~

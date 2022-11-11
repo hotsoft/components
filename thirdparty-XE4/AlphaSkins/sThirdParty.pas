@@ -104,6 +104,9 @@ begin
         else
           Result := cil.SavedWidth;
 
+        if Result = 0 then // SavedWidth not initialized yet
+          Result := cil.Width;
+
         if not TAccessCharImageList(ImgList).AllowScale then
           Exit;
       end
@@ -140,6 +143,9 @@ begin
     if ImgList is TsCharImageList then begin
       cil := TAccessCharImageList(ImgList);
       Result := cil.SavedHeight;
+      if Result = 0 then // SavedHeight not initialized yet
+        Result := cil.Height;
+
       if IsValidIndex(ImageIndex, cil.Count) then begin
         inc(Result, abs(cil.Items[ImageIndex].OffsetY));
         Result := Round(Result * cil.Items[ImageIndex].ScalingFactor);
@@ -344,7 +350,7 @@ begin
             end;
         end
         else
-          if (DstBmp <> nil) {$IFDEF DELPHI_XE} and not ((Images is TImageList) and (Images.ColorDepth = cd32Bit)) {$ENDIF} then begin
+          if (DstBmp <> nil) {$IFDEF DELPHI_XE} and not ((Images is TCustomImageList) and (Images.ColorDepth = cd32Bit)) {$ENDIF} then begin
             Bmp := CreateBmp32;
             try
               PrepareGlyph;

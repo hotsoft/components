@@ -37,7 +37,6 @@ object FormNewThirdClass: TFormNewThirdClass
     Top = 56
     Width = 190
     Height = 21
-    Alignment = taLeftJustify
     BoundLabel.Active = True
     BoundLabel.Caption = 'Type of skin:'
     VerticalAlignment = taAlignTop
