@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2022/11/16 15:18:52.881,=rtl.dcp</Transaction>
+    <Transaction>2022/11/16 15:18:57.309,=C:\Users\hotsoft\Documents\RAD Studio\11.0\Imports\MOZILLACONTROLLib_TLB.pas</Transaction>
+    <Transaction>2022/11/16 15:18:57.415,=C:\Users\hotsoft\Documents\RAD Studio\11.0\Imports\MOZILLACONTROLLib_TLB.pas</Transaction>
+    <Transaction>2022/11/16 15:18:57.422,=vcl.dcp</Transaction>
+  </Transactions>
+</BorlandProject>
