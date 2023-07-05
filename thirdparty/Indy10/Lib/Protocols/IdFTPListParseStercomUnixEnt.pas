@@ -349,7 +349,7 @@ begin
   Total Number of batches listed: 5
 
   Note that this was taken from:
-  "Connect:Enterprise® UNIX Remote User’s Guide Version 2.1 " Copyright
+  "Connect:Enterprise. UNIX Remote Users Guide Version 2.1 " Copyright
   1999, 2002, 2003 Sterling Commerce, Inc.
   }
   LI := AItem as TIdSterCommEntUxNSFTPListItem;
@@ -471,7 +471,7 @@ begin
   LData := UpperCase(AData);
   Result := (IndyPos('TOTAL NUMBER OF ', LData) > 0) and  {do not localize}
             (IndyPos(' BATCH', LData) > 0) and            {do not localize}
-	    (IndyPos('LISTED:', LData) > 0);              {do not localize}
+      (IndyPos('LISTED:', LData) > 0);              {do not localize}
 end;
 
 initialization

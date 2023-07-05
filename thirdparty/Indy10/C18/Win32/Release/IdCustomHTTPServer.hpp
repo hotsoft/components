@@ -595,6 +595,7 @@ static const bool Id_TId_HTTPServer_KeepAlive = false;
 static const bool Id_TId_HTTPServer_ParseParams = true;
 static const bool Id_TId_HTTPServer_SessionState = false;
 static const System::Int8 Id_TId_HTTPSessionTimeOut = System::Int8(0x0);
+static const System::Int8 Id_TId_HTTPConnectionTimeOut = System::Int8(-1);
 static const bool Id_TId_HTTPAutoStartSession = false;
 static const System::Word Id_TId_HTTPMaximumHeaderLineCount = System::Word(0x400);
 static const System::Byte GResponseNo = System::Byte(0xc8);

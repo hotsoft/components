@@ -177,10 +177,15 @@ typedef System::TMetaClass* TIdThreadClass;
 
 typedef System::TMetaClass* TIdThreadWithTaskClass;
 
+typedef void __fastcall (*TThreadEvent)(System::UnicodeString name);
+
 //-- var, const, procedure ---------------------------------------------------
 static const System::Word IdWaitAllThreadsTerminatedCount = System::Word(0xea60);
 static const System::Byte IdWaitAllThreadsTerminatedStep = System::Byte(0xfa);
 extern DELPHI_PACKAGE Idthreadsafe::TIdThreadSafeInteger* GThreadCount _DEPRECATED_ATTRIBUTE0 ;
+extern DELPHI_PACKAGE TThreadEvent fsThreadName;
+extern DELPHI_PACKAGE TThreadEvent fsThreadStatus;
+extern DELPHI_PACKAGE TThreadEvent fsThreadClose;
 }	/* namespace Idthread */
 #if !defined(DELPHIHEADER_NO_IMPLICIT_NAMESPACE_USE) && !defined(NO_USING_NAMESPACE_IDTHREAD)
 using namespace Idthread;
