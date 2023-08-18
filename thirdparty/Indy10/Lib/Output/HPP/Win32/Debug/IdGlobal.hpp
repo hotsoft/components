@@ -75,6 +75,8 @@ typedef char * PIdAnsiChar;
 
 typedef System::PPAnsiChar PPIdAnsiChar;
 
+typedef System::PPAnsiChar *PPPIdAnsiChar;
+
 typedef System::WideChar TIdWideChar;
 
 typedef System::WideChar * PIdWideChar;

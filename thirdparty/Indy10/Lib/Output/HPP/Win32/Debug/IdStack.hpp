@@ -15,6 +15,7 @@
 #include <System.hpp>	// Pascal unit
 #include <SysInit.hpp>	// Pascal unit
 #include <System.Classes.hpp>	// Pascal unit
+#include <System.Contnrs.hpp>	// Pascal unit
 #include <IdException.hpp>	// Pascal unit
 #include <IdStackConsts.hpp>	// Pascal unit
 #include <IdGlobal.hpp>	// Pascal unit

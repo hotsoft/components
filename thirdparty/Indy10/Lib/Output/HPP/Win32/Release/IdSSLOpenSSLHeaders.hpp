@@ -34,16 +34,16 @@
 #undef OCSP_RESPONSE
 namespace Idsslopensslheaders
 {
-	struct SSL;
-	typedef SSL* PSSL;
-	struct SSL_CTX;
-	typedef SSL_CTX* PSSL_CTX;
-	struct SSL_METHOD;
-	typedef SSL_METHOD* PSSL_METHOD;
-	struct X509;
-	typedef X509* PX509;
-	struct X509_NAME;
-	typedef X509_NAME* PX509_NAME;
+  struct SSL;
+  typedef SSL* PSSL;
+  struct SSL_CTX;
+  typedef SSL_CTX* PSSL_CTX;
+  struct SSL_METHOD;
+  typedef SSL_METHOD* PSSL_METHOD;
+  struct X509;
+  typedef X509* PX509;
+  struct X509_NAME;
+  typedef X509_NAME* PX509_NAME;
 }
 struct RSA;
 typedef RSA* PRSA;

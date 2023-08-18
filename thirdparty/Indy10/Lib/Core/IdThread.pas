@@ -247,7 +247,9 @@ type
     procedure Start; {$IFDEF DEPRECATED_TThread_SuspendResume}reintroduce;{$ENDIF} virtual;
     procedure Stop; virtual;
     procedure Synchronize(Method: TThreadMethod); overload;
-//BGO:TODO    procedure Synchronize(Method: TMethod); overload;
+    {$IFDEF HAS_TThreadProcedure}
+    procedure Synchronize(Method: TThreadProcedure); overload;
+    {$ENDIF}
     // Here to make virtual
     procedure Terminate; virtual;
     procedure TerminateAndWaitFor; virtual;
@@ -310,6 +312,15 @@ var
   // "fixes" it.
   GThreadCount: TIdThreadSafeInteger = nil{$IFDEF HAS_DEPRECATED}{$IFDEF USE_SEMICOLON_BEFORE_DEPRECATED};{$ENDIF} deprecated{$ENDIF};
 
+// FHIR Server Additions
+type
+  TThreadEvent = procedure (name : String);
+
+var
+  fsThreadName : TThreadEvent;
+  fsThreadStatus : TThreadEvent;
+  fsThreadClose : TThreadEvent;
+
 implementation
 
 uses
@@ -325,6 +336,7 @@ uses
   {$ENDIF}
   {$IFDEF VCL_XE3_OR_ABOVE}
   System.SyncObjs,
+  System.Types,
   {$ENDIF}
   {$IFDEF PLATFORM_CLEANUP_NEEDED}
     {$IFDEF MACOS}
@@ -380,54 +392,70 @@ end;
 
 procedure TIdThread.Execute;
 begin
-  // Must make this call from INSIDE the thread. The call in Create
-  // was naming the thread that was creating this thread. :(
-  //
-  // RLebeau - no need to put this inside the try blocks below as it
-  // already uses its own try..except block internally
-  if Name = '' then begin
-    Name := 'IdThread (unknown)';   {do not localize}
-  end;
-  SetThreadName(Name);
-
-  {$IFDEF PLATFORM_CLEANUP_NEEDED}
-    {$IFDEF MACOS}
-  // Register the auto release pool
-  FObjCPool := objc_msgSend(objc_msgSend(objc_getClass('NSAutoreleasePool'), sel_getUid('alloc')), sel_getUid('init'));
-    {$ENDIF MACOS}
-  {$ENDIF}
-
+  // FHIR Server Modification:
+  if assigned(fsThreadName) then
+    fsThreadName(ClassName);
   try
-    BeforeExecute;
+    // Must make this call from INSIDE the thread. The call in Create
+    // was naming the thread that was creating this thread. :(
+    //
+    // RLebeau - no need to put this inside the try blocks below as it
+    // already uses its own try..except block internally
+    if Name = '' then begin
+      Name := 'IdThread (unknown)';   {do not localize}
+    end;
+    SetThreadName(Name);
+
+    {$IFDEF PLATFORM_CLEANUP_NEEDED}
+      {$IFDEF MACOS}
+    // Register the auto release pool
+    FObjCPool := objc_msgSend(objc_msgSend(objc_getClass('NSAutoreleasePool'), sel_getUid('alloc')), sel_getUid('init'));
+      {$ENDIF MACOS}
+    {$ENDIF}
+
     try
-      while not Terminated do begin
-        if Stopped then begin
-          DoStopped;
-          // It is possible that either in the DoStopped or from another thread,
-          // the thread is restarted, in which case we dont want to restop it.
-          if Stopped then begin // DONE: if terminated?
-            if Terminated then begin
-              Break;
-            end;
-            // Thread manager will revive us
-            {$IFDEF DEPRECATED_TThread_SuspendResume}
-            Suspended := True;
-            {$ELSE}
-            Suspend;
-            {$ENDIF}
-            if Terminated then begin
-              Break;
+      BeforeExecute;
+      try
+        while not Terminated do begin
+          if Stopped then begin
+            DoStopped;
+            // It is possible that either in the DoStopped or from another thread,
+            // the thread is restarted, in which case we dont want to restop it.
+            if Stopped then begin // DONE: if terminated?
+              if Terminated then begin
+                Break;
+              end;
+              // Thread manager will revive us
+              {$IFDEF DEPRECATED_TThread_SuspendResume}
+              Suspended := True;
+              {$ELSE}
+              Suspend;
+              {$ENDIF}
+              if Terminated then begin
+                Break;
+              end;
             end;
           end;
-        end;
 
-        Include(FOptions, itoReqCleanup);
-        try
+          Include(FOptions, itoReqCleanup);
           try
             try
-              BeforeRun;
-              if Loop then begin
-                while not Stopped do begin
+              try
+                BeforeRun;
+                if Loop then begin
+                  while not Stopped do begin
+                    try
+                      Run;
+                    except
+                      on E: Exception do begin
+                        if not HandleRunException(E) then begin
+                          Terminate;
+                          raise;
+                        end;
+                      end;
+                    end;
+                  end;
+                end else begin
                   try
                     Run;
                   except
@@ -439,39 +467,31 @@ begin
                     end;
                   end;
                 end;
-              end else begin
-                try
-                  Run;
-                except
-                  on E: Exception do begin
-                    if not HandleRunException(E) then begin
-                      Terminate;
-                      raise;
-                    end;
-                  end;
-                end;
+              finally
+                AfterRun;
               end;
-            finally
-              AfterRun;
+            except
+              Terminate;
+              raise;
             end;
-          except
-            Terminate;
-            raise;
+          finally
+            Cleanup;
           end;
-        finally
-          Cleanup;
         end;
+      finally
+        AfterExecute;
       end;
-    finally
-      AfterExecute;
+    except
+      on E: Exception do begin
+        FTerminatingExceptionClass := E.ClassType;
+        FTerminatingException := E.Message;
+        DoException(E);
+        Terminate;
+      end;
     end;
-  except
-    on E: Exception do begin
-      FTerminatingExceptionClass := E.ClassType;
-      FTerminatingException := E.Message;
-      DoException(E);
-      Terminate;
-    end;
+  finally
+    if (assigned(fsThreadClose)) then
+      fsThreadClose(ClassName);
   end;
 end;
 
@@ -658,7 +678,7 @@ begin
   // so the destroy here needs to be done inside of the same lock...
 
   //IdDisposeAndNil(FYarn);
-  if FYarn is TIdYarnOfThread then
+  if FYarn is TIdYarnOfThreadAccess then
   begin
     LScheduler := TIdYarnOfThreadAccess(FYarn).FScheduler;
     if Assigned(LScheduler) then
@@ -700,11 +720,13 @@ procedure TIdThread.Synchronize(Method: TThreadMethod);
 begin
   inherited Synchronize(Method);
 end;
-//BGO:TODO
-//procedure TIdThread.Synchronize(Method: TMethod);
-//begin
-//  inherited Synchronize(TThreadMethod(Method));
-//end;
+
+{$IFDEF HAS_TThreadProcedure}
+procedure TIdThread.Synchronize(Method: TThreadProcedure);
+begin
+  inherited Synchronize(Method);
+end;
+{$ENDIF}
 
 { TIdThreadWithTask }
 
