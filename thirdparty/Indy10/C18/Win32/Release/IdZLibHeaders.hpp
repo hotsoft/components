@@ -45,22 +45,22 @@ typedef void __cdecl (*free_func)(void * opaque, void * address);
 #pragma pack(push,1)
 struct DECLSPEC_DRECORD z_stream
 {
-	
+  
 public:
-	char *next_in;
-	unsigned avail_in;
-	unsigned long total_in;
-	char *next_out;
-	unsigned avail_out;
-	unsigned long total_out;
-	char *msg;
-	void *state;
-	alloc_func zalloc;
-	free_func zfree;
-	void *opaque;
-	int data_type;
-	unsigned long adler;
-	unsigned long reserved;
+  char *next_in;
+  unsigned avail_in;
+  unsigned long total_in;
+  char *next_out;
+  unsigned avail_out;
+  unsigned long total_out;
+  char *msg;
+  void *state;
+  alloc_func zalloc;
+  free_func zfree;
+  void *opaque;
+  int data_type;
+  unsigned long adler;
+  unsigned long reserved;
 };
 #pragma pack(pop)
 
@@ -91,21 +91,21 @@ typedef gz_header *gz_headerp;
 #pragma pack(push,1)
 struct DECLSPEC_DRECORD gz_header
 {
-	
+  
 public:
-	int text;
-	unsigned long time;
-	int xflags;
-	int os;
-	System::Byte *extra;
-	unsigned extra_len;
-	unsigned extra_max;
-	char *name;
-	unsigned name_max;
-	char *comment;
-	unsigned comm_max;
-	int hcrc;
-	int done;
+  int text;
+  unsigned long time;
+  int xflags;
+  int os;
+  System::Byte *extra;
+  unsigned extra_len;
+  unsigned extra_max;
+  char *name;
+  unsigned name_max;
+  char *comment;
+  unsigned comm_max;
+  int hcrc;
+  int done;
 };
 #pragma pack(pop)
 

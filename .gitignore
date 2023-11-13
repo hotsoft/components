@@ -1,6 +1,4 @@
-*.dcu
 *.gitignore
-*.res
 *.identcache
 *.ddp
 *.*~
@@ -8,10 +6,8 @@
 *.~bpl
 *.cfg
 *.exe
-*.ini
 *.groupproj.local
 *.txt
 *.dof
-*.pas*
-*.dfm*
 *.~*
+*.dcu

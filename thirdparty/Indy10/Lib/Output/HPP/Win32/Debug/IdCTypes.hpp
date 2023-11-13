@@ -50,6 +50,8 @@ typedef int TIdC_INT;
 
 typedef int *PIdC_INT;
 
+typedef PIdC_INT *PPIdC_INT;
+
 typedef unsigned TIdC_UINT;
 
 typedef unsigned *PIdC_UINT;
@@ -117,6 +119,29 @@ typedef NativeInt *PIdC_SSIZET;
 typedef NativeUInt TIdC_TIMET;
 
 typedef NativeUInt *PIdC_TIMET;
+
+typedef System::PByte *PPByte;
+
+typedef PPByte *PPPByte;
+
+struct DECLSPEC_DRECORD TIdC_TM
+{
+public:
+	int tm_sec;
+	int tm_min;
+	int tm_hour;
+	int tm_mday;
+	int tm_mon;
+	int tm_year;
+	int tm_wday;
+	int tm_yday;
+	int tm_isdst;
+};
+
+
+typedef TIdC_TM *PIdC_TM;
+
+typedef PIdC_TM *PPIdC_TM;
 
 //-- var, const, procedure ---------------------------------------------------
 }	/* namespace Idctypes */
