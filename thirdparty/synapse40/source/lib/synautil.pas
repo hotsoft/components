@@ -84,7 +84,7 @@ uses
 {$IFDEF CIL}
   System.IO,
 {$ENDIF}
-  SysUtils, Classes, SynaFpc;
+  SysUtils, Classes, SynaFpc, AnsiStrings;
 
 {$IFDEF VER100}
 type
@@ -606,7 +606,7 @@ begin
   x := rpos(':', Value);
   if (x > 0) and ((Length(Value) - x) > 2) then
     Value := Copy(Value, 1, x + 2);
-  Value := ReplaceString(Value, ':', TimeSeparator);
+  Value := ReplaceString(Value, ':', FormatSettings.TimeSeparator);
   Result := -1;
   try
     Result := StrToTime(Value);
@@ -1962,12 +1962,12 @@ begin
   // Moving Aptr position forward until boundary will be reached
   while (APtr<AEtx) do
     begin
-      if strlcomp(APtr,#13#10'--',4)=0 then
+      if AnsiStrings.strlcomp(APtr,#13#10'--',4)=0 then
         begin
           eob  := MatchBoundary(APtr,AEtx,ABoundary);
           Step := 4;
         end
-      else if strlcomp(APtr,'--',2)=0 then
+      else if AnsiStrings.strlcomp(APtr,'--',2)=0 then
         begin
           eob  := MatchBoundary(APtr,AEtx,ABoundary);
           Step := 2;
@@ -2000,17 +2000,17 @@ begin
   Lng := length(ABoundary);
   if (MatchPos+2+Lng)>AETX then
     exit;
-  if strlcomp(MatchPos,#13#10,2)=0 then
+  if AnsiStrings.strlcomp(MatchPos,#13#10,2)=0 then
     inc(MatchPos,2);
   if (MatchPos+2+Lng)>AETX then
     exit;
-  if strlcomp(MatchPos,'--',2)<>0 then
+  if AnsiStrings.strlcomp(MatchPos,'--',2)<>0 then
     exit;
   inc(MatchPos,2);
-  if strlcomp(MatchPos,PANSIChar(ABoundary),Lng)<>0 then
+  if AnsiStrings.strlcomp(MatchPos,PANSIChar(ABoundary),Lng)<>0 then
     exit;
   inc(MatchPos,Lng);
-  if ((MatchPos+2)<=AEtx) and (strlcomp(MatchPos,#13#10,2)=0) then
+  if ((MatchPos+2)<=AEtx) and (AnsiStrings.strlcomp(MatchPos,#13#10,2)=0) then
     inc(MatchPos,2);
   Result := MatchPos;
 end;
@@ -2025,10 +2025,10 @@ begin
   MatchPos := MatchBoundary(ABOL,AETX,ABoundary);
   if not Assigned(MatchPos) then
     exit;
-  if strlcomp(MatchPos,'--',2)<>0 then
+  if AnsiStrings.strlcomp(MatchPos,'--',2)<>0 then
     exit;
   inc(MatchPos,2);
-  if (MatchPos+2<=AEtx) and (strlcomp(MatchPos,#13#10,2)=0) then
+  if (MatchPos+2<=AEtx) and (AnsiStrings.strlcomp(MatchPos,#13#10,2)=0) then
     inc(MatchPos,2);
   Result := MatchPos;
 end;
@@ -2059,7 +2059,7 @@ var
 begin
   for n :=  1 to 12 do
   begin
-    CustomMonthNames[n] := ShortMonthNames[n];
-    MyMonthNames[0, n] := ShortMonthNames[n];
+    CustomMonthNames[n] := FormatSettings.ShortMonthNames[n];
+    MyMonthNames[0, n] := FormatSettings.ShortMonthNames[n];
   end;
 end.
